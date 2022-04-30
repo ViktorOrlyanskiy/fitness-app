@@ -1,0 +1,58 @@
+.set {
+    max-width: 400px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+
+    padding: 15px 0px 0px 10px;
+
+
+    &__list-number {
+        flex: 0 0 15%;
+
+        div{
+            width: 35px;
+            height: 35px;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            font-size: 16px;
+            border: 1px  solid rgb(195, 195, 195);
+            border-radius: 50%;
+        }
+
+        
+    }
+
+    &__body {
+        flex: 0 0 85%;
+        padding-right: 5px;
+        padding-bottom: 15px;
+        border-bottom: 1px solid rgb(195, 195, 195);
+    }
+
+    &__weight {
+    }
+
+    &__text {
+    }
+
+    &__number {
+
+    }
+
+    &__amount {
+    }
+
+    &__comment {
+        margin: 20px 0;
+        line-height: 1.2;
+    }
+}
+.set-item {
+    margin-bottom: 4px;
+    display: flex;
+    justify-content: space-between;
+}
