@@ -1,0 +1,50 @@
+.current-workout {
+
+    &__exercise {
+        padding-top: 70px;
+    }
+}
+
+.select-exercise {
+
+    display: flex;
+    justify-content: space-between;
+
+
+    &__column:first-child {
+        flex: 0 0 5%;
+
+        width: 15px;
+        height: 15px;
+        margin-right: 2px;
+
+        svg{
+            fill: rgb(214, 214, 214);
+        }
+    }
+    &__column:nth-child(2) {
+        flex: 0 0 85%;
+    }
+    &__column:last-child {
+        flex: 0 0 5%;
+    }
+   
+    &__title {
+        margin-bottom: 10px;
+
+        font-weight: 500;
+        font-size: 16px;
+        color: #fff;
+
+        cursor: pointer;
+    }
+   
+    &__comment {
+        font-size: 14px;
+        color: rgba(209, 209, 209, 0.7);
+    }
+
+    &__btn {
+        color: #fff;
+    }
+}

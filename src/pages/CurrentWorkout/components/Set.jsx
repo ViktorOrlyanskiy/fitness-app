@@ -1,17 +1,29 @@
 import '../styles/Set.scss';
 import React from 'react';
-
+import { SvgGeneration } from '../../../components/UI/SvgGeneration/SvgGeneration';
+import { useDispatch, useSelector } from 'react-redux';
+import { removeSetAction } from '../../../store/parametersSetsReducer';
 
 
 
 
 function Set({ parameters }) {
 
-    console.log(parameters)
+    const dispatch = useDispatch();
+    const parametersSets = useSelector(state => state.parametersSets.parametersSets)
+
+    const removeSet = () => {
+        dispatch(removeSetAction(parameters.id))
+    }
+
+
     return (
         <div className="set">
-            <div className="set__list-number">
-                <div>{parameters.number}</div>
+            <div className="set__list">
+                <div className="set__list_number">{parameters.number}</div>
+                <div onClick={removeSet} className='set__list_icon'>
+                    <SvgGeneration id={'trash-can'} />
+                </div>
             </div>
             <div className="set__body">
                 <div className="set__weight set-item">

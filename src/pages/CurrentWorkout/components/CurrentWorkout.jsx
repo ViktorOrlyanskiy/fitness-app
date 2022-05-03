@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useSelector } from 'react-redux';
 import Set from './Set'
+import Header from './Header';
+import Footer from '../../../components/Footer/Footer';
 import '../styles/CurrentWorkout.scss'
-import FormAddSet from './FormAddSet';
 
 export const CurrentWorkout = () => {
 
@@ -11,11 +12,7 @@ export const CurrentWorkout = () => {
     return (
         <div className='current-workout'>
 
-            {/* <FormAddSet /> */}
-
-            <div className="current-workout__header">
-
-            </div>
+            <Header />
 
             <div className="current-workout__body">
                 {parametersSets.length > 0
@@ -24,13 +21,7 @@ export const CurrentWorkout = () => {
                     : <div></div>
                 }
             </div>
-            <div className="current-workout__footer">
-                <button
-                    className='button__add-set'
-                >
-                    Добавить подход
-                </button>
-            </div>
+            <Footer to={'add-set'}>Добавить подход</Footer>
         </div>
     );
 }

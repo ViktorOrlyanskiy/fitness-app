@@ -1,56 +1,9 @@
+/* ========== Глобальные переменные ========== */
+@import "../../../styles/variables.scss";
+
 
 .current-workout{
-
-
-    &__header{
-        position: fixed;
-        top:0;
-        z-index: 1;
-        max-width: 400px;
-        width: 100%;
-        min-height: 180px;  
-
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        background-color: #009B76;
-    }
-
-
-    &__footer{
-        position: fixed;
-        left: 0;
-        bottom:0;
-        z-index: 1;
-        width: 100%;
-    
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
+    padding-top: 180px;
+    padding-bottom: $height-btn-footer;
 }
 
-
-.button__add-set{
-    max-width: 400px; 
-    width: 100%;  
-    min-width: min-content;
-    height: 50px;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    background-color: rgb(33, 232, 33);
-    color: #fff;
-    font-size: 16px;
-    letter-spacing: 0.5px;
-    transition: background-color 0.2s;
-}
-
-.button__add-set:hover{
-    background-color: rgb(16, 187, 16);
-}
-.button__add-set:active{
-   font-size: 15px;
-}
