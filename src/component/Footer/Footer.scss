@@ -1,0 +1,39 @@
+/* ========== Глобальные переменные ========== */
+@import "../../styles/variables.scss";
+
+
+.footer{
+
+        position: fixed;
+        left: 0;
+        bottom:0;
+        z-index: 1;
+        width: 100%;
+    
+        @include flexbox-center;
+
+        user-select: none;
+
+    &__btn{
+        
+        max-width: 400px; 
+        width: 100%;  
+        min-width: min-content;
+        height: $height-btn-footer;
+    
+        @include flexbox-center;
+    
+        background-color: rgb(33, 232, 33);
+        color: $color-white;
+        font-size: 16px;
+        letter-spacing: 0.5px;
+        transition: background-color 0.2s;
+    }
+
+    &__btn:hover{
+        background-color: rgb(16, 187, 16);
+    }
+    &__btn:active{
+        font-size: 15px;
+    }
+}

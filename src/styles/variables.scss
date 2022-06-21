@@ -1,0 +1,20 @@
+/* ========== Переменные ========== */
+$color-gold: #f2c342;
+$color-white: #fff;
+
+$color-border: rgb(195, 195, 195);
+$bg-color-header: #009B76;
+
+
+$height-small-header: 50px;
+$height-btn-footer: 50px;
+$padding-body: 15px 7px;
+$max-width: 400px;
+
+/* ========== Миксины ========== */
+
+@mixin flexbox-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

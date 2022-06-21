@@ -1,0 +1,12 @@
+/* ========== Глобальные переменные ========== */
+@import '../../../styles/variables.scss';
+
+.add-set {
+
+    max-width: 400px;
+    width: 100%;   
+    
+    &__form{
+        padding-top: $height-small-header;
+    }
+}

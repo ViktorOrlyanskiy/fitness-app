@@ -1,0 +1,59 @@
+/* ========== Глобальные переменные ========== */
+@import "../../../../styles/variables.scss";
+
+.set {
+    max-width: 400px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+
+    padding: 15px 0px 0px 10px;
+
+    user-select: none;
+
+    &__control {
+        flex: 0 0 15%;
+
+
+        &_number{
+            width: 35px;
+            height: 35px;
+            @include flexbox-center;
+
+            margin-bottom: 10px;
+
+            font-size: 16px;
+            border: 1px  solid rgb(195, 195, 195);
+            border-radius: 50%;
+            cursor:default;
+        }
+
+        &_icon{
+            width: 35px;
+            height: 35px;
+            @include flexbox-center;
+
+            cursor: pointer;
+            transition: all 0.1s;
+
+           svg{
+               width: 20px;
+               height: 20px;
+           }
+        }
+        &_icon:active{
+            transform: scale(0.9);
+        }
+
+        
+    }
+
+    &__body {
+        flex: 0 0 85%;
+        padding-right: 5px;
+        padding-bottom: 15px;
+        border-bottom: 1px solid rgb(195, 195, 195);
+    }
+
+}
+

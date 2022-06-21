@@ -1,0 +1,37 @@
+/* ========== Глобальные переменные ========== */
+@import '../../../styles/variables.scss';
+
+.workout{
+    width: 100%;
+    padding: 10px 7px;
+    
+
+    @include flexbox-center;
+    justify-content: space-between;
+   
+    border-bottom: 1px solid $color-border;
+    
+    cursor: pointer;
+    user-select: none;
+
+    &__status{
+        width: 22px;
+        height: 22px;
+
+        margin-right: 10px;
+
+        svg{
+            fill: $bg-color-header;
+        }
+    }
+
+    &__title{
+        flex: 1 1 80%;
+        font-size: 16px;
+    }
+
+    &__date{
+        font-size: 14px;
+        color: rgba(0, 0, 0, 0.7);
+    }
+}

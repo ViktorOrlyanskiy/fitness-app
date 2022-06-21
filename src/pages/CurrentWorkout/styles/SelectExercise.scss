@@ -1,0 +1,54 @@
+/* ========== Глобальные переменные ========== */
+@import '../../../styles/variables.scss';
+
+.current-workout {
+
+    &__exercise {
+        padding-top: 20px; // временно
+    }
+}
+
+.select-exercise {
+
+    display: flex;
+    justify-content: space-between;
+
+    padding: $padding-body;
+
+    &__column:first-child {
+        flex: 0 0 5%;
+
+        width: 15px;
+        height: 15px;
+        margin-right: 2px;
+
+        svg{
+            fill: $color-border;
+        }
+    }
+    &__column:nth-child(2) {
+        flex: 0 0 85%;
+    }
+    &__column:last-child {
+        flex: 0 0 5%;
+        cursor: pointer;
+
+        svg{
+            fill: $color-white;
+        }
+    }
+   
+    &__title {
+        margin-bottom: 10px;
+
+        font-weight: 500;
+        font-size: 16px;
+        color: $color-white;
+        cursor: pointer;
+    }
+   
+    &__comment {
+        font-size: 14px;
+        color: rgba(209, 209, 209, 0.7);
+    }
+}

@@ -1,0 +1,11 @@
+/* ========== Глобальные переменные ========== */
+@import '../../../styles/variables.scss';
+
+
+.list-workouts{
+    padding-top: $height-small-header;
+
+  &__body{
+    max-width: $max-width;
+  }
+} 
