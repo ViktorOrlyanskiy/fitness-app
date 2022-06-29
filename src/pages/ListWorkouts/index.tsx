@@ -25,7 +25,7 @@ const ListWorkouts: FC = () => {
     return (
         <div className="list-workouts">
             <Header
-                to={'/'}
+                previousPage={'/'}
                 btnLeft={'bars'}
                 btnReight={'plus'}
                 btnEvent={startWorkout}

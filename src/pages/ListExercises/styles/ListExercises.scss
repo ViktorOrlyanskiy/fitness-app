@@ -1,0 +1,20 @@
+/* ========== Глобальные переменные ========== */
+@import '../../../styles/variables.scss';
+
+
+
+.list-exercise {
+    max-width: 400px;
+    width: 100%;
+
+    &__body {
+        padding: $padding-body;
+        padding-top: $height-small-header;
+        padding-bottom: $height-btn-footer;
+    }
+
+    &__empty{
+        @include flexbox-center;
+        padding-top: 50px;
+    }
+}

@@ -8,20 +8,19 @@ import './Header.scss';
 interface HeaderProps extends IHeader { }
 
 
-const Header: FC<HeaderProps> = ({ to, btnLeft, btnReight, children, btnEvent }) => {
-
+const Header: FC<HeaderProps> = ({ previousPage, btnLeft, btnReight, children, btnEvent }) => {
 
     const getNameLeftBtn = (id = 'chevron-left') => {
         return (id.search(/[a-zA-Z]/g) > -1) ? <SvgGenerator id={id} /> : id
     }
-    const getNameReightBtn = (id = 'Готово') => {
+    const getNameReightBtn = (id = 'готово') => {
         return (id.search(/[a-zA-Z]/g) > -1) ? <SvgGenerator id={id} /> : id
     }
 
 
     return (
         <header className='add-set__header header'>
-            <NavLink to={to} className='header__btn'>
+            <NavLink to={previousPage} className='header__btn'>
                 {getNameLeftBtn(btnLeft)}
             </NavLink>
 

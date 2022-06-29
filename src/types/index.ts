@@ -1,20 +1,28 @@
+import { FunctionComponent, ReactNode } from "react";
+
+export interface IRoute {
+    path: string;
+    element: FunctionComponent;
+    exact: boolean;
+}
+
 export interface IHeader {
-    to: string;
+    previousPage: string;
     btnLeft?: string;
     btnReight?: string;
-    btnEvent?: () => void;
-    children: React.ReactNode;
+    btnEvent?: ((e: React.MouseEvent<HTMLButtonElement>) => void) | (() => void);
+    children: ReactNode;
 }
 
 export interface IFooter {
-    to: string;
-    children: React.ReactNode;
+    nextPage: string;
+    children: ReactNode;
 }
 
 export interface ISet {
     id: number;
-    weight: number;
-    amount: number;
+    weight: string;
+    amount: string;
     comment?: string;
 }
 
@@ -22,7 +30,7 @@ export interface IExercise {
     id: number;
     isActive: boolean;
     name: string;
-    comment: string;
+    comment?: string;
     sets?: ISet[];
 }
 

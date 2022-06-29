@@ -7,11 +7,11 @@ import './Footer.scss';
 interface FooterProps extends IFooter { }
 
 
-const Footer: FC<FooterProps> = ({ to, children }) => {
+const Footer: FC<FooterProps> = ({ nextPage, children }) => {
 
     return (
         <footer className="footer">
-            <NavLink to={to} className='footer__btn'>{children}</NavLink>
+            <NavLink to={nextPage} className='footer__btn'>{children}</NavLink>
         </footer>
     );
 }

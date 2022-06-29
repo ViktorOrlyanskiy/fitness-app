@@ -1,7 +1,6 @@
 import { FC } from 'react';
 import { BrowserRouter } from 'react-router-dom';
-import ListWorkouts from 'pages/ListWorkouts';
-import CurrentWorkout from 'pages/CurrentWorkout';
+import AppRoutes from 'component/AppRoutes/AppRoutes';
 import './styles/App.scss'
 
 
@@ -13,9 +12,7 @@ const App: FC = () => {
     <BrowserRouter>
       <div className='container'>
         {/* <header className="header__fixed"><Stopwatch /></header> */}
-        {/* <main className="main__body"><AppRoutes /></main> */}
-        {/* <ListWorkouts /> */}
-        <CurrentWorkout />
+        <main className="main__body"><AppRoutes /></main>
       </div>
     </BrowserRouter >
   );

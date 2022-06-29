@@ -1,18 +1,22 @@
-import React from "react";
-import { IWorkout } from "types";
+import { FC } from "react";
+import { useNavigate } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "hooks/index";
-import { addWorkout } from "store/listWorkouts";
+import { IWorkout } from "types";
+import { add_workout } from "store/listWorkouts";
+import { clear_list_exercises } from "store/listExercises";
+
 import Header from "component/Header/Header";
+import SelectEcercise from "../SelectExercise/SelectExercise";
 
 import "./HeaderWorkout.scss";
 
 
-const HeaderWorkout = ({ }) => {
-    const dispatch = useAppDispatch();
-    const listWorkouts = useAppSelector(state => state.listWorkouts);
-    const listExercises = useAppSelector(state => state.listExercises)
 
-    console.log(listExercises);
+
+const HeaderWorkout: FC<{ name: string }> = ({ name }) => {
+    const navigate = useNavigate();
+    const dispatch = useAppDispatch();
+    const listExercises = useAppSelector(state => state.listExercises)
 
 
     const finishWorkout = () => {
@@ -21,25 +25,25 @@ const HeaderWorkout = ({ }) => {
             name: 'тренировка 1',
             date: '21.06.22',
             time: '0',
-            listExercises: [],
+            listExercises,
         }
 
         // dispatch(stopStopwatchAction());
-        dispatch(addWorkout(workout));
-
-        // dispatch(clearListExercisesAction());
-        // navigate('/list-workouts');
+        dispatch(add_workout(workout));
+        dispatch(clear_list_exercises());
+        navigate('/list-workouts');
     };
 
 
     return (
         <div className="current-workout__header">
             <Header
-                to={'/list-workouts'}
+                previousPage={'/list-workouts'}
                 btnReight={'flag-checkered'}
                 btnEvent={finishWorkout}
-            >Тренировка
-            </Header>
+                children={'Тренировка'}
+            />
+            <SelectEcercise name={name} />
         </div>
     );
 };

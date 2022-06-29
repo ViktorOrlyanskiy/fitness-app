@@ -1,5 +1,5 @@
 /* ========== Глобальные переменные ========== */
-@import '../../../styles/variables.scss';
+@import '../../../../styles/variables.scss';
 
 .current-workout {
 
@@ -50,5 +50,28 @@
     &__comment {
         font-size: 14px;
         color: rgba(209, 209, 209, 0.7);
+    }
+}
+
+
+.my-button {
+    width: 100%;
+    height: 35px;
+
+    border-radius: 2px;
+    box-shadow: 0px 0px 2px 1px rgba(0, 0, 0, 0.3);
+    color: #fff;
+}
+
+.my-button:first-child {
+    flex: 1 1 auto;
+}
+.my-button:last-child {
+    flex: 0 0 40px;
+    margin-left: 8px;
+    
+    svg{
+        width: 50%;
+        fill: #fff;
     }
 }
