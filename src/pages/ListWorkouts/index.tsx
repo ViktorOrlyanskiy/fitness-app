@@ -1,6 +1,6 @@
 import { FC } from "react";
-import { IWorkout } from "types";
 import { useNavigate } from "react-router-dom";
+import { useAppSelector } from "hooks";
 
 import Header from "component/Header/Header";
 import Workout from "./components/Workout";
@@ -11,27 +11,28 @@ import "./styles/ListWorkouts.scss";
 const ListWorkouts: FC = () => {
 
     const navigate = useNavigate();
-    const listWorkouts: IWorkout[] = [
-        { id: 1, name: 'тренировка 1', date: '24.05.22', },
-        { id: 2, name: 'тренировка 1', date: '24.05.22', },
-    ]
+    const listWorkouts = useAppSelector(state => state.listWorkouts);
+    const listExercises = useAppSelector(state => state.listExercises);
+
 
     const startWorkout = () => {
         // dispatch(startStopwatchAction());
-        // navigate('/list-exercises');
+        navigate('/list-exercises');
     }
 
+    const goToCurrentWorkout = () => {
+        navigate('/current-workout')
+    }
 
     return (
         <div className="list-workouts">
             <Header
                 previousPage={'/'}
                 btnLeft={'bars'}
-                btnReight={'plus'}
-                btnEvent={startWorkout}
-            >Список тренировок
-            </Header>
-
+                btnReight={(listExercises.length > 0) ? 'angles-right' : 'plus'}
+                btnEvent={(listExercises.length > 0) ? goToCurrentWorkout : startWorkout}
+                children={'Список тренировок'}
+            />
             <div className="list-workouts__body">
                 {(listWorkouts.length > 0) && (
                     listWorkouts.map(workout =>

@@ -13,7 +13,7 @@ const CurrentWorkout: FC = () => {
 
     const listExercises = useAppSelector(state => state.listExercises)
     const activeExercise = listExercises.filter(exercise => exercise.isActive)[0];
-    const sets = activeExercise.sets;
+    const sets = activeExercise?.sets;
 
 
     return (

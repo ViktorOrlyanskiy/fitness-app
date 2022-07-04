@@ -12,8 +12,6 @@ export function changeActiveExercise(state: IExercise[]) {
         state[0].isActive = true;
         flag = false;
     }
-
-    return state
 }
 
 export function changeExercise(state: IExercise[], id: number) {
@@ -22,7 +20,6 @@ export function changeExercise(state: IExercise[], id: number) {
             ? exercise.isActive = true
             : exercise.isActive = false;
     }
-    return state
 }
 
 export function addSet(state: IExercise[], payload: ISet) {
@@ -31,5 +28,12 @@ export function addSet(state: IExercise[], payload: ISet) {
             exercise.sets.push(payload)
         }
     }
-    return state
+}
+
+export function removeSet(state: IExercise[], payload: number) {
+    for (const exercise of state) {
+        if (exercise.isActive) {
+            exercise.sets = exercise.sets?.filter(({ id }) => id !== payload)
+        }
+    }
 }

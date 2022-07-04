@@ -1,6 +1,7 @@
 import { FC } from "react";
+import { useAppDispatch, useAppSelector } from "hooks";
 import { ISet } from "types";
-import { useDispatch } from 'react-redux';
+import { remove_set } from "store/listExercises";
 
 import SetItem, { SetItemVariant } from "../SetItem/SetItem";
 import { SvgGenerator, svgVariant } from "component/UI/SvgGenerator/SvgGenerator";
@@ -15,10 +16,10 @@ interface SetProps extends ISet {
 
 const Set: FC<SetProps> = ({ index, id, weight, amount, comment = null }) => {
 
-    // const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
 
     const removeSet = () => {
-        // dispatch(removeSetAction(id))
+        dispatch(remove_set(id))
     }
 
 
