@@ -1,6 +1,8 @@
 import { FC } from 'react';
 import { NavLink } from 'react-router-dom';
 import { IHeader } from 'types';
+import { useAppDispatch } from 'hooks';
+
 import { SvgGenerator } from 'component/UI/SvgGenerator/SvgGenerator';
 import './Header.scss';
 
@@ -8,7 +10,16 @@ import './Header.scss';
 interface HeaderProps extends IHeader { }
 
 
-const Header: FC<HeaderProps> = ({ previousPage, btnLeft, btnReight, children, btnEvent }) => {
+const Header: FC<HeaderProps> = (
+    {
+        previousPage,
+        handlerClickTitle,
+        btnLeft,
+        btnRight,
+        children,
+        btnEvent
+    }) => {
+    const dispatch = useAppDispatch();
 
     const getNameLeftBtn = (id = 'chevron-left') => {
         return (id.search(/[a-zA-Z]/g) > -1) ? <SvgGenerator id={id} /> : id
@@ -24,10 +35,15 @@ const Header: FC<HeaderProps> = ({ previousPage, btnLeft, btnReight, children, b
                 {getNameLeftBtn(btnLeft)}
             </NavLink>
 
-            <h2 className='header__title'>{children}</h2>
+            <h2
+                className='header__title'
+                onClick={handlerClickTitle}
+            >
+                {children}
+            </h2>
 
             <button onClick={btnEvent} className='header__btn'>
-                {getNameReightBtn(btnReight)}
+                {getNameReightBtn(btnRight)}
             </button>
         </header>
     );

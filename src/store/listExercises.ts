@@ -49,7 +49,6 @@ const listExercises = createSlice({
         },
         change_active_exercise: (state) => {
             changeActiveExercise(state)
-            console.log(2)
         },
 
         add_set: (state, { payload }: PayloadAction<ISet>) => {

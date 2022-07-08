@@ -11,6 +11,11 @@
         padding: $padding-body;
         padding-top: $height-small-header;
         padding-bottom: $height-btn-footer;
+
+        .notification-text {
+            text-align: center;
+            margin-top: 20px;
+        }
     }
 
     &__empty{
