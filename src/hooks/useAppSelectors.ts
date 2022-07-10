@@ -1,4 +1,4 @@
-import { useAppSelector } from "hooks";
+import { useAppSelector } from 'hooks';
 
 export const useAppSelectors = () => {
   const listWorkouts = useAppSelector((state) => state.listWorkouts);

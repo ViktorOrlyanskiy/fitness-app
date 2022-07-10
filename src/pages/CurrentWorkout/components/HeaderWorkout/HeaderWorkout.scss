@@ -1,17 +1,17 @@
 /* ========== Глобальные переменные ========== */
-@import "../../../../styles/variables.scss";
+@import '../../../../styles/variables.scss';
 
-.current-workout__header{  
-        position: fixed;
-        top:0;
-        z-index: 1;
-        max-width: 400px;
-        width: 100%;
-        min-height: 130px; 
+.current-workout__header {
+  position: fixed;
+  top: 0;
+  z-index: 1;
+  max-width: 400px;
+  width: 100%;
+  min-height: 130px;
 
-        background-color: #009B76;
+  background-color: #009b76;
 }
 
-.current-workout__header > .header{  
-        position: static;
+.current-workout__header > .header {
+  position: static;
 }
