@@ -1,4 +1,11 @@
-import { FunctionComponent, ReactNode } from "react";
+import { FunctionComponent, ReactNode } from 'react';
+
+export interface IUser {
+    email: string | null;
+    uid: string | null;
+    accessToken?: string | null | undefined;
+    isAuth?: boolean;
+}
 
 export interface IRoute {
     path: string;
@@ -10,7 +17,9 @@ export interface IHeader {
     previousPage: string;
     btnLeft?: string;
     btnRight?: string;
-    btnEvent?: ((e: React.MouseEvent<HTMLButtonElement>) => void) | (() => void);
+    btnEvent?:
+        | ((e: React.MouseEvent<HTMLButtonElement>) => void)
+        | (() => void);
     handlerClickTitle?: () => void;
     children: ReactNode;
 }

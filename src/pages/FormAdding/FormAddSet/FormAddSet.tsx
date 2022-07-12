@@ -1,20 +1,16 @@
-import React, { FC, useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { useAppDispatch } from "hooks";
-import { formValidation, clearInputs } from "utils/FormAddingValidation";
-import { add_set } from "store/listExercises";
+import React, { FC, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useAppDispatch } from 'hooks';
+import { formValidation, clearInputs } from 'utils/FormAddingValidation';
+import { add_set } from 'store/slices/listExercises';
 
-import Header from "component/Header/Header";
-import MyInput from "component/UI/input/MyInput";
+import Header from 'component/Header/Header';
+import MyInput from 'component/UI/input/MyInput';
 
-import "./FormAddSet.scss";
-import { ISet } from "types";
-
-
-
+import './FormAddSet.scss';
+import { ISet } from 'types';
 
 const FormAddSet: FC = () => {
-
     const navigate = useNavigate();
     const dispatch = useAppDispatch();
 
@@ -30,27 +26,29 @@ const FormAddSet: FC = () => {
                 id: Date.now(),
                 weight,
                 amount,
-                comment
-            }
+                comment,
+            };
 
             dispatch(add_set(set));
             clearInputs([setWeight, setAmount, setComment]);
-            navigate('/current-workout')
+            navigate('/current-workout');
         }
-    }
+    };
 
     return (
         <div className="add-set">
-            <Header previousPage={'/current-workout'}
+            <Header
+                previousPage={'/current-workout'}
                 btnEvent={addSet}
                 children={'Новый подход'}
             />
 
-            <form className='add-set__form form'>
+            <form className="add-set__form form">
                 <MyInput
                     value={weight}
                     onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-                        setWeight(e.target.value)}
+                        setWeight(e.target.value)
+                    }
                     type={'tel'}
                     children={'Вес (кг)'}
                     placeholder={'0'}
@@ -59,7 +57,8 @@ const FormAddSet: FC = () => {
                 <MyInput
                     value={amount}
                     onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-                        setAmount(e.target.value)}
+                        setAmount(e.target.value)
+                    }
                     type={'tel'}
                     children={'Повторения (раз)'}
                     placeholder={'0'}
@@ -67,7 +66,8 @@ const FormAddSet: FC = () => {
                 <MyInput
                     value={comment}
                     onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-                        setComment(e.target.value)}
+                        setComment(e.target.value)
+                    }
                     type={'text'}
                     children={'Заметка'}
                     placeholder={'напр. Разминочный'}
