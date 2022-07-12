@@ -1,39 +1,37 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { getCurrentDate } from "./actions/currentWorkout";
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { getCurrentDate } from '../actions/currentWorkoutAction';
 
 interface ICurrentWorkout {
     id: number | null;
     name: string;
     date: string;
-};
+}
 
 const initialState: ICurrentWorkout = {
     id: null,
-    name: "",
-    date: ''
+    name: '',
+    date: '',
 };
 
 const CurrentWorkout = createSlice({
-    name: "CurrentWorkout",
+    name: 'CurrentWorkout',
     initialState,
     reducers: {
         clear_current_workout: (state) => {
             Object.assign(state, initialState);
         },
         create_id: (state) => {
-            state.id = Date.now();  // переделать в подходящий формат user-буква-цифры
+            state.id = Date.now(); // переделать в подходящий формат user-буква-цифры
             state.date = getCurrentDate();
         },
         save_name: (state, { payload }: PayloadAction<string>) => {
-            if (payload.length > 0) { state.name = payload }
-
+            if (payload.length > 0) {
+                state.name = payload;
+            }
         },
     },
-})
+});
 
 export default CurrentWorkout.reducer;
-export const {
-    clear_current_workout,
-    create_id,
-    save_name,
-} = CurrentWorkout.actions;
+export const { clear_current_workout, create_id, save_name } =
+    CurrentWorkout.actions;

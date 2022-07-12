@@ -1,17 +1,18 @@
-import React, { FC, useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { IExercise } from "types";
-import { useAppDispatch, useAppSelector } from "hooks";
-import { add_exercise } from "store/listExercises";
-import { formValidation, clearInputs, getStatus } from "utils/FormAddingValidation";
+import React, { FC, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { IExercise } from 'types';
+import { useAppDispatch, useAppSelector } from 'hooks';
+import { add_exercise } from 'store/slices/listExercises';
+import {
+    formValidation,
+    clearInputs,
+    getStatus,
+} from 'utils/FormAddingValidation';
 
-import Header from "component/Header/Header";
-import MyInput from "component/UI/input/MyInput";
+import Header from 'component/Header/Header';
+import MyInput from 'component/UI/input/MyInput';
 
-import "./FormAddExercise.scss";
-
-
-
+import './FormAddExercise.scss';
 
 const FormAddExercise: FC = () => {
     const navigate = useNavigate();
@@ -19,7 +20,7 @@ const FormAddExercise: FC = () => {
     const [name, setName] = useState<string>('');
     const [comment, setComment] = useState<string>('');
 
-    const listExercises = useAppSelector(state => state.listExercises);
+    const listExercises = useAppSelector((state) => state.listExercises);
 
     const addExercise = (e: React.MouseEvent<HTMLButtonElement>) => {
         e.preventDefault();
@@ -31,14 +32,13 @@ const FormAddExercise: FC = () => {
                 name,
                 comment,
                 sets: [],
-            }
+            };
 
             dispatch(add_exercise(exercise));
             clearInputs([setName, setComment]);
-            navigate('/list-exercises')
+            navigate('/list-exercises');
         }
     };
-
 
     return (
         <div className="add-exercise">
@@ -48,7 +48,7 @@ const FormAddExercise: FC = () => {
                 children={'Новое упражение'}
             />
 
-            <form className='add-exercise__form form'>
+            <form className="add-exercise__form form">
                 <MyInput
                     value={name}
                     onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
@@ -62,7 +62,8 @@ const FormAddExercise: FC = () => {
                 <MyInput
                     value={comment}
                     onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-                        setComment(e.target.value)}
+                        setComment(e.target.value)
+                    }
                     type={'text'}
                     children={'Комментарий'}
                     placeholder={'напр. 20х20 40х10 50х8 50х8'}

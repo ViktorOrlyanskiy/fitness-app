@@ -1,7 +1,11 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { IExercise, ISet } from "types/index";
-import { changeActiveExercise, changeExercise, addSet, removeSet } from "./actions/listExercisesAction";
-
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { IExercise, ISet } from 'types/index';
+import {
+    changeActiveExercise,
+    changeExercise,
+    addSet,
+    removeSet,
+} from '../actions/listExercisesAction';
 
 interface IPayload {
     id: number;
@@ -29,36 +33,37 @@ const initialState: IExercise[] = [
     //         { id: 2, weight: '2', amount: '2', },
     //     ]
     // },
-]
-
+];
 
 const listExercises = createSlice({
     name: 'listExercises',
     initialState,
     reducers: {
-        clear_list_exercises: (state) => { state.length = 0 },
+        clear_list_exercises: (state) => {
+            state.length = 0;
+        },
 
         add_exercise: (state, { payload }: PayloadAction<IExercise>) => {
-            state.push(payload)
+            state.push(payload);
         },
         remove_exercise: (state, { payload }: PayloadAction<IPayload>) => {
             return state.filter(({ id }) => id !== payload.id);
         },
         change_exercise: (state, { payload }: PayloadAction<number>) => {
-            changeExercise(state, payload)
+            changeExercise(state, payload);
         },
         change_active_exercise: (state) => {
-            changeActiveExercise(state)
+            changeActiveExercise(state);
         },
 
         add_set: (state, { payload }: PayloadAction<ISet>) => {
-            addSet(state, payload)
+            addSet(state, payload);
         },
         remove_set: (state, { payload }: PayloadAction<number>) => {
-            removeSet(state, payload)
-        }
-    }
-})
+            removeSet(state, payload);
+        },
+    },
+});
 
 export default listExercises.reducer;
 export const {
@@ -70,8 +75,3 @@ export const {
     add_set,
     remove_set,
 } = listExercises.actions;
-
-
-
-
-
