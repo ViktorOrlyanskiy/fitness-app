@@ -11,12 +11,11 @@ import FormAddSet from 'pages/FormAdding/FormAddSet/FormAddSet';
 
 const AppRoutes = () => {
     const user = useAppSelector((state) => state.user);
-    console.log(user);
     return (
         <>
             {user.isAuth ? (
                 <Routes>
-                    <Route path={'/list-workouts'} element={<ListWorkouts />} />
+                    <Route path={'/'} element={<ListWorkouts />} />
                     <Route
                         path={'/current-workout'}
                         element={<CurrentWorkout />}
@@ -34,11 +33,13 @@ const AppRoutes = () => {
                         path={'/list-exercises/add-exercise'}
                         element={<FormAddExercise />}
                     />
+                    <Route path={'*'} element={<ListWorkouts />} />
                 </Routes>
             ) : (
                 <Routes>
-                    <Route path={'/login'} element={<Login />} />
+                    <Route path={'/'} element={<Login />} />
                     <Route path={'/registration'} element={<Registration />} />
+                    <Route path={'*'} element={<Login />} />
                 </Routes>
             )}
         </>

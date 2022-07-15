@@ -1,8 +1,11 @@
-import { FC, useState } from 'react';
+import { FC, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { IWorkout } from 'types';
+
 import { useAppDispatch } from 'hooks/index';
 import { useAppSelectors } from 'hooks/useAppSelectors';
-import { IWorkout } from 'types';
+import { useFirestore } from 'hooks/useFirestore';
+
 import { add_workout } from 'store/slices/listWorkouts';
 import { clear_list_exercises } from 'store/slices/listExercises';
 import { clear_current_workout, save_name } from 'store/slices/currentWorkout';
@@ -16,7 +19,8 @@ import './HeaderWorkout.scss';
 const HeaderWorkout: FC<{ name: string }> = ({ name }) => {
     const navigate = useNavigate();
     const dispatch = useAppDispatch();
-    const { currentWorkout, listExercises } = useAppSelectors();
+    const { saveNewWorkout } = useFirestore();
+    const { currentWorkout, listExercises, listWorkouts } = useAppSelectors();
     const [modalActive, setModalActive] = useState<boolean>(false);
 
     const finishWorkout = () => {
@@ -30,6 +34,7 @@ const HeaderWorkout: FC<{ name: string }> = ({ name }) => {
             };
 
             dispatch(add_workout(workout));
+            saveNewWorkout(workout);
             dispatch(clear_list_exercises());
             dispatch(clear_current_workout());
             navigate('/list-workouts');

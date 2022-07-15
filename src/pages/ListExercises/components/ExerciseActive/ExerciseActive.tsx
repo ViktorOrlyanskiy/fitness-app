@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { useAppDispatch, useAppSelector } from 'hooks';
+import { useAppDispatch } from 'hooks';
 import { IExercise } from 'types';
 import {
     change_active_exercise,

@@ -1,9 +1,10 @@
-import { FC, useEffect, useState } from 'react';
+import { FC, useEffect, useLayoutEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAppDispatch } from 'hooks';
 import { useAppSelectors } from 'hooks/useAppSelectors';
 import { clear_list_exercises } from 'store/slices/listExercises';
 import { save_name } from 'store/slices/currentWorkout';
+import { useFirestore } from 'hooks/useFirestore';
 
 import Header from 'component/Header/Header';
 import Workout from './components/Workout';
@@ -13,6 +14,7 @@ import './styles/ListWorkouts.scss';
 const ListWorkouts: FC = () => {
     const navigate = useNavigate();
     const dispatch = useAppDispatch();
+    const { getAllWorkouts } = useFirestore();
     const { currentWorkout, listWorkouts, listExercises } = useAppSelectors();
     const [modalActive, setModalActive] = useState<boolean>(false);
 
@@ -38,8 +40,9 @@ const ListWorkouts: FC = () => {
         }
     });
 
-    console.log(currentWorkout);
-    console.log(listExercises);
+    useEffect(() => {
+        getAllWorkouts();
+    }, [listWorkouts]);
 
     return (
         <div className="list-workouts">

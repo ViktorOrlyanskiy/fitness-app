@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { useAppDispatch, useAppSelector } from 'hooks';
+import { useAppDispatch } from 'hooks';
 import { ISet } from 'types';
 import { remove_set } from 'store/slices/listExercises';
 
