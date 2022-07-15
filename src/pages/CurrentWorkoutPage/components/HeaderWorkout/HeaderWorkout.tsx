@@ -1,4 +1,4 @@
-import { FC, useEffect, useState } from 'react';
+import { FC, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { IWorkout } from 'types';
 
@@ -20,7 +20,7 @@ const HeaderWorkout: FC<{ name: string }> = ({ name }) => {
     const navigate = useNavigate();
     const dispatch = useAppDispatch();
     const { saveNewWorkout } = useFirestore();
-    const { currentWorkout, listExercises, listWorkouts } = useAppSelectors();
+    const { currentWorkout, listExercises } = useAppSelectors();
     const [modalActive, setModalActive] = useState<boolean>(false);
 
     const finishWorkout = () => {

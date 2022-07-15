@@ -1,4 +1,4 @@
-import { FC, useEffect, useLayoutEffect, useState } from 'react';
+import { FC, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAppDispatch } from 'hooks';
 import { useAppSelectors } from 'hooks/useAppSelectors';
@@ -42,7 +42,7 @@ const ListWorkouts: FC = () => {
 
     useEffect(() => {
         getAllWorkouts();
-    }, [listWorkouts]);
+    });
 
     return (
         <div className="list-workouts">

@@ -1,19 +1,20 @@
-import { FC } from "react";
-import { BrowserRouter } from "react-router-dom";
-import AppRoutes from "component/AppRoutes/AppRoutes";
-import "./styles/App.scss";
+import { FC } from 'react';
+import { BrowserRouter } from 'react-router-dom';
+import Routing from 'pages';
+
+import './styles/App.scss';
 
 const App: FC = () => {
-  return (
-    <BrowserRouter>
-      <div className="container">
-        <header className="header__fixed"></header>
-        <main className="main__body">
-          <AppRoutes />
-        </main>
-      </div>
-    </BrowserRouter>
-  );
+    return (
+        <BrowserRouter>
+            <div className="container">
+                <header className="header__fixed"></header>
+                <main className="main__body">
+                    <Routing />
+                </main>
+            </div>
+        </BrowserRouter>
+    );
 };
 
 export default App;

@@ -1,15 +1,15 @@
 import { Routes, Route } from 'react-router-dom';
 import { useAppSelector } from 'hooks';
 
-import Login from 'pages/Login';
-import Registration from 'pages/Registration';
-import ListWorkouts from 'pages/ListWorkouts';
-import CurrentWorkout from 'pages/CurrentWorkout';
-import ListExercises from 'pages/ListExercises';
-import FormAddExercise from 'pages/FormAdding/FormAddExercise/FormAddExercise';
-import FormAddSet from 'pages/FormAdding/FormAddSet/FormAddSet';
+import Login from './LoginPage';
+import Registration from './RegistrationPage';
+import ListWorkouts from './ListWorkoutsPage';
+import CurrentWorkout from './CurrentWorkoutPage';
+import ListExercises from './ListExercisesPage';
+import FormAddExercise from './FormAddingPage/FormAddExercise';
+import FormAddSet from './FormAddingPage/FormAddSet';
 
-const AppRoutes = () => {
+const Routing = () => {
     const user = useAppSelector((state) => state.user);
     return (
         <>
@@ -45,4 +45,4 @@ const AppRoutes = () => {
         </>
     );
 };
-export default AppRoutes;
+export default Routing;
