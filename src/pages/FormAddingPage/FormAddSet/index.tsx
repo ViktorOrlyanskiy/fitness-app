@@ -1,6 +1,6 @@
 import React, { FC, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useAppDispatch } from 'hooks';
+import { useAppDispatch } from 'hooks/useRedux';
 import { formValidation, clearInputs } from 'utils/FormAddingValidation';
 import { add_set } from 'store/slices/listExercises';
 

@@ -1,9 +1,8 @@
 import { collection, doc, getDocs, setDoc } from 'firebase/firestore';
-import { useAppDispatch } from 'hooks';
+import { useAppDispatch, useAppSelectors } from 'hooks/useRedux';
 import { clear_workouts, set_workouts } from 'store/slices/listWorkouts';
 import { IWorkout } from 'types';
 import { db } from '../firebase';
-import { useAppSelectors } from './useAppSelectors';
 
 /*
  * записать новую тренировку +
@@ -24,16 +23,6 @@ export const useFirestore = () => {
             date: workout.date,
             body: JSON.stringify(workout),
         });
-    };
-
-    const _getAllWorkouts = async () => {
-        const listWorkoutsFirestore: IWorkout[] = [];
-        const querySnapshot = await getDocs(collection(userRef, 'workouts'));
-        querySnapshot.forEach((doc) => {
-            const workout = doc.data();
-            listWorkoutsFirestore.push(JSON.parse(workout.body));
-        });
-        return listWorkoutsFirestore;
     };
 
     const getAllWorkouts = () => {

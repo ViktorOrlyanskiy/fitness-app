@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { useAppSelectors } from 'hooks/useAppSelectors';
+import { useAppSelectors } from 'hooks/useRedux';
 
 import Footer from 'component/Footer/Footer';
 import HeaderWorkout from './components/HeaderWorkout/HeaderWorkout';

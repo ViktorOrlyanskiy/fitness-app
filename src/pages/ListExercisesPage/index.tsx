@@ -1,7 +1,6 @@
 import { FC, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useAppDispatch } from 'hooks';
-import { useAppSelectors } from 'hooks/useAppSelectors';
+import { useAppDispatch, useAppSelectors } from 'hooks/useRedux';
 import { create_id } from 'store/slices/currentWorkout';
 
 import Header from 'component/Header/Header';

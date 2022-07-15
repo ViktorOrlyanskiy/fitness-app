@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { useAppDispatch } from 'hooks';
+import { useAppDispatch } from 'hooks/useRedux';
 import { IExercise } from 'types';
 import {
     change_active_exercise,

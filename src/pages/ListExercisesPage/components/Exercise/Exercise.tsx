@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useAppDispatch } from 'hooks';
+import { useAppDispatch } from 'hooks/useRedux';
 import { IExercise } from 'types/index';
 import { change_exercise } from 'store/slices/listExercises';
 

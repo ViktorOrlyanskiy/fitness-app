@@ -1,5 +1,5 @@
 import { Routes, Route } from 'react-router-dom';
-import { useAppSelector } from 'hooks';
+import { useAppSelectors } from 'hooks/useRedux';
 
 import Login from './LoginPage';
 import Registration from './RegistrationPage';
@@ -10,7 +10,7 @@ import FormAddExercise from './FormAddingPage/FormAddExercise';
 import FormAddSet from './FormAddingPage/FormAddSet';
 
 const Routing = () => {
-    const user = useAppSelector((state) => state.user);
+    const { user } = useAppSelectors();
     return (
         <>
             {user.isAuth ? (

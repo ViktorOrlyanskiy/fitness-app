@@ -2,8 +2,7 @@ import { FC, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { IWorkout } from 'types';
 
-import { useAppDispatch } from 'hooks/index';
-import { useAppSelectors } from 'hooks/useAppSelectors';
+import { useAppDispatch, useAppSelectors } from 'hooks/useRedux';
 import { useFirestore } from 'hooks/useFirestore';
 
 import { add_workout } from 'store/slices/listWorkouts';

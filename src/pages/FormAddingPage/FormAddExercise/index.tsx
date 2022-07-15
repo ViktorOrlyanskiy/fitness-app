@@ -1,7 +1,7 @@
 import React, { FC, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { IExercise } from 'types';
-import { useAppDispatch, useAppSelector } from 'hooks';
+import { useAppDispatch, useAppSelectors } from 'hooks/useRedux';
 import { add_exercise } from 'store/slices/listExercises';
 import {
     formValidation,
@@ -20,7 +20,7 @@ const FormAddExercise: FC = () => {
     const [name, setName] = useState<string>('');
     const [comment, setComment] = useState<string>('');
 
-    const listExercises = useAppSelector((state) => state.listExercises);
+    const { listExercises } = useAppSelectors();
 
     const addExercise = (e: React.MouseEvent<HTMLButtonElement>) => {
         e.preventDefault();
