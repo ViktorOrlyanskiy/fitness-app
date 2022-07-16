@@ -2,6 +2,7 @@ import { FC, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAppDispatch, useAppSelectors } from 'hooks/useRedux';
 import { create_id } from 'store/slices/currentWorkout';
+import { URL } from 'shared/constants/URL';
 
 import Header from 'component/Header/Header';
 import Footer from 'component/Footer/Footer';
@@ -19,7 +20,7 @@ const ListExercises: FC = () => {
     const handlerBtnHeader = () => {
         if (!currentWorkout.id && listExercises.length > 0) {
             dispatch(create_id());
-            navigate('/current-workout');
+            navigate(URL.current_workout);
         }
     };
 
@@ -27,7 +28,7 @@ const ListExercises: FC = () => {
         <div className="list-exercises">
             {currentWorkout.id ? (
                 <Header
-                    previousPage={'/current-workout'}
+                    previousPage={URL.current_workout}
                     btnRight={'pencil'}
                     btnEvent={() =>
                         isActive ? setActive(false) : setActive(true)
@@ -36,7 +37,7 @@ const ListExercises: FC = () => {
                 />
             ) : (
                 <Header
-                    previousPage={'/list-workouts'}
+                    previousPage={URL.list_workouts}
                     btnRight={'Начать'}
                     btnEvent={handlerBtnHeader}
                     children={'Список упражнений'}
@@ -58,7 +59,7 @@ const ListExercises: FC = () => {
                           )))}
             </div>
 
-            <Footer nextPage={'add-exercise'}>Добавить упражение</Footer>
+            <Footer nextPage={URL.add_exercise}>Добавить упражение</Footer>
         </div>
     );
 };

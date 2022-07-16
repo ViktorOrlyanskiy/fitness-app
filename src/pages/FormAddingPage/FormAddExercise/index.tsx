@@ -1,5 +1,6 @@
 import React, { FC, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { URL } from 'shared/constants/URL';
 import { IExercise } from 'shared/types';
 import { useAppDispatch, useAppSelectors } from 'hooks/useRedux';
 import { add_exercise } from 'store/slices/listExercises';
@@ -36,14 +37,14 @@ const FormAddExercise: FC = () => {
 
             dispatch(add_exercise(exercise));
             clearInputs([setName, setComment]);
-            navigate('/list-exercises');
+            navigate(URL.list_exercises);
         }
     };
 
     return (
         <div className="add-exercise">
             <Header
-                previousPage={'/list-exercises'}
+                previousPage={URL.list_exercises}
                 btnEvent={addExercise}
                 children={'Новое упражение'}
             />

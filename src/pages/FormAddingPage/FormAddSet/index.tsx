@@ -2,7 +2,7 @@ import React, { FC, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAppDispatch } from 'hooks/useRedux';
 import { add_set } from 'store/slices/listExercises';
-
+import { URL } from 'shared/constants/URL';
 import { ISet } from 'shared/types';
 import { formValidation, clearInputs } from 'shared/utils/FormAddingValidation';
 
@@ -32,14 +32,14 @@ const FormAddSet: FC = () => {
 
             dispatch(add_set(set));
             clearInputs([setWeight, setAmount, setComment]);
-            navigate('/current-workout');
+            navigate(URL.current_workout);
         }
     };
 
     return (
         <div className="add-set">
             <Header
-                previousPage={'/current-workout'}
+                previousPage={URL.current_workout}
                 btnEvent={addSet}
                 children={'Новый подход'}
             />

@@ -9,10 +9,11 @@ import { add_workout } from 'store/slices/listWorkouts';
 import { clear_list_exercises } from 'store/slices/listExercises';
 import { clear_current_workout, save_name } from 'store/slices/currentWorkout';
 
+import { URL } from 'shared/constants/URL';
+
 import Header from 'component/Header/Header';
 import SelectExercise from '../SelectExercise/SelectExercise';
 import ModalSave from 'component/ModalSave/ModalSave';
-
 import './HeaderWorkout.scss';
 
 const HeaderWorkout: FC<{ name: string }> = ({ name }) => {
@@ -36,14 +37,14 @@ const HeaderWorkout: FC<{ name: string }> = ({ name }) => {
             saveNewWorkout(workout);
             dispatch(clear_list_exercises());
             dispatch(clear_current_workout());
-            navigate('/list-workouts');
+            navigate(URL.list_workouts);
         }
     };
 
     return (
         <div className="current-workout__header">
             <Header
-                previousPage={'/list-workouts'}
+                previousPage={URL.list_workouts}
                 btnRight={'flag-checkered'}
                 btnEvent={finishWorkout}
                 handlerClickTitle={() => setModalActive(true)}
