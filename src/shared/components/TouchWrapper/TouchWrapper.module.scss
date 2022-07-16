@@ -1,0 +1,22 @@
+.wrapper {
+    position: relative;
+}
+
+.front {
+    &_moved {
+        position: relative;
+        z-index: 4;
+        left: -100px;
+        transition: all 0.5s ease 0s;
+    }
+}
+.back {
+    display: none;
+    &_active {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 2;
+        display: block;
+    }
+}
