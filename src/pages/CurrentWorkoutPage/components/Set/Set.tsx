@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import { useAppDispatch } from 'hooks/useRedux';
-import { ISet } from 'types';
+import { ISet } from 'shared/types';
 import { remove_set } from 'store/slices/listExercises';
 
 import SetItem, { SetItemVariant } from '../SetItem/SetItem';

@@ -1,6 +1,6 @@
 import { FC, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { IWorkout } from 'types';
+import { IWorkout } from 'shared/types';
 
 import { useAppDispatch, useAppSelectors } from 'hooks/useRedux';
 import { useFirestore } from 'hooks/useFirestore';

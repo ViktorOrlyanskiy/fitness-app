@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { IUser } from 'types';
+import { IUser } from 'shared/types';
 
 const initialState: IUser = {
     email: '',

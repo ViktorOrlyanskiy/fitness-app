@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import { useAppDispatch } from 'hooks/useRedux';
-import { IExercise } from 'types';
+import { IExercise } from 'shared/types';
 import {
     change_active_exercise,
     remove_exercise,

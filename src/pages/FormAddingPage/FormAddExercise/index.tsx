@@ -1,13 +1,13 @@
 import React, { FC, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { IExercise } from 'types';
+import { IExercise } from 'shared/types';
 import { useAppDispatch, useAppSelectors } from 'hooks/useRedux';
 import { add_exercise } from 'store/slices/listExercises';
 import {
     formValidation,
     clearInputs,
     getStatus,
-} from 'utils/FormAddingValidation';
+} from 'shared/utils/FormAddingValidation';
 
 import Header from 'component/Header/Header';
 import MyInput from 'component/UI/input/MyInput';

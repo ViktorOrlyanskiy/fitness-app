@@ -1,14 +1,15 @@
 import React, { FC, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAppDispatch } from 'hooks/useRedux';
-import { formValidation, clearInputs } from 'utils/FormAddingValidation';
 import { add_set } from 'store/slices/listExercises';
+
+import { ISet } from 'shared/types';
+import { formValidation, clearInputs } from 'shared/utils/FormAddingValidation';
 
 import Header from 'component/Header/Header';
 import MyInput from 'component/UI/input/MyInput';
 
 import './FormAddSet.scss';
-import { ISet } from 'types';
 
 const FormAddSet: FC = () => {
     const navigate = useNavigate();

@@ -1,6 +1,7 @@
 import { lazy, Suspense } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { useAppSelectors } from 'hooks/useRedux';
+import { URL } from 'shared/constants/URL';
 
 const Login = lazy(() => import('./LoginPage'));
 const Registration = lazy(() => import('./RegistrationPage'));
@@ -16,31 +17,33 @@ const Routing = () => {
         <Suspense fallback={<div>Loading...</div>}>
             {user.isAuth ? (
                 <Routes>
-                    <Route path={'/'} element={<ListWorkouts />} />
+                    <Route path={URL.base} element={<ListWorkouts />} />
                     <Route
-                        path={'/current-workout'}
+                        path={URL.current_workout}
                         element={<CurrentWorkout />}
                     />
+                    <Route path={URL.add_set} element={<FormAddSet />} />
                     <Route
-                        path={'/current-workout/add-set'}
-                        element={<FormAddSet />}
+                        path={URL.list_workouts}
+                        element={<ListWorkouts />}
                     />
-                    <Route path={'/list-workouts'} element={<ListWorkouts />} />
                     <Route
-                        path={'/list-exercises'}
+                        path={URL.list_exercises}
                         element={<ListExercises />}
                     />
                     <Route
-                        path={'/list-exercises/add-exercise'}
+                        path={URL.add_exercise}
                         element={<FormAddExercise />}
                     />
-                    <Route path={'*'} element={<ListWorkouts />} />
+                    {/* изменить страницу */}
+                    <Route path={URL.error} element={<ListWorkouts />} />
                 </Routes>
             ) : (
                 <Routes>
-                    <Route path={'/'} element={<Login />} />
-                    <Route path={'/registration'} element={<Registration />} />
-                    <Route path={'*'} element={<Login />} />
+                    <Route path={URL.base} element={<Login />} />
+                    <Route path={URL.registration} element={<Registration />} />
+                    {/* изменить страницу */}
+                    <Route path={URL.error} element={<Login />} />
                 </Routes>
             )}
         </Suspense>
