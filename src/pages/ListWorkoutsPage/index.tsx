@@ -39,6 +39,7 @@ const ListWorkouts: FC = () => {
         }
     });
 
+    // получает listWorkouts из БД
     useEffect(() => {
         getAllWorkouts();
     });
@@ -56,9 +57,11 @@ const ListWorkouts: FC = () => {
             />
             <div className="list-workouts__body">
                 {listWorkouts.length > 0 &&
-                    listWorkouts.map((workout) => (
-                        <Workout key={workout.id} {...workout} />
-                    ))}
+                    listWorkouts
+                        .sort((a, b) => b.id - a.id)
+                        .map((workout) => (
+                            <Workout key={workout.id} {...workout} />
+                        ))}
             </div>
             <ModalSave
                 name="Название тренировки"

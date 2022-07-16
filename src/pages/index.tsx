@@ -1,18 +1,19 @@
+import { lazy, Suspense } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { useAppSelectors } from 'hooks/useRedux';
 
-import Login from './LoginPage';
-import Registration from './RegistrationPage';
-import ListWorkouts from './ListWorkoutsPage';
-import CurrentWorkout from './CurrentWorkoutPage';
-import ListExercises from './ListExercisesPage';
-import FormAddExercise from './FormAddingPage/FormAddExercise';
-import FormAddSet from './FormAddingPage/FormAddSet';
+const Login = lazy(() => import('./LoginPage'));
+const Registration = lazy(() => import('./RegistrationPage'));
+const ListWorkouts = lazy(() => import('./ListWorkoutsPage'));
+const CurrentWorkout = lazy(() => import('./CurrentWorkoutPage'));
+const ListExercises = lazy(() => import('./ListExercisesPage'));
+const FormAddExercise = lazy(() => import('./FormAddingPage/FormAddExercise'));
+const FormAddSet = lazy(() => import('./FormAddingPage/FormAddSet'));
 
 const Routing = () => {
     const { user } = useAppSelectors();
     return (
-        <>
+        <Suspense fallback={<div>Loading...</div>}>
             {user.isAuth ? (
                 <Routes>
                     <Route path={'/'} element={<ListWorkouts />} />
@@ -42,7 +43,7 @@ const Routing = () => {
                     <Route path={'*'} element={<Login />} />
                 </Routes>
             )}
-        </>
+        </Suspense>
     );
 };
 export default Routing;
