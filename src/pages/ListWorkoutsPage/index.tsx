@@ -5,13 +5,14 @@ import { useFirestore } from 'hooks/useFirestore';
 import { clear_list_exercises } from 'store/slices/listExercises';
 import { save_name } from 'store/slices/currentWorkout';
 
-import Header from 'component/Header/Header';
+import Header from 'component/Header';
 import Workout from './components/Workout';
-import ModalSave from 'component/ModalSave/ModalSave';
+import ModalSave from 'component/ModalSave';
+
+import { URL } from 'shared/constants/URL';
 import './ListWorkouts.scss';
 
 const ListWorkouts: FC = () => {
-    const scheduled = false; // перенести в store
     const navigate = useNavigate();
     const dispatch = useAppDispatch();
     const { getAllWorkouts } = useFirestore();
@@ -23,13 +24,13 @@ const ListWorkouts: FC = () => {
     };
 
     const goToCurrentWorkout = () => {
-        navigate('/current-workout');
+        navigate(URL.current_workout);
     };
 
     const handlerSaveBtn = (value: string) => {
         dispatch(save_name(value));
         setTimeout(() => {
-            navigate('/list-exercises');
+            navigate(URL.list_exercises);
         }, 500);
     };
 
@@ -48,7 +49,7 @@ const ListWorkouts: FC = () => {
     return (
         <div className="list-workouts">
             <Header
-                previousPage={'/'}
+                previousPage={URL.base}
                 btnLeft={'bars'}
                 btnRight={listExercises.length > 0 ? 'angles-right' : 'plus'}
                 btnEvent={
@@ -61,11 +62,7 @@ const ListWorkouts: FC = () => {
                     [...listWorkouts]
                         .sort((a, b) => b.id - a.id)
                         .map((workout) => (
-                            <Workout
-                                key={workout.id}
-                                {...workout}
-                                scheduled={scheduled}
-                            />
+                            <Workout key={workout.id} {...workout} />
                         ))}
             </div>
             <ModalSave

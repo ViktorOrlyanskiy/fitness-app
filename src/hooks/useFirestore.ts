@@ -10,7 +10,6 @@ import { useAppDispatch, useAppSelectors } from 'hooks/useRedux';
 import { clear_workouts, set_workouts } from 'store/slices/listWorkouts';
 import { IWorkout } from 'shared/types';
 
-// переписать без использования JSON (проверить производительность)
 export const useFirestore = () => {
     const dispatch = useAppDispatch();
     const { user, listWorkouts } = useAppSelectors();
@@ -18,9 +17,7 @@ export const useFirestore = () => {
 
     const saveNewWorkout = async (workout: IWorkout) => {
         await setDoc(doc(userRef, 'workouts', `${workout.id}`), {
-            id: workout.id,
-            date: workout.date,
-            body: JSON.stringify(workout),
+            ...workout,
         });
     };
 
@@ -37,8 +34,8 @@ export const useFirestore = () => {
         queryDataInFirestore()
             .then((result) => {
                 result.forEach((doc) => {
-                    const workout = doc.data();
-                    listWorkoutsFirestore.push(JSON.parse(workout.body));
+                    const workout: any = doc.data();
+                    listWorkoutsFirestore.push(workout);
                 });
 
                 if (listWorkoutsFirestore.length !== listWorkouts.length) {

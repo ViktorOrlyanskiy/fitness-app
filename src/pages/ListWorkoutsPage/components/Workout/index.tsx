@@ -1,19 +1,20 @@
 import { FC } from 'react';
-import { SvgGenerator, variant } from 'component/UI/SvgGenerator/SvgGenerator';
-import TouchWrapper from 'shared/components/TouchWrapper';
-import './Workout.scss';
+import { useFirestore } from 'hooks/useFirestore';
 import { useAppDispatch } from 'hooks/useRedux';
 import { remove_workout } from 'store/slices/listWorkouts';
-import { useFirestore } from 'hooks/useFirestore';
+
+import { SvgGenerator, variant } from 'component/UI/SvgGenerator';
+import TouchWrapper from 'shared/components/TouchWrapper';
+import './Workout.scss';
 
 interface WorkoutProps {
     id: number;
     name: string;
     date: string;
-    scheduled: boolean;
+    isScheduled: boolean;
 }
 
-const Workout: FC<WorkoutProps> = ({ id, name, date, scheduled }) => {
+const Workout: FC<WorkoutProps> = ({ id, name, date, isScheduled }) => {
     const dispatch = useAppDispatch();
     const { removeWorkout } = useFirestore();
 
@@ -24,7 +25,7 @@ const Workout: FC<WorkoutProps> = ({ id, name, date, scheduled }) => {
 
     return (
         <TouchWrapper
-            offset={scheduled ? -126 : -84}
+            offset={isScheduled ? -126 : -84}
             front={
                 <div className="workout">
                     <div className="workout__status">

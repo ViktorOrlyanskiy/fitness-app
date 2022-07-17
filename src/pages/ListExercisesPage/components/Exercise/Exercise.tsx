@@ -4,7 +4,7 @@ import { useAppDispatch } from 'hooks/useRedux';
 import { IExercise } from 'shared/types';
 import { change_exercise } from 'store/slices/listExercises';
 
-import { SvgGenerator, variant } from 'component/UI/SvgGenerator/SvgGenerator';
+import { SvgGenerator, variant } from 'component/UI/SvgGenerator';
 import './Exercise.scss';
 
 interface ExerciseProps extends IExercise {}

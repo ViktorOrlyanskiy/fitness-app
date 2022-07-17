@@ -10,7 +10,7 @@ import {
     getStatus,
 } from 'shared/utils/FormAddingValidation';
 
-import Header from 'component/Header/Header';
+import Header from 'component/Header';
 import MyInput from 'component/UI/input/MyInput';
 
 import './FormAddExercise.scss';

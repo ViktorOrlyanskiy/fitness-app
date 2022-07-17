@@ -5,5 +5,6 @@ export interface IWorkout {
     name: string;
     date: string;
     time?: string;
+    isScheduled: boolean;
     listExercises?: IExercise[];
 }

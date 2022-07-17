@@ -11,9 +11,9 @@ import { clear_current_workout, save_name } from 'store/slices/currentWorkout';
 
 import { URL } from 'shared/constants/URL';
 
-import Header from 'component/Header/Header';
+import Header from 'component/Header';
 import SelectExercise from '../SelectExercise/SelectExercise';
-import ModalSave from 'component/ModalSave/ModalSave';
+import ModalSave from 'component/ModalSave';
 import './HeaderWorkout.scss';
 
 const HeaderWorkout: FC<{ name: string }> = ({ name }) => {
@@ -30,6 +30,7 @@ const HeaderWorkout: FC<{ name: string }> = ({ name }) => {
                 name: currentWorkout.name,
                 date: currentWorkout.date,
                 time: '0',
+                isScheduled: false,
                 listExercises,
             };
 

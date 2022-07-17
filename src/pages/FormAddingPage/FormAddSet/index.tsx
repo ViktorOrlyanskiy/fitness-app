@@ -6,7 +6,7 @@ import { URL } from 'shared/constants/URL';
 import { ISet } from 'shared/types';
 import { formValidation, clearInputs } from 'shared/utils/FormAddingValidation';
 
-import Header from 'component/Header/Header';
+import Header from 'component/Header';
 import MyInput from 'component/UI/input/MyInput';
 
 import './FormAddSet.scss';
