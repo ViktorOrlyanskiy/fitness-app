@@ -18,7 +18,7 @@ const Header: FC<HeaderProps> = ({
     const getNameLeftBtn = (id = 'chevron-left') => {
         return id.search(/[a-zA-Z]/g) > -1 ? <SvgGenerator id={id} /> : id;
     };
-    const getNameReightBtn = (id = 'готово') => {
+    const getNameRightBtn = (id = 'готово') => {
         return id.search(/[a-zA-Z]/g) > -1 ? <SvgGenerator id={id} /> : id;
     };
 
@@ -33,7 +33,7 @@ const Header: FC<HeaderProps> = ({
             </h2>
 
             <button onClick={btnEvent} className="header__btn">
-                {getNameReightBtn(btnRight)}
+                {getNameRightBtn(btnRight)}
             </button>
         </header>
     );

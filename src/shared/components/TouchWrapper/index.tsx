@@ -4,10 +4,10 @@ import styles from './TouchWrapper.module.scss';
 interface TouchWrapperProps {
     front: React.ReactNode;
     back: React.ReactNode;
-    scheduled: boolean;
+    offset: number;
 }
 
-const TouchWrapper: FC<TouchWrapperProps> = ({ front, back, scheduled }) => {
+const TouchWrapper: FC<TouchWrapperProps> = ({ front, back, offset }) => {
     const [isMovedLeft, setMovedLeft] = useState<boolean>(false);
     const [leftOffset, setLeftOffset] = useState<number>(0);
     const [startX, setStartX] = useState<number | null>(null);
@@ -21,7 +21,7 @@ const TouchWrapper: FC<TouchWrapperProps> = ({ front, back, scheduled }) => {
         if (startX && startX > endX && startX - endX > 50) {
             setMovedLeft(true);
 
-            setLeftOffset(scheduled ? -126 : -84);
+            setLeftOffset(offset);
         }
         if (startX && startX < endX && startX - endX > -50) {
             setMovedLeft(false);

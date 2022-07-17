@@ -11,7 +11,7 @@ import ModalSave from 'component/ModalSave/ModalSave';
 import './ListWorkouts.scss';
 
 const ListWorkouts: FC = () => {
-    const scheduled = true; // перенести в store
+    const scheduled = false; // перенести в store
     const navigate = useNavigate();
     const dispatch = useAppDispatch();
     const { getAllWorkouts } = useFirestore();
@@ -40,7 +40,7 @@ const ListWorkouts: FC = () => {
         }
     });
 
-    // получает listWorkouts из БД
+    // получает listWorkouts из БД и сохраняет их в store
     useEffect(() => {
         getAllWorkouts();
     });
@@ -58,10 +58,14 @@ const ListWorkouts: FC = () => {
             />
             <div className="list-workouts__body">
                 {listWorkouts.length > 0 &&
-                    listWorkouts
+                    [...listWorkouts]
                         .sort((a, b) => b.id - a.id)
                         .map((workout) => (
-                            <Workout key={workout.id} {...workout} scheduled />
+                            <Workout
+                                key={workout.id}
+                                {...workout}
+                                scheduled={scheduled}
+                            />
                         ))}
             </div>
             <ModalSave

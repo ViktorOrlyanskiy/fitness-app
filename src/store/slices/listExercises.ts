@@ -23,16 +23,6 @@ const initialState: IExercise[] = [
     //         { id: 2, weight: '1', amount: '1', },
     //     ]
     // },
-    // {
-    //     id: 2,
-    //     isActive: true,
-    //     name: 'Жим',
-    //     comment: '',
-    //     sets: [
-    //         { id: 1, weight: '2', amount: '2', comment: 'Жим', },
-    //         { id: 2, weight: '2', amount: '2', },
-    //     ]
-    // },
 ];
 
 const listExercises = createSlice({

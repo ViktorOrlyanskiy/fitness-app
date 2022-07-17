@@ -1,8 +1,14 @@
-import { collection, doc, getDocs, setDoc } from 'firebase/firestore';
+import {
+    collection,
+    doc,
+    getDocs,
+    setDoc,
+    deleteDoc,
+} from 'firebase/firestore';
+import { db } from '../firebase';
 import { useAppDispatch, useAppSelectors } from 'hooks/useRedux';
 import { clear_workouts, set_workouts } from 'store/slices/listWorkouts';
 import { IWorkout } from 'shared/types';
-import { db } from '../firebase';
 
 // переписать без использования JSON (проверить производительность)
 export const useFirestore = () => {
@@ -16,6 +22,10 @@ export const useFirestore = () => {
             date: workout.date,
             body: JSON.stringify(workout),
         });
+    };
+
+    const removeWorkout = async (id: number) => {
+        await deleteDoc(doc(userRef, 'workouts', `${id}`));
     };
 
     const getAllWorkouts = () => {
@@ -44,5 +54,5 @@ export const useFirestore = () => {
                 // лоадер???
             });
     };
-    return { saveNewWorkout, getAllWorkouts };
+    return { saveNewWorkout, getAllWorkouts, removeWorkout };
 };
