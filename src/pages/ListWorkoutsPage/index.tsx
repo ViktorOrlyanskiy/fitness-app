@@ -8,9 +8,10 @@ import { save_name } from 'store/slices/currentWorkout';
 import Header from 'component/Header/Header';
 import Workout from './components/Workout';
 import ModalSave from 'component/ModalSave/ModalSave';
-import './styles/ListWorkouts.scss';
+import './ListWorkouts.scss';
 
 const ListWorkouts: FC = () => {
+    const scheduled = true; // перенести в store
     const navigate = useNavigate();
     const dispatch = useAppDispatch();
     const { getAllWorkouts } = useFirestore();
@@ -60,7 +61,7 @@ const ListWorkouts: FC = () => {
                     listWorkouts
                         .sort((a, b) => b.id - a.id)
                         .map((workout) => (
-                            <Workout key={workout.id} {...workout} />
+                            <Workout key={workout.id} {...workout} scheduled />
                         ))}
             </div>
             <ModalSave

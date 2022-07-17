@@ -6,10 +6,7 @@ import {
     remove_exercise,
 } from 'store/slices/listExercises';
 
-import {
-    SvgGenerator,
-    svgVariant,
-} from 'component/UI/SvgGenerator/SvgGenerator';
+import { SvgGenerator, variant } from 'component/UI/SvgGenerator/SvgGenerator';
 import './ExerciseActive.scss';
 
 interface ExerciseProps extends IExercise {}
@@ -25,11 +22,11 @@ const ExerciseActive: FC<ExerciseProps> = ({ id, name, isActive }) => {
     return (
         <div className="exercise exercise-active">
             <div className="exercise__active" onClick={removeExercise}>
-                <SvgGenerator id={svgVariant.circleMinus} />
+                <SvgGenerator id={variant.circle_minus} />
             </div>
             <div className="exercise__title">{name}</div>
             <div className="exercise__amount-sets">
-                <SvgGenerator id={svgVariant.circleUp} />
+                <SvgGenerator id={variant.circle_up} />
             </div>
         </div>
     );

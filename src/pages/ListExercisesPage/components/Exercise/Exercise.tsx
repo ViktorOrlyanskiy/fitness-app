@@ -4,10 +4,7 @@ import { useAppDispatch } from 'hooks/useRedux';
 import { IExercise } from 'shared/types';
 import { change_exercise } from 'store/slices/listExercises';
 
-import {
-    SvgGenerator,
-    svgVariant,
-} from 'component/UI/SvgGenerator/SvgGenerator';
+import { SvgGenerator, variant } from 'component/UI/SvgGenerator/SvgGenerator';
 import './Exercise.scss';
 
 interface ExerciseProps extends IExercise {}
@@ -24,7 +21,7 @@ const Exercise: FC<ExerciseProps> = ({ id, name, isActive, sets }) => {
     const getActiveExercise = (status: boolean) => {
         return status ? (
             <div className="exercise__active exercise__active_active">
-                <SvgGenerator id={svgVariant.circleCheck} />
+                <SvgGenerator id={variant.circle_check} />
             </div>
         ) : (
             <div className="exercise__active"></div>

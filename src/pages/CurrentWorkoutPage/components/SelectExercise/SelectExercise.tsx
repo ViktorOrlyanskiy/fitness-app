@@ -2,10 +2,7 @@ import { FC } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { URL } from 'shared/constants/URL';
 
-import {
-    SvgGenerator,
-    svgVariant,
-} from 'component/UI/SvgGenerator/SvgGenerator';
+import { SvgGenerator, variant } from 'component/UI/SvgGenerator/SvgGenerator';
 import './SelectExercise.scss';
 
 const SelectExercise: FC<{ name: string }> = ({ name }) => {
@@ -19,7 +16,7 @@ const SelectExercise: FC<{ name: string }> = ({ name }) => {
                 children={name}
             />
             <button className="my-button">
-                <SvgGenerator id={svgVariant.chart} />
+                <SvgGenerator id={variant.chart} />
             </button>
         </div>
     );

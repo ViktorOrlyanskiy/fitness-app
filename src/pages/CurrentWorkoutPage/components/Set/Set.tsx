@@ -4,10 +4,7 @@ import { ISet } from 'shared/types';
 import { remove_set } from 'store/slices/listExercises';
 
 import SetItem, { SetItemVariant } from '../SetItem/SetItem';
-import {
-    SvgGenerator,
-    svgVariant,
-} from 'component/UI/SvgGenerator/SvgGenerator';
+import { SvgGenerator, variant } from 'component/UI/SvgGenerator/SvgGenerator';
 
 import './Set.scss';
 
@@ -27,7 +24,7 @@ const Set: FC<SetProps> = ({ index, id, weight, amount, comment = null }) => {
             <div className="set__control">
                 <div className="set__control_number">{index}</div>
                 <button onClick={removeSet} className="set__control_icon">
-                    <SvgGenerator id={svgVariant.trashCan} />
+                    <SvgGenerator id={variant.trash_can} />
                 </button>
             </div>
             <div className="set__body">
