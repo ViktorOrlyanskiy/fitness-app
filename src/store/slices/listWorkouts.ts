@@ -2,7 +2,7 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { IWorkout } from 'shared/types';
 
 const initialState: IWorkout[] = [
-    // { id: 1, name: 'Тренировка 1', date: '21.06.22', isScheduled: false },
+    // { id: 1, name: 'Тренировка 1', date: '21.06.22', isScheduled: false, },
 ];
 
 const listWorkouts = createSlice({

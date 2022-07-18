@@ -8,7 +8,7 @@ interface TouchWrapperProps {
 }
 
 const TouchWrapper: FC<TouchWrapperProps> = ({ front, back, offset }) => {
-    const [isMovedLeft, setMovedLeft] = useState<boolean>(false);
+    // const [isMovedLeft, setMovedLeft] = useState<boolean>(false);
     const [leftOffset, setLeftOffset] = useState<number>(0);
     const [startX, setStartX] = useState<number | null>(null);
 
@@ -19,15 +19,15 @@ const TouchWrapper: FC<TouchWrapperProps> = ({ front, back, offset }) => {
         let endX = e.touches[0].pageX;
         // определяет направление смещения
         if (startX && startX > endX && startX - endX > 50) {
-            setMovedLeft(true);
-
+            // setMovedLeft(true);
             setLeftOffset(offset);
         }
         if (startX && startX < endX && startX - endX > -50) {
-            setMovedLeft(false);
+            // setMovedLeft(false);
             setLeftOffset(0);
         }
     };
+
     const handlerTouchEnd = (e: React.TouchEvent<HTMLDivElement>) => {
         setStartX(null);
     };
@@ -38,16 +38,10 @@ const TouchWrapper: FC<TouchWrapperProps> = ({ front, back, offset }) => {
             onTouchStart={handlerTouchStart}
             onTouchMove={handlerTouchMove}
             onTouchEnd={handlerTouchEnd}>
-            <div
-                style={{ left: leftOffset }}
-                className={
-                    isMovedLeft ? styles.front_moved_left : styles.front
-                }>
+            <div style={{ left: leftOffset }} className={styles.front}>
                 {front}
             </div>
-            <div className={isMovedLeft ? styles.back_active : styles.back}>
-                {back}
-            </div>
+            <div className={styles.back}>{back}</div>
         </div>
     );
 };

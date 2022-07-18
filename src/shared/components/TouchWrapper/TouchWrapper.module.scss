@@ -3,20 +3,15 @@
 }
 
 .front {
-    &_moved_left {
-        position: relative;
-        z-index: 4;
-        // left: -84px;
-    }
+    position: relative;
+    z-index: 4;
+    transition: all 0.7s ease;
 }
+
 .back {
-    display: none;
-    &_active {
-        display: block;
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        z-index: 2;
-    }
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 2;
 }
