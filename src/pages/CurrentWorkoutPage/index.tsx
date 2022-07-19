@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { useAppSelectors } from 'hooks/useRedux';
 
-import Footer from 'component/Footer';
+import Footer from 'shared/components/Footer';
 import HeaderWorkout from './components/HeaderWorkout/HeaderWorkout';
 import Set from './components/Set/Set';
 

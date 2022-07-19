@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import { useLogin } from 'hooks/useLogin';
-import LoginForm from 'component/UI/form/LoginForm';
+import LoginForm from 'shared/components/ui/form/LoginForm';
 import './Registration.scss';
 
 const Login: FC = () => {

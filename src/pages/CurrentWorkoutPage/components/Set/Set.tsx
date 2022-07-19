@@ -4,7 +4,7 @@ import { ISet } from 'shared/types';
 import { remove_set } from 'store/slices/listExercises';
 
 import SetItem, { SetItemVariant } from '../SetItem/SetItem';
-import { SvgGenerator, variant } from 'component/UI/SvgGenerator';
+import { SvgGenerator, variant } from 'shared/components/ui/SvgGenerator';
 
 import './Set.scss';
 

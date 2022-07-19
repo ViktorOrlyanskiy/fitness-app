@@ -15,6 +15,7 @@ import listExercises from './slices/listExercises';
 import listWorkouts from './slices/listWorkouts';
 import currentWorkout from './slices/currentWorkout';
 import user from './slices/user';
+import touchWrapper from './slices/touchWrapper';
 
 const persistConfig = {
     key: 'root',
@@ -26,6 +27,7 @@ const rootReducer = combineReducers({
     listExercises: listExercises,
     currentWorkout: currentWorkout,
     user: user,
+    touchWrapper: touchWrapper,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

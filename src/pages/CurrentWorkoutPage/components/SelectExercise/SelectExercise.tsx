@@ -2,7 +2,7 @@ import { FC } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { URL } from 'shared/constants/URL';
 
-import { SvgGenerator, variant } from 'component/UI/SvgGenerator';
+import { SvgGenerator, variant } from 'shared/components/ui/SvgGenerator';
 import './SelectExercise.scss';
 
 const SelectExercise: FC<{ name: string }> = ({ name }) => {

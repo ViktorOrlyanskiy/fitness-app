@@ -1,8 +1,7 @@
 /* ========== Глобальные переменные ========== */
-@import '../../styles/variables.scss';
+@import '../../../styles/variables.scss';
 
 .header {
-
     position: fixed;
     top: 0;
     z-index: 1;
@@ -25,11 +24,11 @@
     }
     &__btn:first-child {
         flex: 0 0 15%;
-        
+
         @include flexbox-center;
         justify-content: flex-start;
 
-        svg{
+        svg {
             width: 20px;
             height: 20px;
             fill: $color-gold;
@@ -40,8 +39,8 @@
         flex: 0 0 15%;
         @include flexbox-center;
         justify-content: flex-end;
-        
-        svg{
+
+        svg {
             width: 20px;
             height: 20px;
             fill: $color-gold;

@@ -5,9 +5,9 @@ import { useFirestore } from 'hooks/useFirestore';
 import { clear_list_exercises } from 'store/slices/listExercises';
 import { save_name } from 'store/slices/currentWorkout';
 
-import Header from 'component/Header';
+import Header from 'shared/components/Header';
 import Workout from './components/Workout';
-import ModalSave from 'component/ModalSave';
+import ModalSave from 'shared/components/ModalSave';
 
 import { URL } from 'shared/constants/URL';
 import './ListWorkouts.scss';

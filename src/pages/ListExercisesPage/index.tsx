@@ -4,8 +4,8 @@ import { useAppDispatch, useAppSelectors } from 'hooks/useRedux';
 import { create_id } from 'store/slices/currentWorkout';
 import { URL } from 'shared/constants/URL';
 
-import Header from 'component/Header';
-import Footer from 'component/Footer';
+import Header from 'shared/components/Header';
+import Footer from 'shared/components/Footer';
 import Exercise from './components/Exercise/Exercise';
 import ExerciseActive from './components/ExerciseActive/ExerciseActive';
 
