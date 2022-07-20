@@ -26,7 +26,7 @@ const Workout: FC<WorkoutProps> = ({ id, name, date, isScheduled }) => {
     return (
         <TouchWrapper
             id={id}
-            offset={isScheduled ? -126 : -84}
+            offset={isScheduled ? 126 : 84}
             front={
                 <div className="workout">
                     <div className="workout__status">

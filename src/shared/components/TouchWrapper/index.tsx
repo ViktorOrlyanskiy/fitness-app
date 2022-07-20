@@ -38,7 +38,7 @@ const TouchWrapper: FC<TouchWrapperProps> = ({ id, front, back, offset }) => {
     // возвращает в начальное состояние если открывается новая тренировка
     useEffect(() => {
         if (id !== offsetID) setLeftOffset(0);
-    }, [offsetID]);
+    }, [id, offsetID]);
 
     return (
         <div
@@ -46,7 +46,7 @@ const TouchWrapper: FC<TouchWrapperProps> = ({ id, front, back, offset }) => {
             onTouchStart={handlerTouchStart}
             onTouchMove={handlerTouchMove}
             onTouchEnd={handlerTouchEnd}>
-            <div style={{ left: leftOffset }} className={styles.front}>
+            <div style={{ left: -leftOffset }} className={styles.front}>
                 {front}
             </div>
             <div className={styles.back}>{back}</div>

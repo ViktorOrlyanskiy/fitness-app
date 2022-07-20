@@ -56,8 +56,5 @@
     &__delete {
         @include size-btn(11px);
         background-color: red;
-        svg {
-            color: white;
-        }
     }
 }
