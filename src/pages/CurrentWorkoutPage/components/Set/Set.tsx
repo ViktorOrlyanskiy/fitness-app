@@ -1,20 +1,33 @@
 import { FC } from 'react';
 import { useAppDispatch } from 'hooks/useRedux';
 import { ISet } from 'shared/types';
-import { remove_set } from 'store/slices/listExercises';
+import { remove_set, copy_set } from 'store/slices/listExercises';
+import { set_set } from 'store/slices/editSet';
+
+import { SvgGenerator, variant } from 'shared/components/ui/SvgGenerator';
+import TouchWrapper from 'shared/components/TouchWrapper';
 
 import SetItem, { SetItemVariant } from '../SetItem/SetItem';
-import { SvgGenerator, variant } from 'shared/components/ui/SvgGenerator';
-
 import './Set.scss';
-import TouchWrapper from 'shared/components/TouchWrapper';
+import { useNavigate } from 'react-router-dom';
+import { URL } from 'shared/constants/URL';
 
 interface SetProps extends ISet {
     index: number;
 }
 
-const Set: FC<SetProps> = ({ index, id, weight, amount, comment = null }) => {
+const Set: FC<SetProps> = ({ index, id, weight, amount, comment }) => {
     const dispatch = useAppDispatch();
+    const navigate = useNavigate();
+
+    const copySet = () => {
+        dispatch(copy_set(id));
+    };
+
+    const editSet = () => {
+        dispatch(set_set({ id, weight, amount, comment }));
+        navigate(URL.add_set);
+    };
 
     const removeSet = () => {
         dispatch(remove_set(id));
@@ -49,10 +62,10 @@ const Set: FC<SetProps> = ({ index, id, weight, amount, comment = null }) => {
             }
             back={
                 <div className="set__btns btn-set">
-                    <div className="btn-set__copy">
+                    <div className="btn-set__copy" onClick={copySet}>
                         <SvgGenerator id={variant.copy} />
                     </div>
-                    <div className="btn-set__edit">
+                    <div className="btn-set__edit" onClick={editSet}>
                         <SvgGenerator id={variant.pencil} />
                     </div>
                     <div className="btn-set__delete" onClick={removeSet}>

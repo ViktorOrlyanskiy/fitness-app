@@ -10,7 +10,7 @@ import './styles/CurrentWorkout.scss';
 const CurrentWorkout: FC = () => {
     const { listExercises } = useAppSelectors();
     const activeExercise = listExercises.filter(
-        (exercise) => exercise.isActive
+        exercise => exercise.isActive
     )[0];
     const sets = activeExercise?.sets;
 

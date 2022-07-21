@@ -16,6 +16,7 @@ import listWorkouts from './slices/listWorkouts';
 import currentWorkout from './slices/currentWorkout';
 import user from './slices/user';
 import touchWrapper from './slices/touchWrapper';
+import editSet from './slices/editSet';
 
 const persistConfig = {
     key: 'root',
@@ -28,6 +29,7 @@ const rootReducer = combineReducers({
     currentWorkout: currentWorkout,
     user: user,
     touchWrapper: touchWrapper,
+    editSet: editSet,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
@@ -50,6 +52,6 @@ export const store = configureStore({
 });
 export const persistor = persistStore(store);
 
-// экспорты для hooks/index.ts
+// экспорты для hooks/useRedux
 export type RootState = ReturnType<typeof store.getState>;
 export type AppDispatch = typeof store.dispatch;

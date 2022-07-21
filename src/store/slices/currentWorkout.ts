@@ -21,7 +21,7 @@ const CurrentWorkout = createSlice({
             Object.assign(state, initialState);
         },
         create_id: (state) => {
-            state.id = Date.now(); // переделать в подходящий формат user-буква-цифры
+            state.id = Date.now();
             state.date = getCurrentDate();
         },
         save_name: (state, { payload }: PayloadAction<string>) => {

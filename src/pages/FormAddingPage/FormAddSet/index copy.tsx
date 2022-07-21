@@ -1,6 +1,6 @@
 import React, { FC, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useAppDispatch, useAppSelector } from 'hooks/useRedux';
+import { useAppDispatch } from 'hooks/useRedux';
 import { add_set, edit_set } from 'store/slices/listExercises';
 import { URL } from 'shared/constants/URL';
 import { ISet } from 'shared/types';
@@ -11,13 +11,16 @@ import MyInput from 'shared/components/ui/input/MyInput';
 
 import './FormAddSet.scss';
 
-const FormAddSet: FC = () => {
+interface FormProps {
+    set?: ISet;
+}
+
+const FormAddSet: FC<FormProps> = ({ set }) => {
     const navigate = useNavigate();
     const dispatch = useAppDispatch();
-    const set = useAppSelector(state => state.editSet);
 
-    const [weight, setWeight] = useState<string>(set.weight ? set.weight : '');
-    const [amount, setAmount] = useState<string>(set.amount ? set.amount : '');
+    const [weight, setWeight] = useState<string>(set ? set.weight : '');
+    const [amount, setAmount] = useState<string>(set ? set.amount : '');
     const [comment, setComment] = useState<string>(
         set?.comment ? set.comment : ''
     );
@@ -27,13 +30,30 @@ const FormAddSet: FC = () => {
 
         if (formValidation([weight, amount])) {
             const newSet: ISet = {
-                id: set.id ? set.id : Date.now(),
+                id: set ? set.id : Date.now(),
                 weight,
                 amount,
                 comment,
             };
 
-            dispatch(set.id ? edit_set(newSet) : add_set(newSet));
+            dispatch(set ? edit_set(newSet) : add_set(newSet));
+            clearInputs([setWeight, setAmount, setComment]);
+            navigate(URL.current_workout);
+        }
+    };
+
+    const addSet = (e: React.MouseEvent<HTMLButtonElement>) => {
+        e.preventDefault();
+
+        if (formValidation([weight, amount])) {
+            const newSet: ISet = {
+                id: Date.now(),
+                weight,
+                amount,
+                comment,
+            };
+
+            dispatch(add_set(newSet));
             clearInputs([setWeight, setAmount, setComment]);
             navigate(URL.current_workout);
         }
@@ -43,7 +63,7 @@ const FormAddSet: FC = () => {
         <div className="add-set">
             <Header
                 previousPage={URL.current_workout}
-                btnEvent={submit}
+                btnEvent={addSet}
                 children={'Новый подход'}
             />
 

@@ -5,6 +5,8 @@ import {
     changeExercise,
     addSet,
     removeSet,
+    copySet,
+    editSet,
 } from '../actions/listExercisesAction';
 
 interface IPayload {
@@ -20,7 +22,6 @@ const initialState: IExercise[] = [
     //     comment: '',
     //     sets: [
     //         { id: 1, weight: '1', amount: '1', comment: 'приседания', },
-    //         { id: 2, weight: '1', amount: '1', },
     //     ]
     // },
 ];
@@ -29,7 +30,7 @@ const listExercises = createSlice({
     name: 'listExercises',
     initialState,
     reducers: {
-        clear_list_exercises: (state) => {
+        clear_list_exercises: state => {
             state.length = 0;
         },
 
@@ -42,7 +43,7 @@ const listExercises = createSlice({
         change_exercise: (state, { payload }: PayloadAction<number>) => {
             changeExercise(state, payload);
         },
-        change_active_exercise: (state) => {
+        change_active_exercise: state => {
             changeActiveExercise(state);
         },
 
@@ -51,6 +52,12 @@ const listExercises = createSlice({
         },
         remove_set: (state, { payload }: PayloadAction<number>) => {
             removeSet(state, payload);
+        },
+        copy_set: (state, { payload }: PayloadAction<number>) => {
+            copySet(state, payload);
+        },
+        edit_set: (state, { payload }: PayloadAction<ISet>) => {
+            editSet(state, payload);
         },
     },
 });
@@ -64,4 +71,6 @@ export const {
     change_active_exercise,
     add_set,
     remove_set,
+    copy_set,
+    edit_set,
 } = listExercises.actions;
