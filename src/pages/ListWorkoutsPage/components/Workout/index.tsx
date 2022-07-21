@@ -5,7 +5,7 @@ import { remove_workout } from 'store/slices/listWorkouts';
 
 import { SvgGenerator, variant } from 'shared/components/ui/SvgGenerator';
 import TouchWrapper from 'shared/components/TouchWrapper';
-import './Workout.scss';
+import './workout.scss';
 
 interface WorkoutProps {
     id: number;

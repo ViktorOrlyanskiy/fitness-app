@@ -13,7 +13,7 @@ import {
 import Header from 'shared/components/Header';
 import MyInput from 'shared/components/ui/input/MyInput';
 
-import './FormAddExercise.scss';
+import './form-add-exercise.scss';
 
 const FormAddExercise: FC = () => {
     const navigate = useNavigate();

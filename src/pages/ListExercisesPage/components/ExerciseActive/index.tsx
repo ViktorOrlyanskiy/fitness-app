@@ -7,7 +7,7 @@ import {
 } from 'store/slices/listExercises';
 
 import { SvgGenerator, variant } from 'shared/components/ui/SvgGenerator';
-import './ExerciseActive.scss';
+import './exercise-active.scss';
 
 interface ExerciseProps extends IExercise {}
 

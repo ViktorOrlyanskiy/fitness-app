@@ -6,10 +6,10 @@ import { URL } from 'shared/constants/URL';
 
 import Header from 'shared/components/Header';
 import Footer from 'shared/components/Footer';
-import Exercise from './components/Exercise/Exercise';
-import ExerciseActive from './components/ExerciseActive/ExerciseActive';
+import Exercise from './components/Exercise';
+import ExerciseActive from './components/ExerciseActive';
 
-import './styles/ListExercises.scss';
+import './list-exercises.scss';
 
 const ListExercises: FC = () => {
     const navigate = useNavigate();
@@ -51,10 +51,10 @@ const ListExercises: FC = () => {
 
                 {listExercises.length > 0 &&
                     (isActive
-                        ? listExercises.map((exercise) => (
+                        ? listExercises.map(exercise => (
                               <ExerciseActive key={exercise.id} {...exercise} />
                           ))
-                        : listExercises.map((exercise) => (
+                        : listExercises.map(exercise => (
                               <Exercise key={exercise.id} {...exercise} />
                           )))}
             </div>

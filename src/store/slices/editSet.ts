@@ -14,14 +14,14 @@ const editSet = createSlice({
     name: 'editSet',
     initialState,
     reducers: {
-        set_set: (state, { payload }: PayloadAction<ISet>) => {
+        save_service_set: (state, { payload }: PayloadAction<ISet>) => {
             return { ...payload };
         },
-        remove_set: () => {
+        clear_service_set: () => {
             return { ...{} };
         },
     },
 });
 
 export default editSet.reducer;
-export const { set_set, remove_set } = editSet.actions;
+export const { save_service_set, clear_service_set } = editSet.actions;

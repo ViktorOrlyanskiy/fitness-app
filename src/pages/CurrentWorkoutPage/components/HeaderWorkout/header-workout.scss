@@ -1,0 +1,17 @@
+/* ========== Глобальные переменные ========== */
+@import '../../../../styles/variables.scss';
+
+.current-workout__header {
+    position: fixed;
+    top: 0;
+    z-index: 10;
+    max-width: 400px;
+    width: 100%;
+    min-height: 130px;
+
+    background-color: $bg-color-header;
+
+    & > header {
+        position: static;
+    }
+}

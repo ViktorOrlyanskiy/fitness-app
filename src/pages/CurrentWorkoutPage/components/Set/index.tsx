@@ -1,16 +1,16 @@
 import { FC } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useAppDispatch } from 'hooks/useRedux';
 import { ISet } from 'shared/types';
 import { remove_set, copy_set } from 'store/slices/listExercises';
-import { set_set } from 'store/slices/editSet';
+import { save_service_set } from 'store/slices/editSet';
 
 import { SvgGenerator, variant } from 'shared/components/ui/SvgGenerator';
 import TouchWrapper from 'shared/components/TouchWrapper';
-
-import SetItem, { SetItemVariant } from '../SetItem/SetItem';
-import './Set.scss';
-import { useNavigate } from 'react-router-dom';
 import { URL } from 'shared/constants/URL';
+
+import SetItem, { SetItemVariant } from '../SetItem';
+import './set.scss';
 
 interface SetProps extends ISet {
     index: number;
@@ -25,7 +25,7 @@ const Set: FC<SetProps> = ({ index, id, weight, amount, comment }) => {
     };
 
     const editSet = () => {
-        dispatch(set_set({ id, weight, amount, comment }));
+        dispatch(save_service_set({ id, weight, amount, comment }));
         navigate(URL.add_set);
     };
 

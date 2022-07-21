@@ -10,7 +10,7 @@ import Workout from './components/Workout';
 import ModalSave from 'shared/components/ModalSave';
 
 import { URL } from 'shared/constants/URL';
-import './ListWorkouts.scss';
+import './list-workouts.scss';
 
 const ListWorkouts: FC = () => {
     const navigate = useNavigate();
@@ -61,7 +61,7 @@ const ListWorkouts: FC = () => {
                 {listWorkouts.length > 0 &&
                     [...listWorkouts]
                         .sort((a, b) => b.id - a.id)
-                        .map((workout) => (
+                        .map(workout => (
                             <Workout key={workout.id} {...workout} />
                         ))}
             </div>

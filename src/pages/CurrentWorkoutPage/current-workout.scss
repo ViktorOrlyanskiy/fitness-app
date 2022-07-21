@@ -1,0 +1,9 @@
+/* ========== Глобальные переменные ========== */
+@import '../../styles/variables.scss';
+
+.current-workout {
+    &__body {
+        padding-top: 130px;
+        padding-bottom: $height-btn-footer;
+    }
+}

@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { URL } from 'shared/constants/URL';
 
 import { SvgGenerator, variant } from 'shared/components/ui/SvgGenerator';
-import './SelectExercise.scss';
+import './select-exercise.scss';
 
 const SelectExercise: FC<{ name: string }> = ({ name }) => {
     const navigate = useNavigate();

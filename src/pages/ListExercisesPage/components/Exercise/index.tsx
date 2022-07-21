@@ -5,7 +5,7 @@ import { IExercise } from 'shared/types';
 import { change_exercise } from 'store/slices/listExercises';
 
 import { SvgGenerator, variant } from 'shared/components/ui/SvgGenerator';
-import './Exercise.scss';
+import './exercise.scss';
 
 interface ExerciseProps extends IExercise {}
 

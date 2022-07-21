@@ -12,9 +12,9 @@ import { clear_current_workout, save_name } from 'store/slices/currentWorkout';
 import { URL } from 'shared/constants/URL';
 
 import Header from 'shared/components/Header';
-import SelectExercise from '../SelectExercise/SelectExercise';
 import ModalSave from 'shared/components/ModalSave';
-import './HeaderWorkout.scss';
+import SelectExercise from '../SelectExercise';
+import './header-workout.scss';
 
 const HeaderWorkout: FC<{ name: string }> = ({ name }) => {
     const navigate = useNavigate();

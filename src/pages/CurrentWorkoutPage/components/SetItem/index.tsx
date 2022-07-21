@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import './SetItem.scss';
+import './set-item.scss';
 
 export enum SetItemVariant {
     weight = 'weight',

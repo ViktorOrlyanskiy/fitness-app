@@ -1,7 +1,5 @@
 /* ========== Глобальные переменные ========== */
-@import '../../../styles/variables.scss';
-
-
+@import '../../styles/variables.scss';
 
 .list-exercise {
     max-width: 400px;
@@ -18,7 +16,7 @@
         }
     }
 
-    &__empty{
+    &__empty {
         @include flexbox-center;
         padding-top: 50px;
     }

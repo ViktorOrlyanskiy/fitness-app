@@ -1,11 +1,9 @@
 import { FC } from 'react';
 import { useAppSelectors } from 'hooks/useRedux';
-
 import Footer from 'shared/components/Footer';
-import HeaderWorkout from './components/HeaderWorkout/HeaderWorkout';
-import Set from './components/Set/Set';
-
-import './styles/CurrentWorkout.scss';
+import HeaderWorkout from './components/HeaderWorkout';
+import Set from './components/Set';
+import './current-workout.scss';
 
 const CurrentWorkout: FC = () => {
     const { listExercises } = useAppSelectors();
@@ -21,11 +19,14 @@ const CurrentWorkout: FC = () => {
                     activeExercise ? activeExercise.name : 'Добавить упражение'
                 }
             />
-            {sets &&
-                sets.length > 0 &&
-                sets.map((set, index) => (
-                    <Set key={set.id} index={++index} {...set} />
-                ))}
+            <div className="current-workout__body">
+                {sets &&
+                    sets.length > 0 &&
+                    sets.map((set, index) => (
+                        <Set key={set.id} index={++index} {...set} />
+                    ))}
+            </div>
+
             <Footer nextPage={'add-set'}>Добавить подход</Footer>
         </div>
     );

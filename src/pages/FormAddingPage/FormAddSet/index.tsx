@@ -2,6 +2,7 @@ import React, { FC, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from 'hooks/useRedux';
 import { add_set, edit_set } from 'store/slices/listExercises';
+import { clear_service_set } from 'store/slices/editSet';
 import { URL } from 'shared/constants/URL';
 import { ISet } from 'shared/types';
 import { formValidation, clearInputs } from 'shared/utils/FormAddingValidation';
@@ -9,7 +10,7 @@ import { formValidation, clearInputs } from 'shared/utils/FormAddingValidation';
 import Header from 'shared/components/Header';
 import MyInput from 'shared/components/ui/input/MyInput';
 
-import './FormAddSet.scss';
+import './form-add-set.scss';
 
 const FormAddSet: FC = () => {
     const navigate = useNavigate();
@@ -34,6 +35,9 @@ const FormAddSet: FC = () => {
             };
 
             dispatch(set.id ? edit_set(newSet) : add_set(newSet));
+            if (set.id) {
+                dispatch(clear_service_set());
+            }
             clearInputs([setWeight, setAmount, setComment]);
             navigate(URL.current_workout);
         }
