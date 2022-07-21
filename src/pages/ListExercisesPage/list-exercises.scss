@@ -17,7 +17,7 @@
     }
 
     &__empty {
-        @include flexbox-center;
+        @include my-flex(center);
         padding-top: 50px;
     }
 }

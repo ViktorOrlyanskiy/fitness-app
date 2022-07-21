@@ -1,11 +1,11 @@
 /* ========== Глобальные переменные ========== */
-@import '../../../../styles/variables.scss';
+@import '../../../../shared/styles/variables.scss';
 
 .workout {
     width: 100%;
     padding: 10px 7px;
 
-    @include flexbox-center;
+    @include my-flex(center);
     justify-content: space-between;
 
     border-bottom: 1px solid $color-border;

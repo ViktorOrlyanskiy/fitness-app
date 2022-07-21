@@ -8,7 +8,7 @@
     z-index: 1;
     width: 100%;
 
-    @include flexbox-center;
+    @include my-flex(center);
 
     user-select: none;
 
@@ -18,7 +18,7 @@
         min-width: min-content;
         height: $height-btn-footer;
 
-        @include flexbox-center;
+        @include my-flex(center);
 
         background-color: rgb(33, 232, 33);
         color: $color-white;

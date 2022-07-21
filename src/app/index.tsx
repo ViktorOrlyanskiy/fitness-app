@@ -2,7 +2,7 @@ import { FC } from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import Routing from 'pages';
 
-import './styles/App.scss';
+import './styles/index.scss';
 
 const App: FC = () => {
     return (

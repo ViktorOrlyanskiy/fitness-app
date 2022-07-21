@@ -16,7 +16,7 @@
         &_number {
             width: 35px;
             height: 35px;
-            @include flexbox-center;
+            @include my-flex(center);
 
             margin-bottom: 10px;
 
@@ -29,7 +29,7 @@
         &_icon {
             width: 35px;
             height: 35px;
-            @include flexbox-center;
+            @include my-flex(center);
 
             cursor: pointer;
             transition: all 0.1s;

@@ -1,0 +1,13 @@
+$justify: (
+    'center': center,
+    'flex-end': flex-end,
+    'flex-start': flex-start,
+    'space-between': space-between,
+    'space-around': space-around,
+);
+
+@mixin my-flex($justify) {
+    display: flex;
+    align-items: center;
+    justify-content: $justify;
+}

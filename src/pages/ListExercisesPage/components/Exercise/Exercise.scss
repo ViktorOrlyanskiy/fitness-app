@@ -1,13 +1,11 @@
 /* ========== Глобальные переменные ========== */
 @import '../../../../styles/variables.scss';
 
-
 .exercise {
-
     width: 100%;
     padding: 7px 0;
 
-    @include flexbox-center;
+    @include my-flex(center);
     justify-content: space-between;
     user-select: none;
     border-bottom: 1px solid $color-border;
@@ -21,13 +19,12 @@
         border: 1px solid $color-border;
         border-radius: 50%;
 
-        &_active{
+        &_active {
             border: none;
-            svg{
+            svg {
                 fill: $bg-color-header;
-            } 
+            }
         }
-
     }
 
     &__title {
@@ -39,7 +36,7 @@
         width: 27px;
         height: 27px;
 
-        @include flexbox-center;
+        @include my-flex(center);
 
         border: 1px solid $color-border;
         border-radius: 50%;
