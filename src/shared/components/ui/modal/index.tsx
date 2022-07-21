@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import './Modal.scss';
+import './modal.scss';
 
 interface ModalProps {
     active: boolean;
@@ -14,7 +14,7 @@ export const Modal: FC<ModalProps> = ({ active, setActive, children }) => {
             onClick={() => setActive(false)}>
             <div
                 className={active ? 'modal__content active' : 'modal__content'}
-                onClick={(e) => e.stopPropagation()}>
+                onClick={e => e.stopPropagation()}>
                 {children}
             </div>
         </div>

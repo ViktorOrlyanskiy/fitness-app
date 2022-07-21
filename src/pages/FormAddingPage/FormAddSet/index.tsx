@@ -8,7 +8,7 @@ import { ISet } from 'shared/types';
 import { formValidation, clearInputs } from 'shared/utils/FormAddingValidation';
 
 import Header from 'shared/components/Header';
-import MyInput from 'shared/components/ui/input/MyInput';
+import MyInput from 'shared/components/ui/MyInput';
 
 import './form-add-set.scss';
 

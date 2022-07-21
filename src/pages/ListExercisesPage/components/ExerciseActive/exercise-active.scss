@@ -1,28 +1,24 @@
 /* ========== Глобальные переменные ========== */
-@import '../../../../styles/variables.scss';
-
+@import '../../../../shared/styles/variables.scss';
 
 .exercise-active {
-
     .exercise__active {
         width: 20px;
         height: 20px;
         border: none;
 
-        svg{
+        svg {
             fill: red;
-        } 
+        }
     }
-
 
     .exercise__amount-sets {
         width: 20px;
         height: 20px;
         border: none;
-        
-        svg{
+
+        svg {
             fill: orange;
-        } 
-   
+        }
     }
 }

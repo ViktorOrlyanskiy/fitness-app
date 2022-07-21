@@ -1,7 +1,7 @@
 import React, { FC, useEffect, useState } from 'react';
 import { useAppDispatch, useAppSelector } from 'hooks/useRedux';
 import { set_offset } from 'store/slices/touchWrapper';
-import styles from './TouchWrapper.module.scss';
+import styles from './touch-wrapper.module.scss';
 
 interface TouchWrapperProps {
     id: number;
@@ -12,7 +12,7 @@ interface TouchWrapperProps {
 
 const TouchWrapper: FC<TouchWrapperProps> = ({ id, front, back, offset }) => {
     const dispatch = useAppDispatch();
-    const offsetID = useAppSelector((state) => state.touchWrapper);
+    const offsetID = useAppSelector(state => state.touchWrapper);
     const [leftOffset, setLeftOffset] = useState<number>(0);
     const [startX, setStartX] = useState<number | null>(null);
 

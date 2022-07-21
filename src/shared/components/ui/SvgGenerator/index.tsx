@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import './SvgGenerator.scss';
+import './svg-generator.scss';
 
 // копируем svg код в case. в качестве id передаем название.
 

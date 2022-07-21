@@ -1,6 +1,6 @@
 import { FC, useState } from 'react';
-import { Modal } from 'shared/components/ui/modal/Modal';
-import './ModalSave.scss';
+import { Modal } from 'shared/components/ui/Modal';
+import './modal-save.scss';
 
 interface ModalSaveProps {
     name: string;
@@ -25,7 +25,7 @@ const ModalSave: FC<ModalSaveProps> = ({
                     type="text"
                     className="modal-save__input"
                     value={value}
-                    onChange={(e) => setValue(e.target.value)}
+                    onChange={e => setValue(e.target.value)}
                 />
                 <div className="modal-save__row">
                     <button

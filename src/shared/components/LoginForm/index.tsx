@@ -1,6 +1,6 @@
 import React, { FC, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import './LoginForm.scss';
+import './login-form.scss';
 
 interface LoginProps {
     title: string;
@@ -82,8 +82,8 @@ const LoginForm: FC<LoginProps> = ({ title, handlerClick, titleButton }) => {
                 className="form__input"
                 value={email}
                 placeholder="Enter your Email...."
-                onBlur={(e) => blurHandler(e)}
-                onChange={(e) => emailHandler(e)}
+                onBlur={e => blurHandler(e)}
+                onChange={e => emailHandler(e)}
             />
 
             {passwordDirty && passwordError && (
@@ -95,15 +95,15 @@ const LoginForm: FC<LoginProps> = ({ title, handlerClick, titleButton }) => {
                 className="form__input"
                 value={password}
                 placeholder="Enter your password...."
-                onBlur={(e) => blurHandler(e)}
-                onChange={(e) => passwordHandler(e)}
+                onBlur={e => blurHandler(e)}
+                onChange={e => passwordHandler(e)}
             />
 
             <button
                 disabled={!formValid}
                 type="submit"
                 className="form__button"
-                onClick={(e) => onSubmit(e)}>
+                onClick={e => onSubmit(e)}>
                 {titleButton}
             </button>
 

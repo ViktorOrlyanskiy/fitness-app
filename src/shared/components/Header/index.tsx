@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 import { IHeader } from 'shared/types';
 
 import { SvgGenerator } from 'shared/components/ui/SvgGenerator';
-import './Header.scss';
+import './header.scss';
 
 interface HeaderProps extends IHeader {}
 
