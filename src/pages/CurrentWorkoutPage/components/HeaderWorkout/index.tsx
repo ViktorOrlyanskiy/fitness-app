@@ -1,16 +1,13 @@
 import { FC, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { IWorkout } from 'shared/types';
-
 import { useAppDispatch, useAppSelectors } from 'hooks/useRedux';
 import { useFirestore } from 'hooks/useFirestore';
-
 import { add_workout } from 'store/slices/listWorkouts';
 import { clear_list_exercises } from 'store/slices/listExercises';
 import { clear_current_workout, save_name } from 'store/slices/currentWorkout';
 
+import { IWorkout } from 'shared/types';
 import { URL } from 'shared/constants/URL';
-
 import Header from 'shared/components/Header';
 import ModalSave from 'shared/components/ModalSave';
 import SelectExercise from '../SelectExercise';

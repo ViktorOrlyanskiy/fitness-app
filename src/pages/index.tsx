@@ -3,13 +3,15 @@ import { Routes, Route } from 'react-router-dom';
 import { useAppSelectors } from 'hooks/useRedux';
 import { URL } from 'shared/constants/URL';
 
+import ListWorkouts from './ListWorkoutsPage';
+import CurrentWorkout from './CurrentWorkoutPage';
+import ListExercises from './ListExercisesPage';
+import ExercisesStorage from './ExercisesStoragePage';
+import FormAddExercise from './FormAddingPage/FormAddExercise';
+import FormAddSet from './FormAddingPage/FormAddSet';
+
 const Login = lazy(() => import('./LoginPage'));
 const Registration = lazy(() => import('./RegistrationPage'));
-const ListWorkouts = lazy(() => import('./ListWorkoutsPage'));
-const CurrentWorkout = lazy(() => import('./CurrentWorkoutPage'));
-const ListExercises = lazy(() => import('./ListExercisesPage'));
-const FormAddExercise = lazy(() => import('./FormAddingPage/FormAddExercise'));
-const FormAddSet = lazy(() => import('./FormAddingPage/FormAddSet'));
 
 const Routing = () => {
     const { user } = useAppSelectors();
@@ -30,6 +32,10 @@ const Routing = () => {
                     <Route
                         path={URL.list_exercises}
                         element={<ListExercises />}
+                    />
+                    <Route
+                        path={URL.exercises_storage}
+                        element={<ExercisesStorage />}
                     />
                     <Route
                         path={URL.add_exercise}

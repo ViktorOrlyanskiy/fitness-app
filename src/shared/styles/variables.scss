@@ -12,3 +12,8 @@ $max-width: 400px;
 
 /* ========== Миксины ========== */
 @import './mixins/my-flex.scss';
+
+/* ========== Общие стили ========== */
+.page-container {
+    padding-top: $height-small-header;
+}

@@ -1,16 +1,19 @@
-import { FC } from 'react';
+import { FC, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAppDispatch } from 'hooks/useRedux';
 import { change_exercise } from 'store/slices/listExercises';
-import { IExercise } from 'shared/types';
 
 import { SvgGenerator, variant } from 'shared/components/ui/SvgGenerator';
 import { URL } from 'shared/constants/URL';
 import './exercise.scss';
 
-interface ExerciseProps extends IExercise {}
+interface ExerciseProps {
+    id: number;
+    name: string;
+}
 
-const Exercise: FC<ExerciseProps> = ({ id, name, isActive, sets }) => {
+const Exercise: FC<ExerciseProps> = ({ id, name }) => {
+    const [isActive, setActive] = useState<boolean>(false);
     const dispatch = useAppDispatch();
     const navigate = useNavigate();
 
@@ -33,7 +36,6 @@ const Exercise: FC<ExerciseProps> = ({ id, name, isActive, sets }) => {
         <div className="exercise" onClick={changeExercise}>
             {getActiveExercise(isActive)}
             <div className="exercise__title">{name}</div>
-            <div className="exercise__amount-sets">{sets?.length}</div>
         </div>
     );
 };

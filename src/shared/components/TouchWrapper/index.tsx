@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useState } from 'react';
+import React, { FC, useEffect, useState, useRef } from 'react';
 import { useAppDispatch, useAppSelector } from 'hooks/useRedux';
 import { set_offset } from 'store/slices/touchWrapper';
 import styles from './touch-wrapper.module.scss';
@@ -12,27 +12,35 @@ interface TouchWrapperProps {
 
 const TouchWrapper: FC<TouchWrapperProps> = ({ id, front, back, offset }) => {
     const dispatch = useAppDispatch();
-    const offsetID = useAppSelector(state => state.touchWrapper);
+    const offsetID = useAppSelector((state) => state.touchWrapper);
     const [leftOffset, setLeftOffset] = useState<number>(0);
-    const [startX, setStartX] = useState<number | null>(null);
+    const startXRef = useRef<number>(0);
 
     const handlerTouchStart = (e: React.TouchEvent<HTMLDivElement>) => {
-        setStartX(e.touches[0].pageX);
+        startXRef.current = e.touches[0].pageX;
     };
     const handlerTouchMove = (e: React.TouchEvent<HTMLDivElement>) => {
         let endX = e.touches[0].pageX;
         // определяет направление смещения
-        if (startX && startX > endX && startX - endX > 50) {
+        if (
+            startXRef.current &&
+            startXRef.current > endX &&
+            startXRef.current - endX > 50
+        ) {
             setLeftOffset(offset);
             dispatch(set_offset(id));
         }
-        if (startX && startX < endX && startX - endX > -50) {
+        if (
+            startXRef.current &&
+            startXRef.current < endX &&
+            startXRef.current - endX > -50
+        ) {
             setLeftOffset(0);
         }
     };
 
     const handlerTouchEnd = (e: React.TouchEvent<HTMLDivElement>) => {
-        setStartX(null);
+        startXRef.current = 0;
     };
 
     // возвращает в начальное состояние если открывается новая тренировка

@@ -18,7 +18,7 @@ const Header: FC<HeaderProps> = ({
     const getNameLeftBtn = (id = 'chevron-left') => {
         return id.search(/[a-zA-Z]/g) > -1 ? <SvgGenerator id={id} /> : id;
     };
-    const getNameRightBtn = (id = 'готово') => {
+    const getNameRightBtn = (id = 'Готово') => {
         return id.search(/[a-zA-Z]/g) > -1 ? <SvgGenerator id={id} /> : id;
     };
 

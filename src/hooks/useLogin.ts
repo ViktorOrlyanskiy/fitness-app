@@ -7,6 +7,7 @@ import {
     signInWithEmailAndPassword,
     createUserWithEmailAndPassword,
 } from 'firebase/auth';
+import { URL } from 'shared/constants/URL';
 
 export const useLogin = () => {
     const dispatch = useAppDispatch();
@@ -45,7 +46,7 @@ export const useLogin = () => {
             .then(({ user }) => {
                 dispatch(set_user(parseUser(user)));
                 saveUserInLocalStorage(user);
-                navigate('/list-workouts');
+                navigate(URL.list_workouts);
             })
             .catch(() => {
                 alert('Email или пароль не действительны!');
@@ -59,7 +60,7 @@ export const useLogin = () => {
         createUserWithEmailAndPassword(auth, email, password)
             .then(({ user }) => {
                 dispatch(set_user(parseUser(user)));
-                navigate('/list-workouts');
+                navigate(URL.list_workouts);
             })
             .catch(() => {
                 alert('Email или пароль не действительны!');

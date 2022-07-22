@@ -57,11 +57,11 @@ const ListWorkouts: FC = () => {
                 }
                 children={'Список тренировок'}
             />
-            <div className="list-workouts__body">
+            <div className="page-container">
                 {listWorkouts.length > 0 &&
                     [...listWorkouts]
                         .sort((a, b) => b.id - a.id)
-                        .map(workout => (
+                        .map((workout) => (
                             <Workout key={workout.id} {...workout} />
                         ))}
             </div>

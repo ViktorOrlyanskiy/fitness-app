@@ -1,11 +1,11 @@
-import { FC } from 'react';
+import React, { FC } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { URL } from 'shared/constants/URL';
 
 import { SvgGenerator, variant } from 'shared/components/ui/SvgGenerator';
 import './select-exercise.scss';
 
-const SelectExercise: FC<{ name: string }> = ({ name }) => {
+const SelectExercise: FC<{ name: string }> = React.memo(({ name }) => {
     const navigate = useNavigate();
 
     return (
@@ -20,5 +20,5 @@ const SelectExercise: FC<{ name: string }> = ({ name }) => {
             </button>
         </div>
     );
-};
+});
 export default SelectExercise;
