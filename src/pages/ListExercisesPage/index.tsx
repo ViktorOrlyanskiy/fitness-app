@@ -17,12 +17,12 @@ const ListExercises: FC = () => {
     const [isActive, setActive] = useState<boolean>(false);
     const { listExercises, currentWorkout } = useAppSelectors();
 
-    const handlerBtnHeader = () => {
-        if (!currentWorkout.id && listExercises.length > 0) {
-            dispatch(create_id());
-            navigate(URL.current_workout);
-        }
-    };
+    // const handlerBtnHeader = () => {
+    //     if (!currentWorkout.id && listExercises.length > 0) {
+    //         dispatch(create_id());
+    //         navigate(URL.current_workout);
+    //     }
+    // };
 
     return (
         <div className="list-exercises">
@@ -39,7 +39,7 @@ const ListExercises: FC = () => {
                 <Header
                     previousPage={URL.list_workouts}
                     btnRight={'Начать'}
-                    btnEvent={handlerBtnHeader}
+                    // btnEvent={handlerBtnHeader}
                     children={'Список упражнений'}
                 />
             )}
@@ -51,15 +51,15 @@ const ListExercises: FC = () => {
 
                 {listExercises.length > 0 &&
                     (isActive
-                        ? listExercises.map(exercise => (
+                        ? listExercises.map((exercise) => (
                               <ExerciseActive key={exercise.id} {...exercise} />
                           ))
-                        : listExercises.map(exercise => (
+                        : listExercises.map((exercise) => (
                               <Exercise key={exercise.id} {...exercise} />
                           )))}
             </div>
 
-            <Footer nextPage={URL.add_exercise}>Добавить упражение</Footer>
+            <Footer nextPage={URL.exercises_storage}>Добавить упражение</Footer>
         </div>
     );
 };

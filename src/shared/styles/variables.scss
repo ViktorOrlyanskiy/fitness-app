@@ -1,19 +1,24 @@
 /* ========== Переменные ========== */
 $color-gold: #f2c342;
 $color-white: #fff;
+$color-gray: rgb(46, 41, 41);
 
-$color-border: rgb(195, 195, 195);
+$bg-color-gray: rgba(92, 90, 90, 0.3);
+$color-border: rgb(135, 135, 135);
 $bg-color-header: #009b76;
+$bg-color-footer: #009b76;
 
-$height-small-header: 50px;
-$height-btn-footer: 50px;
+$height-header: 50px;
+$height-footer: 50px;
 $padding-body: 15px 7px;
 $max-width: 400px;
+
+$text-size: 18px;
 
 /* ========== Миксины ========== */
 @import './mixins/my-flex.scss';
 
 /* ========== Общие стили ========== */
 .page-container {
-    padding-top: $height-small-header;
+    padding-top: $height-header;
 }

@@ -30,7 +30,7 @@ const ListWorkouts: FC = () => {
     const handlerSaveBtn = (value: string) => {
         dispatch(save_name(value));
         setTimeout(() => {
-            navigate(URL.list_exercises);
+            navigate(URL.exercises_storage);
         }, 500);
     };
 

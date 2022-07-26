@@ -7,8 +7,8 @@
 
     &__body {
         padding: $padding-body;
-        padding-top: $height-small-header;
-        padding-bottom: $height-btn-footer;
+        padding-top: $height-header;
+        padding-bottom: $height-footer;
 
         .notification-text {
             text-align: center;

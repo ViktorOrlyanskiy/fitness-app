@@ -3,42 +3,23 @@
 
 .exercise {
     width: 100%;
-    padding: 7px 0;
-
-    @include my-flex(center);
-    justify-content: space-between;
-    user-select: none;
+    padding: 10px 10px 10px 15px;
+    @include my-flex(space-between);
     border-bottom: 1px solid $color-border;
+    user-select: none;
     cursor: pointer;
 
+    &__title {
+        font-size: $text-size;
+    }
+
     &__active {
-        width: 20px;
-        height: 20px;
-
-        margin-right: 10px;
-        border: 1px solid $color-border;
-        border-radius: 50%;
-
-        &_active {
-            border: none;
-            svg {
-                fill: $bg-color-header;
-            }
+        svg {
+            fill: $bg-color-header;
         }
     }
+}
 
-    &__title {
-        flex: 1 1 80%;
-        font-size: 16px;
-    }
-
-    &__amount-sets {
-        width: 27px;
-        height: 27px;
-
-        @include my-flex(center);
-
-        border: 1px solid $color-border;
-        border-radius: 50%;
-    }
+.exercise:last-child {
+    border-bottom: none;
 }
