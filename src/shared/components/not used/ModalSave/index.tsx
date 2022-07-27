@@ -1,6 +1,6 @@
 import { FC, useState } from 'react';
-import Modal from 'shared/components/Modal';
-import styles from './modal-save.scss';
+import { Modal } from 'shared/components/not used/Modal';
+import './modal-save.scss';
 
 interface ModalSaveProps {
     name: string;
@@ -27,6 +27,22 @@ const ModalSave: FC<ModalSaveProps> = ({
                     value={value}
                     onChange={(e) => setValue(e.target.value)}
                 />
+                <div className="modal-save__row">
+                    <button
+                        className="modal-save__btn"
+                        onClick={() => setActive(false)}>
+                        Отмена
+                    </button>
+                    <button
+                        className="modal-save__btn"
+                        onClick={() => {
+                            handlerSaveBtn(value);
+                            setValue('');
+                            setActive(false);
+                        }}>
+                        Сохранить
+                    </button>
+                </div>
             </div>
         </Modal>
     );

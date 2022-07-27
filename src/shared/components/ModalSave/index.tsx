@@ -1,6 +1,7 @@
-import { FC, useState } from 'react';
-import { Modal } from 'shared/components/ui/Modal';
-import './modal-save.scss';
+import { FC, useEffect, useState } from 'react';
+import Modal from 'shared/components/ui/Modal';
+import { useInput } from 'shared/hooks/useInput';
+import styles from './modal-save.module.scss';
 
 interface ModalSaveProps {
     name: string;
@@ -15,34 +16,22 @@ const ModalSave: FC<ModalSaveProps> = ({
     setActive,
     handlerSaveBtn,
 }) => {
-    const [value, setValue] = useState<string>('');
+    const nameWorkout = useInput('', !active);
+
+    const handlerBtnActive = () => {
+        handlerSaveBtn(nameWorkout.value);
+        setActive(false);
+    };
 
     return (
-        <Modal active={active} setActive={setActive}>
-            <div className="modal-save">
-                <div className="modal-save__title">{name}</div>
-                <input
-                    type="text"
-                    className="modal-save__input"
-                    value={value}
-                    onChange={e => setValue(e.target.value)}
-                />
-                <div className="modal-save__row">
-                    <button
-                        className="modal-save__btn"
-                        onClick={() => setActive(false)}>
-                        Отмена
-                    </button>
-                    <button
-                        className="modal-save__btn"
-                        onClick={() => {
-                            handlerSaveBtn(value);
-                            setValue('');
-                            setActive(false);
-                        }}>
-                        Сохранить
-                    </button>
-                </div>
+        <Modal
+            active={active}
+            setActive={setActive}
+            nameBtnActive="Сохранить"
+            handlerBtnActive={handlerBtnActive}>
+            <div className={styles.modal}>
+                <div className={styles.title}>{name}</div>
+                <input type="text" className={styles.input} {...nameWorkout} />
             </div>
         </Modal>
     );

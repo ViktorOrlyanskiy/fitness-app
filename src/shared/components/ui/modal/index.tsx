@@ -1,25 +1,41 @@
-import { FC, useRef } from 'react';
-import './modal.scss';
+import React, { FC, useRef } from 'react';
+import { useOutsideClick } from 'shared/hooks/useOutsideClick';
+import styles from './modal.module.scss';
 
-interface ModalProps {
+interface IModalProps {
     active: boolean;
     setActive: (arg1: boolean) => void;
+    nameBtnActive?: string;
+    handlerBtnActive?: () => void;
     children: React.ReactNode;
 }
 
-export const Modal: FC<ModalProps> = ({ active, setActive, children }) => {
-    const modalRef = useRef(null);
+const Modal: FC<IModalProps> = ({
+    active,
+    setActive,
+    nameBtnActive,
+    handlerBtnActive,
+    children,
+}) => {
+    const modalRef = useRef<any>(null);
+    useOutsideClick(modalRef, active, setActive);
 
     return (
         <div
             ref={modalRef}
-            className={active ? 'modal active' : 'modal'}
-            onClick={() => setActive(false)}>
-            <div
-                className={active ? 'modal__content active' : 'modal__content'}
-                onClick={(e) => e.stopPropagation()}>
-                {children}
-            </div>
+            className={
+                active ? `${styles.modal} ${styles.active}` : styles.modal
+            }>
+            <div className={styles.body}>{children}</div>
+            {!!nameBtnActive && (
+                <button className={styles.btn} onClick={handlerBtnActive}>
+                    {nameBtnActive}
+                </button>
+            )}
+            <button className={styles.btn} onClick={() => setActive(false)}>
+                Отмена
+            </button>
         </div>
     );
 };
+export default Modal;
