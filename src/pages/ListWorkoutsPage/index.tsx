@@ -7,10 +7,11 @@ import { save_name } from 'store/slices/currentWorkout';
 
 import Header from 'shared/components/Header';
 import Workout from './components/Workout';
-import ModalSave from 'shared/components/ModalSave';
+import Modal from 'shared/components/Modal';
 
 import { URL } from 'shared/constants/URL';
 import './list-workouts.scss';
+import ModalSave from '../../shared/components/ModalSave2';
 
 const ListWorkouts: FC = () => {
     const navigate = useNavigate();
@@ -65,6 +66,12 @@ const ListWorkouts: FC = () => {
                             <Workout key={workout.id} {...workout} />
                         ))}
             </div>
+            {/* <ModalSave
+                name="Название тренировки"
+                active={modalActive}
+                setActive={setModalActive}
+                handlerSaveBtn={handlerSaveBtn}
+            /> */}
             <ModalSave
                 name="Название тренировки"
                 active={modalActive}
