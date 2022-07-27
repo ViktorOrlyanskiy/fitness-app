@@ -17,17 +17,17 @@ const ListWorkouts: FC = () => {
     const dispatch = useAppDispatch();
     const { getAllWorkouts } = useFirestore();
     const { currentWorkout, listWorkouts, listExercises } = useAppSelectors();
-    const [modalActive, setModalActive] = useState<boolean>(false);
+    const [isModalNameWorkout, setModalNameWorkout] = useState<boolean>(false);
 
     const startWorkout = () => {
-        setModalActive(true);
+        setModalNameWorkout(true);
     };
 
     const goToCurrentWorkout = () => {
         navigate(URL.current_workout);
     };
 
-    const handlerSaveBtn = (value: string) => {
+    const handlerNameWorkout = (value: string) => {
         dispatch(save_name(value));
         setTimeout(() => {
             navigate(URL.exercises_storage);
@@ -68,9 +68,9 @@ const ListWorkouts: FC = () => {
 
             <ModalSave
                 name="Название тренировки"
-                active={modalActive}
-                setActive={setModalActive}
-                handlerSaveBtn={handlerSaveBtn}
+                active={isModalNameWorkout}
+                setActive={setModalNameWorkout}
+                handlerSaveBtn={handlerNameWorkout}
             />
         </div>
     );

@@ -7,6 +7,7 @@ interface ModalSaveProps {
     name: string;
     active: boolean;
     setActive: (arg1: boolean) => void;
+    nameBtn?: string;
     handlerSaveBtn: (arg1: string) => void;
 }
 
@@ -14,6 +15,7 @@ const ModalSave: FC<ModalSaveProps> = ({
     name,
     active,
     setActive,
+    nameBtn = 'Сохранить',
     handlerSaveBtn,
 }) => {
     const nameWorkout = useInput('', !active);
@@ -27,7 +29,7 @@ const ModalSave: FC<ModalSaveProps> = ({
         <Modal
             active={active}
             setActive={setActive}
-            nameBtnActive="Сохранить"
+            nameBtnActive={nameBtn}
             handlerBtnActive={handlerBtnActive}>
             <div className={styles.modal}>
                 <div className={styles.title}>{name}</div>

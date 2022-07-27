@@ -12,13 +12,25 @@ import Header from 'shared/components/Header';
 import ModalSave from 'shared/components/ModalSave';
 import SelectExercise from '../SelectExercise';
 import './header-workout.scss';
+import { is } from 'immer/dist/internal';
+import Modal from 'shared/components/ui/Modal';
 
 const HeaderWorkout: FC<{ name: string }> = ({ name }) => {
     const navigate = useNavigate();
     const dispatch = useAppDispatch();
     const { saveNewWorkout } = useFirestore();
     const { currentWorkout, listExercises } = useAppSelectors();
-    const [modalActive, setModalActive] = useState<boolean>(false);
+
+    const [isModalNameWorkout, setModalNameWorkout] = useState<boolean>(false);
+    const [isModalFinish, setModalFinish] = useState<boolean>(false);
+
+    const handlerNameWorkout = (value: string) => {
+        dispatch(save_name(value));
+    };
+
+    const handlerFinish = () => {
+        setModalFinish(true);
+    };
 
     const finishWorkout = () => {
         if (currentWorkout.id) {
@@ -44,17 +56,25 @@ const HeaderWorkout: FC<{ name: string }> = ({ name }) => {
             <Header
                 previousPage={URL.list_workouts}
                 btnRight={'flag-checkered'}
-                btnEvent={finishWorkout}
-                handlerClickTitle={() => setModalActive(true)}
+                btnEvent={handlerFinish}
+                handlerClickTitle={() => setModalNameWorkout(true)}
                 children={currentWorkout.name}
             />
             <SelectExercise name={name} />
+
             <ModalSave
                 name="Название тренировки"
-                active={modalActive}
-                setActive={setModalActive}
-                handlerSaveBtn={(value: string) => dispatch(save_name(value))}
+                active={isModalNameWorkout}
+                setActive={setModalNameWorkout}
+                handlerSaveBtn={handlerNameWorkout}
             />
+            <Modal
+                active={isModalFinish}
+                setActive={setModalFinish}
+                nameBtnActive="Да"
+                handlerBtnActive={finishWorkout}>
+                <h3>Завершить тренировку?</h3>
+            </Modal>
         </div>
     );
 };

@@ -4,54 +4,40 @@
 .header {
     position: fixed;
     top: 0;
-    z-index: 1;
-
-    max-width: 400px;
+    z-index: 10;
+    max-width: $max-width;
     width: 100%;
     min-height: $height-header;
-
-    padding: $padding-body;
-
-    @include my-flex(center);
-    justify-content: space-between;
-
+    @include my-flex(space-between);
     background-color: $bg-color-header;
     user-select: none;
 
     &__btn {
-        color: $color-gold;
-        font-size: 16px;
-    }
-    &__btn:first-child {
         flex: 0 0 15%;
-
-        @include my-flex(center);
-        justify-content: flex-start;
+        height: $height-header;
+        color: $color-gold;
 
         svg {
-            width: 20px;
-            height: 20px;
+            width: 22px;
+            height: 22px;
             fill: $color-gold;
         }
-    }
 
-    &__btn:last-child {
-        flex: 0 0 15%;
-        @include my-flex(center);
-        justify-content: flex-end;
-
-        svg {
-            width: 20px;
-            height: 20px;
-            fill: $color-gold;
+        &:first-child {
+            @include my-flex(flex-start);
+            padding-left: 7px;
+        }
+        &:last-child {
+            @include my-flex(flex-end);
+            padding-right: 7px;
         }
     }
 
     &__title {
         flex: 0 0 70%;
+        height: $height-header;
         @include my-flex(center);
         color: $color-white;
-        font-size: 18px;
         cursor: pointer;
     }
 }

@@ -3,7 +3,7 @@
 
 .exercise {
     width: 100%;
-    padding: 10px 10px 10px 15px;
+    padding: $padding-line;
     @include my-flex(space-between);
     border-bottom: 1px solid $color-border;
     user-select: none;
