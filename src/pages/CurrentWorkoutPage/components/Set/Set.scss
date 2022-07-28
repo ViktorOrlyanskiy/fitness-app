@@ -42,14 +42,14 @@
 
     &__copy {
         @include size-btn(20px);
-        background-color: orange;
+        background-color: $bg-color-btn-copy;
     }
     &__edit {
         @include size-btn(20px);
-        background-color: rgb(101, 205, 240);
+        background-color: $bg-color-btn-edit;
     }
     &__delete {
         @include size-btn(20px);
-        background-color: red;
+        background-color: $bg-color-btn-delete;
     }
 }

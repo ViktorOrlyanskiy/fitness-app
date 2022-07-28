@@ -37,14 +37,14 @@ const FormAddExercise: FC = () => {
 
             dispatch(add_exercise(exercise));
             clearInputs([setName, setComment]);
-            navigate(URL.list_exercises);
+            navigate(URL.current_exercises);
         }
     };
 
     return (
         <div className="add-exercise">
             <Header
-                previousPage={URL.list_exercises}
+                previousPage={URL.current_exercises}
                 btnEvent={addExercise}
                 children={'Новое упражение'}
             />

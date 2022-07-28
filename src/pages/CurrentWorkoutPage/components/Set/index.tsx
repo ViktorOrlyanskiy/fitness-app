@@ -66,10 +66,10 @@ const Set: FC<SetProps> = ({ index, id, weight, amount, comment }) => {
                         <SvgGenerator id={variant.copy} />
                     </div>
                     <div className="btn-set__edit" onClick={editSet}>
-                        <SvgGenerator id={variant.pencil} />
+                        <SvgGenerator id={variant.pencil_light} />
                     </div>
                     <div className="btn-set__delete" onClick={removeSet}>
-                        <SvgGenerator id={variant.trash_can} />
+                        <SvgGenerator id={variant.trash_xmart} />
                     </div>
                 </div>
             }

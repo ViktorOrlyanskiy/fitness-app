@@ -3,16 +3,16 @@
 
 .exercise {
     width: 100%;
-    @include my-flex(center);
-    justify-content: space-between;
+    @include my-flex(space-between);
     border-bottom: 1px solid $color-border;
+    background-color: white;
     user-select: none;
 
     &__active {
         width: 20px;
         height: 20px;
-        @include my-flex(center);
         margin-right: 10px;
+        @include my-flex(center);
         border: 1px solid $color-border;
         border-radius: 50%;
 

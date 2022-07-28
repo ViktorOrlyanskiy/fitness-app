@@ -12,7 +12,7 @@ const SelectExercise: FC<{ name: string }> = React.memo(({ name }) => {
         <div className="current-workout__exercise select-exercise">
             <button
                 className="my-button"
-                onClick={() => navigate(URL.list_exercises)}
+                onClick={() => navigate(URL.current_exercises)}
                 children={name}
             />
             <button className="my-button">

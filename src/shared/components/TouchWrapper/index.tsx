@@ -8,9 +8,16 @@ interface TouchWrapperProps {
     front: React.ReactNode;
     back: React.ReactNode;
     offset: number;
+    duration?: string;
 }
 
-const TouchWrapper: FC<TouchWrapperProps> = ({ id, front, back, offset }) => {
+const TouchWrapper: FC<TouchWrapperProps> = ({
+    id,
+    front,
+    back,
+    offset,
+    duration = '0.7s',
+}) => {
     const dispatch = useAppDispatch();
     const offsetID = useAppSelector((state) => state.touchWrapper);
     const [leftOffset, setLeftOffset] = useState<number>(0);
@@ -54,7 +61,12 @@ const TouchWrapper: FC<TouchWrapperProps> = ({ id, front, back, offset }) => {
             onTouchStart={handlerTouchStart}
             onTouchMove={handlerTouchMove}
             onTouchEnd={handlerTouchEnd}>
-            <div style={{ left: -leftOffset }} className={styles.front}>
+            <div
+                style={{
+                    left: -leftOffset,
+                    transitionDuration: duration,
+                }}
+                className={styles.front}>
                 {front}
             </div>
             <div className={styles.back}>{back}</div>

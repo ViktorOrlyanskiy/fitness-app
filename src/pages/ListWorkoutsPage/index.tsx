@@ -43,7 +43,7 @@ const ListWorkouts: FC = () => {
 
     // получает listWorkouts из БД и сохраняет их в store
     useEffect(() => {
-        // getAllWorkouts();
+        getAllWorkouts();
     });
 
     return (

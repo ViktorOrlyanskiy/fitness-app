@@ -1,7 +1,5 @@
 import { FC, useState } from 'react';
-import { useAppDispatch } from 'hooks/useRedux';
 import { SvgGenerator, variant } from 'shared/components/ui/SvgGenerator';
-
 import './exercise.scss';
 
 interface ExerciseProps {
@@ -12,7 +10,6 @@ interface ExerciseProps {
 
 const Exercise: FC<ExerciseProps> = ({ id, name, handlerClickExercise }) => {
     const [isActive, setActive] = useState<boolean>(false);
-    const dispatch = useAppDispatch();
 
     const handlerClick = () => {
         handlerClickExercise(id + '*' + name, isActive);
@@ -27,7 +24,7 @@ const Exercise: FC<ExerciseProps> = ({ id, name, handlerClickExercise }) => {
                         ? 'exercise__active exercise__active_active'
                         : 'exercise__active'
                 }>
-                {isActive && <SvgGenerator id={variant.circle_check} />}
+                {isActive && <SvgGenerator id={variant.check} />}
             </div>
             <div className="exercise__title">{name}</div>
         </div>

@@ -18,7 +18,7 @@ const Workout: FC<WorkoutProps> = ({ id, name, date, isScheduled }) => {
     const dispatch = useAppDispatch();
     const { removeWorkout } = useFirestore();
 
-    const handlerDeleteBtn = () => {
+    const handlerBtnDelete = () => {
         dispatch(remove_workout(id));
         removeWorkout(id);
     };
@@ -27,25 +27,28 @@ const Workout: FC<WorkoutProps> = ({ id, name, date, isScheduled }) => {
         <TouchWrapper
             id={id}
             offset={isScheduled ? 126 : 84}
+            duration={isScheduled ? '0.6s' : '0.5s'}
             front={
                 <div className="workout">
                     <div className="workout__status">
-                        <SvgGenerator id={variant.circle_check} />
+                        <SvgGenerator id={variant.check} />
                     </div>
                     <div className="workout__title">{name}</div>
                     <div className="workout__date">{date}</div>
                 </div>
             }
             back={
-                <div className="workout__btns btn">
-                    <div className="btn__play">
+                <div className="workout__btns btn-back-line">
+                    <div className="btn-back-line__play">
                         <SvgGenerator id={variant.play} />
                     </div>
-                    <div className="btn__copy">
+                    <div className="btn-back-line__copy">
                         <SvgGenerator id={variant.copy} />
                     </div>
-                    <div className="btn__delete" onClick={handlerDeleteBtn}>
-                        <SvgGenerator id={variant.trash_can} />
+                    <div
+                        className="btn-back-line__delete"
+                        onClick={handlerBtnDelete}>
+                        <SvgGenerator id={variant.trash_xmart} />
                     </div>
                 </div>
             }
