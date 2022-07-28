@@ -2,11 +2,11 @@
 @import '../../../../shared/styles/variables.scss';
 
 .set {
-    max-width: 400px;
+    max-width: $max-width;
     width: 100%;
     display: flex;
     justify-content: space-between;
-    padding: 15px 0px 0px 10px;
+    padding: 15px 0px 0px 15px;
     background-color: white;
     user-select: none;
 
@@ -17,41 +17,15 @@
             width: 35px;
             height: 35px;
             @include my-flex(center);
-
-            margin-bottom: 10px;
-
-            font-size: 16px;
-            border: 1px solid rgb(195, 195, 195);
+            border: 1px solid $color-border;
             border-radius: 50%;
-            cursor: default;
-        }
-
-        &_icon {
-            width: 35px;
-            height: 35px;
-            @include my-flex(center);
-
-            cursor: pointer;
-            transition: all 0.1s;
-
-            svg {
-                width: 20px;
-                height: 20px;
-            }
-        }
-        &_icon:active {
-            transform: scale(0.9);
         }
     }
 
     &__body {
         flex: 0 0 85%;
-        padding-right: 5px;
-        padding-bottom: 15px;
-        border-bottom: 1px solid rgb(195, 195, 195);
-    }
-
-    &__btns {
+        padding: 0 10px 15px 0;
+        border-bottom: 1px solid $color-border;
     }
 }
 

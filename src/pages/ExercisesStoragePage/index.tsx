@@ -1,21 +1,21 @@
-import React, { FC, useRef } from 'react';
-import Header from 'shared/components/Header';
-import Group from './components/Group';
-import { URL } from 'shared/constants/URL';
-import { groups } from './content';
-import { IExercise } from 'shared/types';
-import { getStatus } from 'shared/utils/FormAddingValidation';
-import './exercises-storage.scss';
+import { FC, useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useAppDispatch, useAppSelectors } from 'hooks/useRedux';
 import { add_exercise } from 'store/slices/listExercises';
-import { useNavigate } from 'react-router-dom';
 import { create_id } from 'store/slices/currentWorkout';
+import { URL } from 'shared/constants/URL';
+import { IExercise } from 'shared/types';
+
+import Header from 'shared/components/Header';
+import Group from './components/Group';
+import { groups } from './content';
+import './exercises-storage.scss';
 
 const ExercisesStorage: FC = () => {
-    const exercisesRef = useRef<string[]>([]);
-    const dispatch = useAppDispatch();
     const navigate = useNavigate();
-    const { listExercises, currentWorkout } = useAppSelectors();
+    const dispatch = useAppDispatch();
+    const { currentWorkout } = useAppSelectors();
+    const exercisesRef = useRef<string[]>([]);
 
     const handlerClickExercise = (name: string, isActive: boolean) => {
         if (isActive && exercisesRef.current.includes(name)) {
@@ -32,7 +32,7 @@ const ExercisesStorage: FC = () => {
             exercisesRef.current.forEach((exercise, index) => {
                 const [id, name] = exercise.split('*');
                 const newExercise: IExercise = {
-                    id: +id,
+                    id: Number(id),
                     isActive: index > 0 ? false : true,
                     name,
                     sets: [],
@@ -50,7 +50,6 @@ const ExercisesStorage: FC = () => {
     return (
         <div className="exercises-storage">
             <Header
-                previousPage={URL.list_workouts}
                 children={'Выберите упражнение'}
                 btnEvent={startNewWorkout}
             />

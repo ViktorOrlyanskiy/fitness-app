@@ -11,7 +11,7 @@ export function useInput(initialValue: string, clearing: boolean) {
         if (clearing) {
             setValue(initialValue);
         }
-    }, [clearing]);
+    }, [initialValue, clearing]);
 
     return { value, onChange };
 }

@@ -1,20 +1,23 @@
-import React, { useEffect } from 'react';
+import React, { useCallback, useEffect } from 'react';
 
 export function useOutsideClick(
     ref: React.MutableRefObject<any>,
     active: boolean,
     setActive: (arg1: boolean) => void
 ) {
-    const listener = (e: MouseEvent | TouchEvent) => {
-        const node = ref.current;
-        if (!node || node.contains(e.target)) {
-            return;
-        }
+    const listener = useCallback(
+        (e: MouseEvent | TouchEvent) => {
+            const node = ref.current;
+            if (!node || node.contains(e.target)) {
+                return;
+            }
 
-        if (active) {
-            setActive(false);
-        }
-    };
+            if (active) {
+                setActive(false);
+            }
+        },
+        [ref, setActive, active]
+    );
 
     useEffect(() => {
         if (active) {
@@ -28,5 +31,5 @@ export function useOutsideClick(
             document.removeEventListener('click', listener);
             document.removeEventListener('touchstart', listener);
         };
-    }, [active]);
+    }, [active, listener]);
 }

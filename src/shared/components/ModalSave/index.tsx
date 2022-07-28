@@ -1,6 +1,6 @@
-import { FC, useEffect, useState } from 'react';
+import { FC } from 'react';
 import Modal from 'shared/components/ui/Modal';
-import { useInput } from 'shared/hooks/useInput';
+import { useInput } from 'hooks/useInput';
 import styles from './modal-save.module.scss';
 
 interface ModalSaveProps {

@@ -1,5 +1,5 @@
 import React, { FC, useRef } from 'react';
-import { useOutsideClick } from 'shared/hooks/useOutsideClick';
+import { useOutsideClick } from 'hooks/useOutsideClick';
 import styles from './modal.module.scss';
 
 interface IModalProps {

@@ -1,7 +1,5 @@
 import { FC, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { useAppDispatch, useAppSelectors } from 'hooks/useRedux';
-import { create_id } from 'store/slices/currentWorkout';
+import { useAppSelectors } from 'hooks/useRedux';
 import { URL } from 'shared/constants/URL';
 
 import Header from 'shared/components/Header';
@@ -12,51 +10,32 @@ import ExerciseActive from './components/ExerciseActive';
 import './list-exercises.scss';
 
 const ListExercises: FC = () => {
-    const navigate = useNavigate();
-    const dispatch = useAppDispatch();
     const [isActive, setActive] = useState<boolean>(false);
-    const { listExercises, currentWorkout } = useAppSelectors();
-
-    // const handlerBtnHeader = () => {
-    //     if (!currentWorkout.id && listExercises.length > 0) {
-    //         dispatch(create_id());
-    //         navigate(URL.current_workout);
-    //     }
-    // };
+    const { listExercises } = useAppSelectors();
 
     return (
         <div className="list-exercises">
-            {currentWorkout.id ? (
-                <Header
-                    previousPage={URL.current_workout}
-                    btnRight={'pencil'}
-                    btnEvent={() =>
-                        isActive ? setActive(false) : setActive(true)
-                    }
-                    children={'Список упражнений'}
-                />
-            ) : (
-                <Header
-                    previousPage={URL.list_workouts}
-                    btnRight={'Начать'}
-                    // btnEvent={handlerBtnHeader}
-                    children={'Список упражнений'}
-                />
-            )}
+            <Header
+                previousPage={URL.current_workout}
+                btnRight={isActive ? undefined : 'pencil'}
+                btnEvent={() => (isActive ? setActive(false) : setActive(true))}
+                children={'Список упражнений'}
+            />
 
-            <div className="list-exercise__body">
-                {listExercises.length === 0 && (
+            <div className="page-container">
+                {listExercises.length > 0 ? (
+                    isActive ? (
+                        listExercises.map((exercise) => (
+                            <ExerciseActive key={exercise.id} {...exercise} />
+                        ))
+                    ) : (
+                        listExercises.map((exercise) => (
+                            <Exercise key={exercise.id} {...exercise} />
+                        ))
+                    )
+                ) : (
                     <div className="notification-text">Добавьте упражения</div>
                 )}
-
-                {listExercises.length > 0 &&
-                    (isActive
-                        ? listExercises.map((exercise) => (
-                              <ExerciseActive key={exercise.id} {...exercise} />
-                          ))
-                        : listExercises.map((exercise) => (
-                              <Exercise key={exercise.id} {...exercise} />
-                          )))}
             </div>
 
             <Footer nextPage={URL.exercises_storage}>Добавить упражение</Footer>

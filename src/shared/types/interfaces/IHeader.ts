@@ -1,7 +1,7 @@
 import { ReactNode } from 'react';
 
 export interface IHeader {
-    previousPage: string;
+    previousPage?: string;
     btnLeft?: string;
     btnRight?: string;
     btnEvent?:

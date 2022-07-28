@@ -2,8 +2,7 @@
 @import '../../shared/styles/variables.scss';
 
 .current-workout {
-    &__body {
+    .page-container {
         padding-top: 130px;
-        padding-bottom: $height-footer;
     }
 }

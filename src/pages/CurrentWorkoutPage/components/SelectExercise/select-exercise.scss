@@ -1,11 +1,6 @@
 /* ========== Глобальные переменные ========== */
 @import '../../../../shared/styles/variables.scss';
 
-.current-workout {
-    &__exercise {
-    }
-}
-
 .select-exercise {
     display: flex;
     justify-content: space-between;
@@ -18,8 +13,7 @@
 
     border-radius: 2px;
     box-shadow: 0px 0px 2px 1px rgba(0, 0, 0, 0.3);
-    color: #fff;
-
+    color: $color-white;
     &:first-child {
         flex: 1 1 auto;
     }
@@ -29,7 +23,7 @@
 
         svg {
             width: 50%;
-            fill: #fff;
+            fill: $color-white;
         }
     }
 }

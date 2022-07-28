@@ -20,21 +20,10 @@
 }
 
 /* ========== Глобальные переменные ========== */
-@import '../../shared//styles/variables.scss';
+@import '../../shared/styles/variables.scss';
 
 /* ========== Глобальные стили ========== */
-.header__fixed {
-    position: fixed;
-    left: 0;
-    right: 0;
-    top: 0;
-    z-index: 2;
 
-    max-width: 400px;
-    width: 100%;
-    margin: 0 auto;
-    @include my-flex(center);
-}
 .main-container {
     max-width: 1230px;
     position: relative;
@@ -47,7 +36,7 @@
     color: #000;
 }
 .main__body {
-    max-width: 400px;
+    max-width: $max-width;
     width: 100%;
     margin: 0 auto;
 }

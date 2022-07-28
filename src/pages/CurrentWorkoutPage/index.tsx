@@ -21,7 +21,7 @@ const CurrentWorkout: FC = () => {
                     activeExercise ? activeExercise.name : 'Добавить упражение'
                 }
             />
-            <div className="current-workout__body">
+            <div className="page-container">
                 {sets &&
                     sets.length > 0 &&
                     sets.map((set, index) => (
