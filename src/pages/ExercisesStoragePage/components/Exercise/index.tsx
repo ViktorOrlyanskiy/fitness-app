@@ -1,4 +1,5 @@
 import { FC, useState } from 'react';
+import ListItem from 'shared/components/ListItem';
 import { SvgGenerator, variant } from 'shared/components/ui/SvgGenerator';
 import './exercise.scss';
 
@@ -18,15 +19,7 @@ const Exercise: FC<ExerciseProps> = ({ id, name, handlerClickExercise }) => {
 
     return (
         <div className="exercise" onClick={handlerClick}>
-            <div
-                className={
-                    isActive
-                        ? 'exercise__active exercise__active_active'
-                        : 'exercise__active'
-                }>
-                {isActive && <SvgGenerator id={variant.check} />}
-            </div>
-            <div className="exercise__title">{name}</div>
+            <ListItem status={isActive ? 'selected' : undefined} title={name} />
         </div>
     );
 };

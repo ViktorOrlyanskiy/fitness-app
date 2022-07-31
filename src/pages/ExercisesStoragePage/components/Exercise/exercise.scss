@@ -2,24 +2,4 @@
 @import '../../../../shared/styles/variables.scss';
 
 .exercise {
-    width: 100%;
-    padding: $padding-line;
-    @include my-flex(space-between);
-    border-bottom: 1px solid $color-border;
-    user-select: none;
-    cursor: pointer;
-
-    &__title {
-        font-size: $text-size;
-    }
-
-    &__active {
-        svg {
-            fill: $color-white;
-        }
-    }
-}
-
-.exercise:last-child {
-    border-bottom: none;
 }

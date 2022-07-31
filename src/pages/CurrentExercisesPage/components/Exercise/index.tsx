@@ -12,6 +12,7 @@ import { SvgGenerator, variant } from 'shared/components/ui/SvgGenerator';
 import TouchWrapper from 'shared/components/TouchWrapper';
 import { URL } from 'shared/constants/URL';
 import './exercise.scss';
+import ListItem from 'shared/components/ListItem';
 
 interface ExerciseProps extends IExercise {}
 
@@ -45,11 +46,15 @@ const Exercise: FC<ExerciseProps> = ({ id, name, isActive, sets }) => {
             offset={42}
             duration="0.3s"
             front={
-                <div className="exercise" onClick={changeExercise}>
-                    {getActiveExercise(isActive)}
-                    <div className="exercise__title">{name}</div>
-                    <div className="exercise__amount-sets">{sets?.length}</div>
-                </div>
+                <ListItem
+                    status="selected"
+                    title={name}
+                    rightElement={
+                        <div className="exercise__amount-sets">
+                            {sets?.length}
+                        </div>
+                    }
+                />
             }
             back={
                 <div className="exercise__btns btn-back-line">

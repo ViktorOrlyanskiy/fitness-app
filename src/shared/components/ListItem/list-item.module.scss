@@ -1,0 +1,41 @@
+/* ========== Глобальные переменные ========== */
+@import '../../styles/variables.scss';
+
+.list-item {
+    width: 100%;
+    padding: $padding-line;
+    @include my-flex(space-between);
+    border-bottom: 1px solid $color-border;
+    background-color: white;
+    cursor: pointer;
+    user-select: none;
+
+    & > div:first-child {
+        width: 22px;
+        height: 22px;
+        margin-right: 10px;
+        @include my-flex(center);
+        border: 1px solid $color-border;
+        border-radius: 50%;
+    }
+    .left {
+        background-color: $bg-color-header;
+        svg {
+            width: 12px;
+            height: 12px;
+            fill: $color-white !important;
+        }
+    }
+
+    .empty {
+        background-color: white;
+    }
+
+    .center {
+        flex: 0 1 70%;
+    }
+    .right {
+        flex: 1 0 15%;
+        @include my-flex(flex-end);
+    }
+}

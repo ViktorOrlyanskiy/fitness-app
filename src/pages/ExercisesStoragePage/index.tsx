@@ -9,49 +9,66 @@ import { IExercise } from 'shared/types';
 import Header from 'shared/components/Header';
 import Group from './components/Group';
 import { groups } from './content';
+import { getStatus } from 'shared/utils/FormAddingValidation';
 import './exercises-storage.scss';
 
 const ExercisesStorage: FC = () => {
     const navigate = useNavigate();
     const dispatch = useAppDispatch();
-    const { currentWorkout } = useAppSelectors();
+    const { currentWorkout, listExercises } = useAppSelectors();
     const exercisesRef = useRef<string[]>([]);
+    let exercises = exercisesRef.current;
 
     const handlerClickExercise = (name: string, isActive: boolean) => {
-        if (isActive && exercisesRef.current.includes(name)) {
-            exercisesRef.current = exercisesRef.current.filter(
-                (item) => item !== name
-            );
+        if (isActive && exercises.includes(name)) {
+            exercises = exercises.filter((item) => item !== name);
         } else {
-            exercisesRef.current.push(name);
+            exercises.push(name);
         }
     };
 
-    const startNewWorkout = () => {
-        if (exercisesRef.current.length > 0) {
-            exercisesRef.current.forEach((exercise, index) => {
-                const [id, name] = exercise.split('*');
+    const addExercises = () => {
+        exercises.forEach((exercise) => {
+            const [id, name] = exercise.split('*');
+
+            let includes = listExercises.find(
+                (exercise) => exercise.id === +id
+            );
+
+            if (!includes) {
                 const newExercise: IExercise = {
                     id: Number(id),
-                    isActive: index > 0 ? false : true,
+                    isActive: getStatus(listExercises),
                     name,
                     sets: [],
                 };
                 dispatch(add_exercise(newExercise));
-            });
-
-            if (!currentWorkout.id) {
-                dispatch(create_id());
-                navigate(URL.current_workout);
             }
-        }
+        });
+        navigate(-1);
+    };
+
+    const startNewWorkout = () => {
+        exercises.forEach((exercise, index) => {
+            const [id, name] = exercise.split('*');
+            const newExercise: IExercise = {
+                id: Number(id),
+                isActive: index > 0 ? false : true,
+                name,
+                sets: [],
+            };
+            dispatch(add_exercise(newExercise));
+        });
+
+        dispatch(create_id());
+        navigate(URL.current_workout);
     };
 
     return (
         <div className="exercises-storage">
             <Header
                 children={'Выберите упражнение'}
-                btnEvent={startNewWorkout}
+                btnEvent={currentWorkout.id ? addExercises : startNewWorkout}
             />
             <div className="page-container">
                 {groups.map((group) => (

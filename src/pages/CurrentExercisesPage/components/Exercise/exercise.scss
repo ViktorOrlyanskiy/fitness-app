@@ -2,36 +2,6 @@
 @import '../../../../shared/styles/variables.scss';
 
 .exercise {
-    width: 100%;
-    @include my-flex(space-between);
-    border-bottom: 1px solid $color-border;
-    background-color: white;
-    user-select: none;
-
-    &__active {
-        width: 20px;
-        height: 20px;
-        margin-right: 10px;
-        @include my-flex(center);
-        border: 1px solid $color-border;
-        border-radius: 50%;
-
-        &_active {
-            background-color: $bg-color-header;
-            border: 1px solid $bg-color-header;
-            svg {
-                width: 12px;
-                height: 12px;
-                fill: $color-white !important;
-            }
-        }
-    }
-
-    &__title {
-        flex: 1 1 80%;
-        font-size: 16px;
-    }
-
     &__amount-sets {
         width: 27px;
         height: 27px;
