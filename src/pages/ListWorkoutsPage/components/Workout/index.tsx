@@ -3,10 +3,10 @@ import { useFirestore } from 'hooks/useFirestore';
 import { useAppDispatch } from 'hooks/useRedux';
 import { remove_workout } from 'store/slices/listWorkouts';
 
-import { SvgGenerator, variant } from 'shared/components/ui/SvgGenerator';
 import TouchWrapper from 'shared/components/TouchWrapper';
-import './workout.scss';
 import ListItem from 'shared/components/ListItem';
+import ButtonBack from 'shared/components/ButtonBack';
+import './workout.scss';
 
 interface WorkoutProps {
     id: number;
@@ -37,19 +37,11 @@ const Workout: FC<WorkoutProps> = ({ id, name, date, isScheduled }) => {
                 />
             }
             back={
-                <div className="workout__btns btn-back-line">
-                    <div className="btn-back-line__play">
-                        <SvgGenerator id={variant.play} />
-                    </div>
-                    <div className="btn-back-line__copy">
-                        <SvgGenerator id={variant.copy} />
-                    </div>
-                    <div
-                        className="btn-back-line__delete"
-                        onClick={handlerBtnDelete}>
-                        <SvgGenerator id={variant.trash_xmart} />
-                    </div>
-                </div>
+                <ButtonBack
+                    handlerPlay={() => null}
+                    handlerCopy={() => null}
+                    handlerDelete={handlerBtnDelete}
+                />
             }
         />
     );

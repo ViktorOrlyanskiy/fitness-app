@@ -16,6 +16,7 @@ $bg-color-btn-delete: tomato;
 
 $height-header: 50px;
 $height-footer: 50px;
+$height-line: 42px;
 $padding-line: 10px 10px 10px 15px;
 $padding-header: 0 7px;
 $padding-body: 15px 7px;
@@ -32,27 +33,27 @@ $text-size: 18px;
     padding-top: $height-header;
 }
 
-.btn-back-line {
-    @mixin size-btn-back($padding) {
-        width: 42px;
-        height: 42px;
-        flex: 0 0 42px;
-        padding: $padding;
-    }
+// .btn-back-line {
+//     @mixin size-btn-back($padding) {
+//         width: 42px;
+//         height: 42px;
+//         flex: 0 0 42px;
+//         padding: $padding;
+//     }
 
-    width: 100%;
-    @include my-flex(flex-end);
+//     width: 100%;
+//     @include my-flex(flex-end);
 
-    &__play {
-        @include size-btn-back(10px);
-        background-color: $bg-color-btn-play;
-    }
-    &__copy {
-        @include size-btn-back(10px);
-        background-color: $bg-color-btn-copy;
-    }
-    &__delete {
-        @include size-btn-back(10px);
-        background-color: $bg-color-btn-delete;
-    }
-}
+//     &__play {
+//         @include size-btn-back(10px);
+//         background-color: $bg-color-btn-play;
+//     }
+//     &__copy {
+//         @include size-btn-back(10px);
+//         background-color: $bg-color-btn-copy;
+//     }
+//     &__delete {
+//         @include size-btn-back(10px);
+//         background-color: $bg-color-btn-delete;
+//     }
+// }

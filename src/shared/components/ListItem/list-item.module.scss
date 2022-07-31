@@ -3,6 +3,7 @@
 
 .list-item {
     width: 100%;
+    height: $height-line;
     padding: $padding-line;
     @include my-flex(space-between);
     border-bottom: 1px solid $color-border;

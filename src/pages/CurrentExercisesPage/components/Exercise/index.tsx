@@ -13,6 +13,7 @@ import TouchWrapper from 'shared/components/TouchWrapper';
 import { URL } from 'shared/constants/URL';
 import './exercise.scss';
 import ListItem from 'shared/components/ListItem';
+import ButtonBack from 'shared/components/ButtonBack';
 
 interface ExerciseProps extends IExercise {}
 
@@ -30,16 +31,6 @@ const Exercise: FC<ExerciseProps> = ({ id, name, isActive, sets }) => {
         dispatch(change_active_exercise());
     };
 
-    const getActiveExercise = (status: boolean) => {
-        return status ? (
-            <div className="exercise__active exercise__active_active">
-                <SvgGenerator id={variant.check} />
-            </div>
-        ) : (
-            <div className="exercise__active"></div>
-        );
-    };
-
     return (
         <TouchWrapper
             id={id}
@@ -47,8 +38,9 @@ const Exercise: FC<ExerciseProps> = ({ id, name, isActive, sets }) => {
             duration="0.3s"
             front={
                 <ListItem
-                    status="selected"
+                    status={isActive ? 'selected' : undefined}
                     title={name}
+                    handlerClick={changeExercise}
                     rightElement={
                         <div className="exercise__amount-sets">
                             {sets?.length}
@@ -56,15 +48,7 @@ const Exercise: FC<ExerciseProps> = ({ id, name, isActive, sets }) => {
                     }
                 />
             }
-            back={
-                <div className="exercise__btns btn-back-line">
-                    <div
-                        className="btn-back-line__delete"
-                        onClick={handlerBtnDelete}>
-                        <SvgGenerator id={variant.trash_xmart} />
-                    </div>
-                </div>
-            }
+            back={<ButtonBack handlerDelete={handlerBtnDelete} />}
         />
     );
 };

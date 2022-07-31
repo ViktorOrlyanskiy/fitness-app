@@ -28,28 +28,3 @@
         border-bottom: 1px solid $color-border;
     }
 }
-
-@mixin size-btn($padding) {
-    width: 71px;
-    height: 100%;
-    flex: 0 0 71px;
-    padding: $padding;
-}
-.btn-set {
-    width: 100%;
-    height: 100%;
-    @include my-flex(flex-end);
-
-    &__copy {
-        @include size-btn(20px);
-        background-color: $bg-color-btn-copy;
-    }
-    &__edit {
-        @include size-btn(20px);
-        background-color: $bg-color-btn-edit;
-    }
-    &__delete {
-        @include size-btn(20px);
-        background-color: $bg-color-btn-delete;
-    }
-}

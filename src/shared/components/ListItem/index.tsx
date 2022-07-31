@@ -6,9 +6,15 @@ interface ListItemProps {
     status?: 'scheduled' | 'selected' | undefined;
     title: string;
     rightElement?: React.ReactNode;
+    handlerClick?: () => void;
 }
 
-const ListItem: FC<ListItemProps> = ({ status, title, rightElement }) => {
+const ListItem: FC<ListItemProps> = ({
+    status,
+    title,
+    rightElement,
+    handlerClick,
+}) => {
     const getIconStatus = () => {
         switch (status) {
             case 'scheduled':
@@ -21,7 +27,7 @@ const ListItem: FC<ListItemProps> = ({ status, title, rightElement }) => {
     };
 
     return (
-        <div className={styles['list-item']}>
+        <div className={styles['list-item']} onClick={handlerClick}>
             <div className={status ? styles.left : styles.empty}>
                 {getIconStatus()}
             </div>
