@@ -13,6 +13,7 @@ const initialState: ICurrentWorkout = {
     date: '',
 };
 
+// временно хранит информацию о текущей тренировки
 const CurrentWorkout = createSlice({
     name: 'CurrentWorkout',
     initialState,

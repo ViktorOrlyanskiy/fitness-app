@@ -11,12 +11,12 @@ import ModalSave from 'shared/components/ModalSave';
 
 import { URL } from 'shared/constants/URL';
 import './list-workouts.scss';
+import { set_fetch } from 'store/reducers/fetchSlice';
 
 const ListWorkouts: FC = () => {
     const navigate = useNavigate();
     const dispatch = useAppDispatch();
-    const { user, currentWorkout, listWorkouts, listExercises } =
-        useAppSelectors();
+    const { user, fetch, listWorkouts, listExercises } = useAppSelectors();
     const [isModalNameWorkout, setModalNameWorkout] = useState<boolean>(false);
 
     const startWorkout = () => {
@@ -34,17 +34,15 @@ const ListWorkouts: FC = () => {
         }, 500);
     };
 
-    // очищает listExercises если прервалось создание тренировки
+    // получает listWorkouts от сервера
     useEffect(() => {
-        if (!currentWorkout.id && listExercises.length > 0) {
-            dispatch(clear_list_exercises());
+        if (fetch) {
+            if (user.uid) {
+                dispatch(_fetch_workouts(user.uid));
+                dispatch(set_fetch(false));
+            }
         }
-    }, [currentWorkout.id, listExercises.length, dispatch]);
-
-    // получает listWorkouts из БД и сохраняет их в store
-    useEffect(() => {
-        if (user.uid) dispatch(_fetch_workouts(user.uid));
-    }, [user.uid, dispatch]);
+    }, [user.uid, dispatch, fetch]);
 
     return (
         <div className="list-workouts">

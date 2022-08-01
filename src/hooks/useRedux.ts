@@ -9,6 +9,7 @@ export const useAppSelectors = () => {
     const listExercises = useAppSelector((state) => state.listExercises);
     const currentWorkout = useAppSelector((state) => state.currentWorkout);
     const user = useAppSelector((state) => state.user);
+    const fetch = useAppSelector((state) => state.fetch);
 
-    return { listWorkouts, listExercises, currentWorkout, user };
+    return { listWorkouts, listExercises, currentWorkout, user, fetch };
 };

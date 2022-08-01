@@ -10,6 +10,7 @@ interface IEditSet {
 
 const initialState: IEditSet = {};
 
+// используется для редактирования сета
 const editSet = createSlice({
     name: 'editSet',
     initialState,

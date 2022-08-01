@@ -2,6 +2,7 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 const initialState: number = 0;
 
+// используется для автоматического возврата смещенного front слоя
 const touchWrapper = createSlice({
     name: 'touchWrapper',
     initialState,

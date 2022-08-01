@@ -4,6 +4,7 @@ import { IWorkout } from 'shared/types';
 
 const initialState: IWorkout[] = [];
 
+// получает список тренировок с сервера
 const listWorkouts = createSlice({
     name: 'listWorkouts',
     initialState,

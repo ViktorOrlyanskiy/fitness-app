@@ -7,6 +7,7 @@ const initialState: IUser = {
     uid: '',
 };
 
+// хранит информацию о текущем пользователе
 const user = createSlice({
     name: 'user',
     initialState,

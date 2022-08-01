@@ -7,6 +7,7 @@ import ListItem from 'shared/components/ListItem';
 import ButtonBack from 'shared/components/ButtonBack';
 import './workout.scss';
 import { _fetch_workouts } from 'store/actions/_fetch_workouts_async';
+import { set_fetch } from 'store/reducers/fetchSlice';
 
 interface WorkoutProps {
     id: number;
@@ -22,6 +23,7 @@ const Workout: FC<WorkoutProps> = ({ id, name, date, isScheduled }) => {
     const handlerBtnDelete = () => {
         if (user.uid) {
             dispatch(_remove_workout({ userId: user.uid, workoutId: id }));
+            dispatch(set_fetch(true));
             dispatch(_fetch_workouts(user.uid));
         }
     };

@@ -26,11 +26,12 @@ const initialState: IExercise[] = [
     // },
 ];
 
+// хранит список упражений и сетов текущей тренировки
 const listExercises = createSlice({
     name: 'listExercises',
     initialState,
     reducers: {
-        clear_list_exercises: state => {
+        clear_list_exercises: (state) => {
             state.length = 0;
         },
 
@@ -43,7 +44,7 @@ const listExercises = createSlice({
         change_exercise: (state, { payload }: PayloadAction<number>) => {
             changeExercise(state, payload);
         },
-        change_active_exercise: state => {
+        change_active_exercise: (state) => {
             changeActiveExercise(state);
         },
 
