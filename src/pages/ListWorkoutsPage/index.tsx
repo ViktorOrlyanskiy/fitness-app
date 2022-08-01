@@ -1,9 +1,9 @@
 import { FC, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAppDispatch, useAppSelectors } from 'hooks/useRedux';
-import { useFirestore } from 'hooks/useFirestore';
 import { clear_list_exercises } from 'store/reducers/listExercises';
 import { save_name } from 'store/reducers/currentWorkout';
+import { _fetch_workouts } from 'store/actions/_fetch_workouts_async';
 
 import Header from 'shared/components/Header';
 import Workout from './components/Workout';
@@ -15,8 +15,8 @@ import './list-workouts.scss';
 const ListWorkouts: FC = () => {
     const navigate = useNavigate();
     const dispatch = useAppDispatch();
-    const { getAllWorkouts } = useFirestore();
-    const { currentWorkout, listWorkouts, listExercises } = useAppSelectors();
+    const { user, currentWorkout, listWorkouts, listExercises } =
+        useAppSelectors();
     const [isModalNameWorkout, setModalNameWorkout] = useState<boolean>(false);
 
     const startWorkout = () => {
@@ -39,12 +39,12 @@ const ListWorkouts: FC = () => {
         if (!currentWorkout.id && listExercises.length > 0) {
             dispatch(clear_list_exercises());
         }
-    });
+    }, [currentWorkout.id, listExercises.length, dispatch]);
 
     // получает listWorkouts из БД и сохраняет их в store
     useEffect(() => {
-        getAllWorkouts();
-    });
+        if (user.uid) dispatch(_fetch_workouts(user.uid));
+    }, [user.uid, dispatch]);
 
     return (
         <div className="list-workouts">

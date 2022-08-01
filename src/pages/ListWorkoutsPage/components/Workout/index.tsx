@@ -1,12 +1,12 @@
 import { FC } from 'react';
-import { useFirestore } from 'hooks/useFirestore';
-import { useAppDispatch } from 'hooks/useRedux';
-import { remove_workout } from 'store/reducers/listWorkouts';
+import { useAppDispatch, useAppSelector } from 'hooks/useRedux';
+import { _remove_workout } from 'store/actions/_remove_workout_async';
 
 import TouchWrapper from 'shared/components/TouchWrapper';
 import ListItem from 'shared/components/ListItem';
 import ButtonBack from 'shared/components/ButtonBack';
 import './workout.scss';
+import { _fetch_workouts } from 'store/actions/_fetch_workouts_async';
 
 interface WorkoutProps {
     id: number;
@@ -17,11 +17,13 @@ interface WorkoutProps {
 
 const Workout: FC<WorkoutProps> = ({ id, name, date, isScheduled }) => {
     const dispatch = useAppDispatch();
-    const { removeWorkout } = useFirestore();
+    const user = useAppSelector((state) => state.user);
 
     const handlerBtnDelete = () => {
-        dispatch(remove_workout(id));
-        removeWorkout(id);
+        if (user.uid) {
+            dispatch(_remove_workout({ userId: user.uid, workoutId: id }));
+            dispatch(_fetch_workouts(user.uid));
+        }
     };
 
     return (

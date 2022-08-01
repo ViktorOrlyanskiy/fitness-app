@@ -1,32 +1,35 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { _fetch_workouts } from 'store/actions/_fetch_workouts_async';
 import { IWorkout } from 'shared/types';
 
-const initialState: IWorkout[] = [
-    // { id: 1, name: 'Тренировка 1', date: '21.06.22', isScheduled: false, },
-];
+const initialState: IWorkout[] = [];
 
 const listWorkouts = createSlice({
-    name: 'ListWorkouts',
+    name: 'listWorkouts',
     initialState,
-    reducers: {
-        clear_workouts: (state) => {
-            state.length = 0;
-        },
-        // заменить на fetch_workouts
-        set_workouts: (state, { payload }: PayloadAction<IWorkout[]>) => {
-            return [...payload];
-        },
-        // async
-        add_workout: (state, action: PayloadAction<IWorkout>) => {
-            state.push(action.payload);
-        },
-        // async
-        remove_workout: (state, { payload }: PayloadAction<number>) => {
-            return state.filter(({ id }) => id !== payload);
-        },
+    reducers: {},
+    extraReducers: (builder) => {
+        builder.addCase(
+            _fetch_workouts.pending,
+            (state, { payload }: PayloadAction<any>) => {
+                console.log('pending');
+            }
+        );
+        builder.addCase(
+            _fetch_workouts.fulfilled,
+            (state, { payload }: PayloadAction<any>) => {
+                console.log('fulfilled');
+                return [...payload];
+            }
+        );
+        builder.addCase(
+            _fetch_workouts.rejected,
+            (state, { payload }: PayloadAction<any>) => {
+                console.log(payload);
+            }
+        );
     },
 });
 
 export default listWorkouts.reducer;
-export const { add_workout, clear_workouts, set_workouts, remove_workout } =
-    listWorkouts.actions;
+export const {} = listWorkouts.actions;

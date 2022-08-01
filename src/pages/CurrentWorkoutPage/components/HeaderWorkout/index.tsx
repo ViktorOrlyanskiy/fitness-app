@@ -1,8 +1,7 @@
 import { FC, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAppDispatch, useAppSelectors } from 'hooks/useRedux';
-import { useFirestore } from 'hooks/useFirestore';
-import { add_workout } from 'store/reducers/listWorkouts';
+import { _set_workouts } from 'store/actions/_set_workout_async';
 import { clear_list_exercises } from 'store/reducers/listExercises';
 import {
     clear_current_workout,
@@ -14,15 +13,13 @@ import { URL } from 'shared/constants/URL';
 import Header from 'shared/components/Header';
 import ModalSave from 'shared/components/ModalSave';
 import SelectExercise from '../SelectExercise';
-import './header-workout.scss';
-import { is } from 'immer/dist/internal';
 import Modal from 'shared/components/ui/Modal';
+import './header-workout.scss';
 
 const HeaderWorkout: FC<{ name: string }> = ({ name }) => {
     const navigate = useNavigate();
     const dispatch = useAppDispatch();
-    const { saveNewWorkout } = useFirestore();
-    const { currentWorkout, listExercises } = useAppSelectors();
+    const { user, currentWorkout, listExercises } = useAppSelectors();
 
     const [isModalNameWorkout, setModalNameWorkout] = useState<boolean>(false);
     const [isModalFinish, setModalFinish] = useState<boolean>(false);
@@ -46,11 +43,12 @@ const HeaderWorkout: FC<{ name: string }> = ({ name }) => {
                 listExercises,
             };
 
-            dispatch(add_workout(workout));
-            saveNewWorkout(workout);
-            dispatch(clear_list_exercises());
-            dispatch(clear_current_workout());
-            navigate(URL.list_workouts);
+            if (user.uid) {
+                dispatch(_set_workouts({ userId: user.uid, workout }));
+                dispatch(clear_list_exercises());
+                dispatch(clear_current_workout());
+                navigate(URL.list_workouts);
+            }
         }
     };
 
