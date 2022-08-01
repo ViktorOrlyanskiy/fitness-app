@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { URL } from 'shared/constants/URL';
 import { IExercise } from 'shared/types';
 import { useAppDispatch, useAppSelectors } from 'hooks/useRedux';
-import { add_exercise } from 'store/slices/listExercises';
+import { add_exercise } from 'store/reducers/listExercises';
 import {
     formValidation,
     clearInputs,

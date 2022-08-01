@@ -1,8 +1,8 @@
 import { FC } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAppDispatch } from 'hooks/useRedux';
-import { remove_set, copy_set } from 'store/slices/listExercises';
-import { save_service_set } from 'store/slices/editSet';
+import { remove_set, copy_set } from 'store/reducers/listExercises';
+import { save_service_set } from 'store/reducers/editSet';
 
 import TouchWrapper from 'shared/components/TouchWrapper';
 import ButtonBack from 'shared/components/ButtonBack';

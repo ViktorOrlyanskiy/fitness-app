@@ -1,8 +1,8 @@
 import { FC, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAppDispatch, useAppSelectors } from 'hooks/useRedux';
-import { add_exercise } from 'store/slices/listExercises';
-import { create_id } from 'store/slices/currentWorkout';
+import { add_exercise } from 'store/reducers/listExercises';
+import { create_id } from 'store/reducers/currentWorkout';
 import { URL } from 'shared/constants/URL';
 import { IExercise } from 'shared/types';
 

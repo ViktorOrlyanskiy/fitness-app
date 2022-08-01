@@ -2,8 +2,8 @@ import { FC, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAppDispatch, useAppSelectors } from 'hooks/useRedux';
 import { useFirestore } from 'hooks/useFirestore';
-import { clear_list_exercises } from 'store/slices/listExercises';
-import { save_name } from 'store/slices/currentWorkout';
+import { clear_list_exercises } from 'store/reducers/listExercises';
+import { save_name } from 'store/reducers/currentWorkout';
 
 import Header from 'shared/components/Header';
 import Workout from './components/Workout';

@@ -12,12 +12,15 @@ const listWorkouts = createSlice({
         clear_workouts: (state) => {
             state.length = 0;
         },
+        // заменить на fetch_workouts
         set_workouts: (state, { payload }: PayloadAction<IWorkout[]>) => {
             return [...payload];
         },
+        // async
         add_workout: (state, action: PayloadAction<IWorkout>) => {
             state.push(action.payload);
         },
+        // async
         remove_workout: (state, { payload }: PayloadAction<number>) => {
             return state.filter(({ id }) => id !== payload);
         },

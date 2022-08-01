@@ -1,8 +1,8 @@
 import React, { FC, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from 'hooks/useRedux';
-import { add_set, edit_set } from 'store/slices/listExercises';
-import { clear_service_set } from 'store/slices/editSet';
+import { add_set, edit_set } from 'store/reducers/listExercises';
+import { clear_service_set } from 'store/reducers/editSet';
 import { URL } from 'shared/constants/URL';
 import { ISet } from 'shared/types';
 import { formValidation, clearInputs } from 'shared/utils/FormAddingValidation';
@@ -15,7 +15,7 @@ import './form-add-set.scss';
 const FormAddSet: FC = () => {
     const navigate = useNavigate();
     const dispatch = useAppDispatch();
-    const set = useAppSelector(state => state.editSet);
+    const set = useAppSelector((state) => state.editSet);
 
     const [weight, setWeight] = useState<string>(set.weight ? set.weight : '');
     const [amount, setAmount] = useState<string>(set.amount ? set.amount : '');

@@ -7,7 +7,7 @@ import {
 } from 'firebase/firestore';
 import { db } from '../firebase';
 import { useAppDispatch, useAppSelectors } from 'hooks/useRedux';
-import { clear_workouts, set_workouts } from 'store/slices/listWorkouts';
+import { clear_workouts, set_workouts } from 'store/reducers/listWorkouts';
 import { IWorkout } from 'shared/types';
 
 export const useFirestore = () => {

@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import { IUser } from 'shared/types';
 import { useAppDispatch } from 'hooks/useRedux';
-import { set_user } from 'store/slices/user';
+import { set_user } from 'store/reducers/user';
 import {
     getAuth,
     signInWithEmailAndPassword,

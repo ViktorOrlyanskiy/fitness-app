@@ -1,6 +1,6 @@
 import React, { FC, useEffect, useState, useRef } from 'react';
 import { useAppDispatch, useAppSelector } from 'hooks/useRedux';
-import { set_offset } from 'store/slices/touchWrapper';
+import { set_offset } from 'store/reducers/touchWrapper';
 import styles from './touch-wrapper.module.scss';
 
 interface TouchWrapperProps {

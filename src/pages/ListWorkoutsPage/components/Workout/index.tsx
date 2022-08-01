@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { useFirestore } from 'hooks/useFirestore';
 import { useAppDispatch } from 'hooks/useRedux';
-import { remove_workout } from 'store/slices/listWorkouts';
+import { remove_workout } from 'store/reducers/listWorkouts';
 
 import TouchWrapper from 'shared/components/TouchWrapper';
 import ListItem from 'shared/components/ListItem';

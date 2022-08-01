@@ -2,9 +2,12 @@ import { FC, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAppDispatch, useAppSelectors } from 'hooks/useRedux';
 import { useFirestore } from 'hooks/useFirestore';
-import { add_workout } from 'store/slices/listWorkouts';
-import { clear_list_exercises } from 'store/slices/listExercises';
-import { clear_current_workout, save_name } from 'store/slices/currentWorkout';
+import { add_workout } from 'store/reducers/listWorkouts';
+import { clear_list_exercises } from 'store/reducers/listExercises';
+import {
+    clear_current_workout,
+    save_name,
+} from 'store/reducers/currentWorkout';
 
 import { IWorkout } from 'shared/types';
 import { URL } from 'shared/constants/URL';

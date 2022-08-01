@@ -11,12 +11,12 @@ import {
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 
-import listExercises from './slices/listExercises';
-import listWorkouts from './slices/listWorkouts';
-import currentWorkout from './slices/currentWorkout';
-import user from './slices/user';
-import touchWrapper from './slices/touchWrapper';
-import editSet from './slices/editSet';
+import listExercises from './reducers/listExercises';
+import listWorkouts from './reducers/listWorkouts';
+import currentWorkout from './reducers/currentWorkout';
+import user from './reducers/user';
+import touchWrapper from './reducers/touchWrapper';
+import editSet from './reducers/editSet';
 
 const persistConfig = {
     key: 'root',

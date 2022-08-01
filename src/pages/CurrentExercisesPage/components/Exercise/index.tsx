@@ -5,7 +5,7 @@ import {
     change_exercise,
     remove_exercise,
     change_active_exercise,
-} from 'store/slices/listExercises';
+} from 'store/reducers/listExercises';
 import { IExercise } from 'shared/types';
 
 import { SvgGenerator, variant } from 'shared/components/ui/SvgGenerator';
