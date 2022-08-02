@@ -8,6 +8,8 @@ import {
     createUserWithEmailAndPassword,
 } from 'firebase/auth';
 import { URL } from 'shared/constants/URL';
+import { _set_exercise } from 'store/actions/exercisesStorageActions/_set_exercise_async';
+import { exercises } from 'shared/constants/exercises';
 
 export const useLogin = () => {
     const dispatch = useAppDispatch();
@@ -45,6 +47,7 @@ export const useLogin = () => {
         signInWithEmailAndPassword(auth, email, password)
             .then(({ user }) => {
                 dispatch(set_user(parseUser(user)));
+
                 saveUserInLocalStorage(user);
                 navigate(URL.list_workouts);
             })
@@ -60,6 +63,10 @@ export const useLogin = () => {
         createUserWithEmailAndPassword(auth, email, password)
             .then(({ user }) => {
                 dispatch(set_user(parseUser(user)));
+                // отправляет на сервер первоначальный набор упражений
+                exercises.forEach((group) => {
+                    dispatch(_set_exercise({ userId: user.uid, group }));
+                });
                 navigate(URL.list_workouts);
             })
             .catch(() => {

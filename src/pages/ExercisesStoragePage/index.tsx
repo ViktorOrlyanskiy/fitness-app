@@ -1,21 +1,23 @@
-import { FC, useRef } from 'react';
+import { FC, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAppDispatch, useAppSelectors } from 'hooks/useRedux';
 import { add_exercise } from 'store/reducers/listExercises';
 import { create_id } from 'store/reducers/currentWorkout';
+import { set_fetch_exercises } from 'store/reducers/fetch';
+import { _fetch_exercises } from 'store/actions/exercisesStorageActions/_fetch_exercises_async';
 import { URL } from 'shared/constants/URL';
 import { IExercise } from 'shared/types';
+import { getStatus } from 'shared/utils/FormAddingValidation';
 
 import Header from 'shared/components/Header';
 import Group from './components/Group';
-import { groups } from './content';
-import { getStatus } from 'shared/utils/FormAddingValidation';
 import './exercises-storage.scss';
 
 const ExercisesStorage: FC = () => {
     const navigate = useNavigate();
     const dispatch = useAppDispatch();
-    const { currentWorkout, listExercises } = useAppSelectors();
+    const { currentWorkout, listExercises, exercisesStorage, user, fetch } =
+        useAppSelectors();
     const exercisesRef = useRef<string[]>([]);
     let exercises = exercisesRef.current;
 
@@ -26,6 +28,17 @@ const ExercisesStorage: FC = () => {
             exercises.push(name);
         }
     };
+
+    // получает exercisesStorage от сервера
+    useEffect(() => {
+        if (fetch.exercises) {
+            if (user.uid) {
+                dispatch(_fetch_exercises(user.uid));
+                dispatch(set_fetch_exercises(false));
+                console.log(exercisesStorage);
+            }
+        }
+    }, [user.uid, dispatch]);
 
     const addExercises = () => {
         exercises.forEach((exercise) => {
@@ -71,7 +84,7 @@ const ExercisesStorage: FC = () => {
                 btnEvent={currentWorkout.id ? addExercises : startNewWorkout}
             />
             <div className="page-container">
-                {groups.map((group) => (
+                {exercisesStorage.map((group) => (
                     <Group
                         key={group.name}
                         {...group}

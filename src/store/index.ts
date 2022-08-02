@@ -17,7 +17,8 @@ import currentWorkout from './reducers/currentWorkout';
 import user from './reducers/user';
 import touchWrapper from './reducers/touchWrapper';
 import editSet from './reducers/editSet';
-import fetch from './reducers/fetchSlice';
+import fetch from './reducers/fetch';
+import exercisesStorage from './reducers/exercisesStorage';
 
 const persistConfig = {
     key: 'root',
@@ -29,6 +30,7 @@ const rootReducer = combineReducers({
     listWorkouts: listWorkouts,
     listExercises: listExercises,
     currentWorkout: currentWorkout,
+    exercisesStorage: exercisesStorage,
     user: user,
     touchWrapper: touchWrapper,
     editSet: editSet,

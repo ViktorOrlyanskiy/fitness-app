@@ -5,3 +5,5 @@ export type { IRoute } from './interfaces/IRoute';
 export type { ISet } from './interfaces/ISet';
 export type { IUser } from './interfaces/IUser';
 export type { IWorkout } from './interfaces/IWorkout';
+export type { IExerciseStorage } from './interfaces/IExerciseStorage';
+export type { IGroupExercises } from './interfaces/IGroupExercises';

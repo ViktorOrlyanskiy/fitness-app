@@ -1,10 +1,9 @@
-import React, { FC } from 'react';
+import { FC } from 'react';
+import { IGroupExercises } from 'shared/types';
 import Exercise from '../Exercise';
 import styles from './group.module.scss';
 
-interface GroupProps {
-    name: string;
-    list: { id: number; name: string }[];
+interface GroupProps extends IGroupExercises {
     handlerClickExercise: (name: string, isActive: boolean) => void;
 }
 

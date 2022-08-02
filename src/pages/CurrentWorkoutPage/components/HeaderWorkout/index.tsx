@@ -15,7 +15,7 @@ import ModalSave from 'shared/components/ModalSave';
 import SelectExercise from '../SelectExercise';
 import Modal from 'shared/components/ui/Modal';
 import './header-workout.scss';
-import { set_fetch } from 'store/reducers/fetchSlice';
+import { set_fetch_workouts } from 'store/reducers/fetch';
 
 const HeaderWorkout: FC<{ name: string }> = ({ name }) => {
     const navigate = useNavigate();
@@ -46,7 +46,7 @@ const HeaderWorkout: FC<{ name: string }> = ({ name }) => {
 
             if (user.uid) {
                 dispatch(_set_workouts({ userId: user.uid, workout }));
-                dispatch(set_fetch(true));
+                dispatch(set_fetch_workouts(true));
                 dispatch(clear_list_exercises());
                 dispatch(clear_current_workout());
                 navigate(URL.list_workouts);

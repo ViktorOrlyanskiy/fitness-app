@@ -1,17 +1,15 @@
 import { FC, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAppDispatch, useAppSelectors } from 'hooks/useRedux';
-import { clear_list_exercises } from 'store/reducers/listExercises';
 import { save_name } from 'store/reducers/currentWorkout';
 import { _fetch_workouts } from 'store/actions/_fetch_workouts_async';
+import { set_fetch_workouts } from 'store/reducers/fetch';
 
 import Header from 'shared/components/Header';
 import Workout from './components/Workout';
 import ModalSave from 'shared/components/ModalSave';
-
 import { URL } from 'shared/constants/URL';
 import './list-workouts.scss';
-import { set_fetch } from 'store/reducers/fetchSlice';
 
 const ListWorkouts: FC = () => {
     const navigate = useNavigate();
@@ -36,10 +34,10 @@ const ListWorkouts: FC = () => {
 
     // получает listWorkouts от сервера
     useEffect(() => {
-        if (fetch) {
+        if (fetch.workouts) {
             if (user.uid) {
                 dispatch(_fetch_workouts(user.uid));
-                dispatch(set_fetch(false));
+                dispatch(set_fetch_workouts(false));
             }
         }
     }, [user.uid, dispatch, fetch]);
