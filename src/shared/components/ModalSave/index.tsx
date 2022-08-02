@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, useEffect, useRef } from 'react';
 import Modal from 'shared/components/ui/Modal';
 import { useInput } from 'hooks/useInput';
 import styles from './modal-save.module.scss';
@@ -19,21 +19,34 @@ const ModalSave: FC<ModalSaveProps> = ({
     handlerSaveBtn,
 }) => {
     const nameWorkout = useInput('', !active);
+    const inputRef = useRef<HTMLInputElement>(null);
 
     const handlerBtnActive = () => {
-        handlerSaveBtn(nameWorkout.value);
-        setActive(false);
+        if (nameWorkout.value) {
+            handlerSaveBtn(nameWorkout.value);
+            setActive(false);
+        }
     };
+
+    useEffect(() => {
+        if (active) inputRef?.current?.focus();
+    }, [active]);
 
     return (
         <Modal
             active={active}
             setActive={setActive}
             nameBtnActive={nameBtn}
+            disabledBtnActive={nameWorkout.value ? false : true}
             handlerBtnActive={handlerBtnActive}>
             <div className={styles.modal}>
                 <div className={styles.title}>{name}</div>
-                <input type="text" className={styles.input} {...nameWorkout} />
+                <input
+                    ref={inputRef}
+                    type="text"
+                    className={styles.input}
+                    {...nameWorkout}
+                />
             </div>
         </Modal>
     );

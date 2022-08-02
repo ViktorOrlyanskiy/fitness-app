@@ -6,6 +6,7 @@ interface IModalProps {
     active: boolean;
     setActive: (arg1: boolean) => void;
     nameBtnActive?: string;
+    disabledBtnActive?: boolean;
     handlerBtnActive?: () => void;
     children: React.ReactNode;
 }
@@ -14,6 +15,7 @@ const Modal: FC<IModalProps> = ({
     active,
     setActive,
     nameBtnActive,
+    disabledBtnActive,
     handlerBtnActive,
     children,
 }) => {
@@ -28,7 +30,10 @@ const Modal: FC<IModalProps> = ({
             }>
             <div className={styles.body}>{children}</div>
             {!!nameBtnActive && (
-                <button className={styles.btn} onClick={handlerBtnActive}>
+                <button
+                    className={styles.btn}
+                    onClick={handlerBtnActive}
+                    disabled={disabledBtnActive}>
                     {nameBtnActive}
                 </button>
             )}

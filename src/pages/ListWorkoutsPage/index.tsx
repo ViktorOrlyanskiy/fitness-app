@@ -40,7 +40,7 @@ const ListWorkouts: FC = () => {
                 dispatch(set_fetch_workouts(false));
             }
         }
-    }, [user.uid, dispatch, fetch]);
+    }, [user.uid, dispatch, fetch.workouts]);
 
     return (
         <div className="list-workouts">

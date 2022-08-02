@@ -29,17 +29,6 @@ const ExercisesStorage: FC = () => {
         }
     };
 
-    // получает exercisesStorage от сервера
-    useEffect(() => {
-        if (fetch.exercises) {
-            if (user.uid) {
-                dispatch(_fetch_exercises(user.uid));
-                dispatch(set_fetch_exercises(false));
-                console.log(exercisesStorage);
-            }
-        }
-    }, [user.uid, dispatch]);
-
     const addExercises = () => {
         exercises.forEach((exercise) => {
             const [id, name] = exercise.split('*');
@@ -76,6 +65,16 @@ const ExercisesStorage: FC = () => {
         dispatch(create_id());
         navigate(URL.current_workout);
     };
+
+    // получает exercisesStorage от сервера
+    useEffect(() => {
+        if (fetch.exercises) {
+            if (user.uid) {
+                dispatch(_fetch_exercises(user.uid));
+                dispatch(set_fetch_exercises(false));
+            }
+        }
+    }, [user.uid, dispatch, fetch.exercises]);
 
     return (
         <div className="exercises-storage">

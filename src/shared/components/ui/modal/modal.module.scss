@@ -44,4 +44,8 @@
     font-weight: 700;
     letter-spacing: 0.8px;
     color: $color-blue;
+
+    &:disabled {
+        opacity: 0.4;
+    }
 }
