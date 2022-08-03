@@ -8,7 +8,7 @@ interface ModalSaveProps {
     active: boolean;
     setActive: (arg1: boolean) => void;
     nameBtn?: string;
-    handlerSaveBtn: (arg1: string) => void;
+    handleSaveBtn: (arg1: string) => void;
 }
 
 const ModalSave: FC<ModalSaveProps> = ({
@@ -16,16 +16,14 @@ const ModalSave: FC<ModalSaveProps> = ({
     active,
     setActive,
     nameBtn = 'Сохранить',
-    handlerSaveBtn,
+    handleSaveBtn,
 }) => {
     const nameWorkout = useInput('', !active);
     const inputRef = useRef<HTMLInputElement>(null);
 
-    const handlerBtnActive = () => {
-        if (nameWorkout.value) {
-            handlerSaveBtn(nameWorkout.value);
-            setActive(false);
-        }
+    const handleBtnActive = () => {
+        handleSaveBtn(nameWorkout.value);
+        setActive(false);
     };
 
     useEffect(() => {
@@ -38,7 +36,7 @@ const ModalSave: FC<ModalSaveProps> = ({
             setActive={setActive}
             nameBtnActive={nameBtn}
             disabledBtnActive={nameWorkout.value ? false : true}
-            handlerBtnActive={handlerBtnActive}>
+            handleBtnActive={handleBtnActive}>
             <div className={styles.modal}>
                 <div className={styles.title}>{name}</div>
                 <input

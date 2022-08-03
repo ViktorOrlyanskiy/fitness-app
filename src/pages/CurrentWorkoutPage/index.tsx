@@ -1,13 +1,16 @@
-import { FC } from 'react';
+import { FC, useState } from 'react';
 import { useAppSelectors } from 'hooks/useRedux';
 
 import Footer from 'shared/components/Footer';
 import HeaderWorkout from './components/HeaderWorkout';
 import Set from './components/Set';
+import ModalAddSet from 'shared/components/ModalAddSet';
 
 import './current-workout.scss';
+import MyButton from 'shared/components/ui/MyButton';
 
 const CurrentWorkout: FC = () => {
+    const [isOpenModal, setOpenModal] = useState(false);
     const { listExercises } = useAppSelectors();
     const activeExercise = listExercises.filter(
         (exercise) => exercise.isActive
@@ -29,7 +32,12 @@ const CurrentWorkout: FC = () => {
                     ))}
             </div>
 
-            <Footer nextPage={'add-set'}>Добавить подход</Footer>
+            <div className="current-workout__button" hidden={isOpenModal}>
+                <MyButton onClick={() => setOpenModal(!isOpenModal)}>
+                    Добавить подход
+                </MyButton>
+            </div>
+            <ModalAddSet isOpen={isOpenModal} setOpen={setOpenModal} />
         </div>
     );
 };

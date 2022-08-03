@@ -1,2 +1,10 @@
 /* ========== Глобальные переменные ========== */
 @import '../../shared/styles/variables.scss';
+
+.exercises-storage {
+    .page-container {
+        & > footer {
+            position: static;
+        }
+    }
+}

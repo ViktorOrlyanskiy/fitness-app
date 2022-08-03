@@ -5,4 +5,18 @@
     .page-container {
         padding-top: 130px;
     }
+
+    &__button {
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        z-index: 5;
+        width: 100%;
+        padding: 0 10px;
+        @include my-flex(center);
+
+        button {
+            max-width: $max-width;
+        }
+    }
 }

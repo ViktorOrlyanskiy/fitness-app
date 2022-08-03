@@ -69,13 +69,13 @@ const HeaderWorkout: FC<{ name: string }> = ({ name }) => {
                 name="Название тренировки"
                 active={isModalNameWorkout}
                 setActive={setModalNameWorkout}
-                handlerSaveBtn={handlerNameWorkout}
+                handleSaveBtn={handlerNameWorkout}
             />
             <Modal
                 active={isModalFinish}
                 setActive={setModalFinish}
                 nameBtnActive="Да"
-                handlerBtnActive={finishWorkout}>
+                handleBtnActive={finishWorkout}>
                 <h3>Завершить тренировку?</h3>
             </Modal>
         </div>

@@ -32,28 +32,3 @@ $text-size: 18px;
 .page-container {
     padding-top: $height-header;
 }
-
-// .btn-back-line {
-//     @mixin size-btn-back($padding) {
-//         width: 42px;
-//         height: 42px;
-//         flex: 0 0 42px;
-//         padding: $padding;
-//     }
-
-//     width: 100%;
-//     @include my-flex(flex-end);
-
-//     &__play {
-//         @include size-btn-back(10px);
-//         background-color: $bg-color-btn-play;
-//     }
-//     &__copy {
-//         @include size-btn-back(10px);
-//         background-color: $bg-color-btn-copy;
-//     }
-//     &__delete {
-//         @include size-btn-back(10px);
-//         background-color: $bg-color-btn-delete;
-//     }
-// }

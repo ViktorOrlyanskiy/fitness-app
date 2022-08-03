@@ -56,7 +56,7 @@ const FormAddExercise: FC = () => {
                         setName(e.target.value)
                     }
                     type={'text'}
-                    children={'Название упражнения'}
+                    label={'Название упражнения'}
                     placeholder={'напр. Приседания'}
                     autoFocus={true}
                 />
@@ -66,7 +66,7 @@ const FormAddExercise: FC = () => {
                         setComment(e.target.value)
                     }
                     type={'text'}
-                    children={'Комментарий'}
+                    label={'Комментарий'}
                     placeholder={'напр. 20х20 40х10 50х8 50х8'}
                 />
             </form>

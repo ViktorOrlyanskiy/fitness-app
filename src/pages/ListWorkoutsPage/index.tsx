@@ -25,7 +25,7 @@ const ListWorkouts: FC = () => {
         navigate(URL.current_workout);
     };
 
-    const handlerNameWorkout = (value: string) => {
+    const handleNameWorkout = (value: string) => {
         dispatch(save_name(value));
         setTimeout(() => {
             navigate(URL.exercises_storage);
@@ -66,7 +66,7 @@ const ListWorkouts: FC = () => {
                 name="Название тренировки"
                 active={isModalNameWorkout}
                 setActive={setModalNameWorkout}
-                handlerSaveBtn={handlerNameWorkout}
+                handleSaveBtn={handleNameWorkout}
             />
         </div>
     );

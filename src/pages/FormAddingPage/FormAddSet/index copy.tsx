@@ -58,7 +58,7 @@ const FormAddSet: FC = () => {
                         setWeight(e.target.value)
                     }
                     type={'tel'}
-                    children={'Вес (кг)'}
+                    label={'Вес (кг)'}
                     placeholder={'0'}
                     autoFocus={true}
                 />
@@ -68,7 +68,7 @@ const FormAddSet: FC = () => {
                         setAmount(e.target.value)
                     }
                     type={'tel'}
-                    children={'Повторения (раз)'}
+                    label={'Повторения (раз)'}
                     placeholder={'0'}
                 />
                 <MyInput
@@ -77,7 +77,7 @@ const FormAddSet: FC = () => {
                         setComment(e.target.value)
                     }
                     type={'text'}
-                    children={'Заметка'}
+                    label={'Заметка'}
                     placeholder={'напр. Разминочный'}
                 />
             </form>

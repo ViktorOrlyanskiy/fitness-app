@@ -1,19 +1,16 @@
+/* ========== Глобальные переменные ========== */
+@import '../../../styles/variables.scss';
+
 .item {
     width: 100%;
-
     display: flex;
     flex-direction: column;
-
-    padding: 8px 5px 10px 5px;
-
-    border-bottom: 1px solid rgb(195, 195, 195);
 
     label {
         margin-bottom: 5px;
     }
 
     input {
-        font-size: 16px;
         background-color: inherit;
     }
 }
