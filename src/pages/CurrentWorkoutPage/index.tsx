@@ -1,13 +1,11 @@
 import { FC, useState } from 'react';
 import { useAppSelectors } from 'hooks/useRedux';
 
-import Footer from 'shared/components/Footer';
+import ModalAddSet from 'shared/components/ModalAddSet';
+import MyButton from 'shared/components/ui/MyButton';
 import HeaderWorkout from './components/HeaderWorkout';
 import Set from './components/Set';
-import ModalAddSet from 'shared/components/ModalAddSet';
-
 import './current-workout.scss';
-import MyButton from 'shared/components/ui/MyButton';
 
 const CurrentWorkout: FC = () => {
     const [isOpenModal, setOpenModal] = useState(false);
@@ -28,7 +26,12 @@ const CurrentWorkout: FC = () => {
                 {sets &&
                     sets.length > 0 &&
                     sets.map((set, index) => (
-                        <Set key={set.id} index={++index} {...set} />
+                        <Set
+                            key={set.id}
+                            index={++index}
+                            setOpenModal={setOpenModal}
+                            {...set}
+                        />
                     ))}
             </div>
 
@@ -37,6 +40,7 @@ const CurrentWorkout: FC = () => {
                     Добавить подход
                 </MyButton>
             </div>
+
             <ModalAddSet isOpen={isOpenModal} setOpen={setOpenModal} />
         </div>
     );

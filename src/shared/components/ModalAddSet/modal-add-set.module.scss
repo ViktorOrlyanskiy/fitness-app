@@ -4,6 +4,7 @@
 .modal {
     max-width: $max-width;
     position: fixed;
+    z-index: 10;
     bottom: -100%;
     width: 100%;
     padding: 0 10px;
@@ -58,4 +59,11 @@
     &:disabled {
         opacity: 0.4;
     }
+}
+
+.error {
+    margin: -10px 10px 10px 10px;
+    font-size: 12px;
+    font-weight: 700;
+    color: red;
 }

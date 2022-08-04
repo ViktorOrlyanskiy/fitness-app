@@ -2,6 +2,7 @@ import { FC, useEffect, useRef } from 'react';
 import Modal from 'shared/components/ui/Modal';
 import { useInput } from 'hooks/useInput';
 import styles from './modal-save.module.scss';
+import { useInputAutofocus } from 'hooks/useInputAutofocus';
 
 interface ModalSaveProps {
     name: string;
@@ -19,16 +20,12 @@ const ModalSave: FC<ModalSaveProps> = ({
     handleSaveBtn,
 }) => {
     const nameWorkout = useInput('', !active);
-    const inputRef = useRef<HTMLInputElement>(null);
+    const inputRef = useInputAutofocus(active);
 
     const handleBtnActive = () => {
         handleSaveBtn(nameWorkout.value);
         setActive(false);
     };
-
-    useEffect(() => {
-        if (active) inputRef?.current?.focus();
-    }, [active]);
 
     return (
         <Modal

@@ -1,34 +1,42 @@
 import { FC } from 'react';
-import { useNavigate } from 'react-router-dom';
 import { useAppDispatch } from 'hooks/useRedux';
 import { remove_set, copy_set } from 'store/reducers/listExercises';
 import { save_service_set } from 'store/reducers/editSet';
+import { set_offset } from 'store/reducers/touchWrapper';
 
 import TouchWrapper from 'shared/components/TouchWrapper';
 import ButtonBack from 'shared/components/ButtonBack';
 import SetItem, { SetItemVariant } from '../SetItem';
-import { URL } from 'shared/constants/URL';
 import { ISet } from 'shared/types';
 import './set.scss';
 
 interface SetProps extends ISet {
     index: number;
+    setOpenModal: (arg1: boolean) => void;
 }
 
-const Set: FC<SetProps> = ({ index, id, weight, amount, comment }) => {
+const Set: FC<SetProps> = ({
+    index,
+    id,
+    weight,
+    amount,
+    comment,
+    setOpenModal,
+}) => {
     const dispatch = useAppDispatch();
-    const navigate = useNavigate();
 
-    const handlerBtnCopy = () => {
+    const handleBtnCopy = () => {
         dispatch(copy_set(id));
+        dispatch(set_offset(0));
     };
 
-    const handlerBtnEdit = () => {
+    const handleBtnEdit = () => {
         dispatch(save_service_set({ id, weight, amount, comment }));
-        navigate(URL.add_set);
+        setOpenModal(true);
+        dispatch(set_offset(0));
     };
 
-    const handlerBtnDelete = () => {
+    const handleBtnDelete = () => {
         dispatch(remove_set(id));
     };
 
@@ -62,9 +70,9 @@ const Set: FC<SetProps> = ({ index, id, weight, amount, comment }) => {
             back={
                 <ButtonBack
                     isSet
-                    handlerCopy={handlerBtnCopy}
-                    handlerEdit={handlerBtnEdit}
-                    handlerDelete={handlerBtnDelete}
+                    handlerCopy={handleBtnCopy}
+                    handlerEdit={handleBtnEdit}
+                    handlerDelete={handleBtnDelete}
                 />
             }
         />
