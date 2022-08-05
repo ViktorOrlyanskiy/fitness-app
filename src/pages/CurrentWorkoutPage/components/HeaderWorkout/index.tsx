@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useAppDispatch, useAppSelectors } from 'hooks/useRedux';
 import { _set_workouts } from 'store/actions/_set_workout_async';
 import { clear_list_exercises } from 'store/reducers/listExercises';
+import { set_fetch_workouts } from 'store/reducers/fetch';
 import {
     clear_current_workout,
     save_name,
@@ -15,21 +16,19 @@ import ModalSave from 'shared/components/ModalSave';
 import SelectExercise from '../SelectExercise';
 import Modal from 'shared/components/ui/Modal';
 import './header-workout.scss';
-import { set_fetch_workouts } from 'store/reducers/fetch';
 
 const HeaderWorkout: FC<{ name: string }> = ({ name }) => {
     const navigate = useNavigate();
     const dispatch = useAppDispatch();
     const { user, currentWorkout, listExercises } = useAppSelectors();
+    const [isModalNameWorkout, setModalNameWorkout] = useState(false);
+    const [isModalFinish, setModalFinish] = useState(false);
 
-    const [isModalNameWorkout, setModalNameWorkout] = useState<boolean>(false);
-    const [isModalFinish, setModalFinish] = useState<boolean>(false);
-
-    const handlerNameWorkout = (value: string) => {
+    const handleNameWorkout = (value: string) => {
         dispatch(save_name(value));
     };
 
-    const handlerFinish = () => {
+    const handleFinish = () => {
         setModalFinish(true);
     };
 
@@ -59,7 +58,7 @@ const HeaderWorkout: FC<{ name: string }> = ({ name }) => {
             <Header
                 previousPage={URL.list_workouts}
                 btnRight={'flag-checkered'}
-                btnEvent={handlerFinish}
+                btnEvent={handleFinish}
                 handlerClickTitle={() => setModalNameWorkout(true)}
                 children={currentWorkout.name}
             />
@@ -67,15 +66,15 @@ const HeaderWorkout: FC<{ name: string }> = ({ name }) => {
 
             <ModalSave
                 name="Название тренировки"
-                active={isModalNameWorkout}
-                setActive={setModalNameWorkout}
-                handleSaveBtn={handlerNameWorkout}
+                isOpen={isModalNameWorkout}
+                setOpen={setModalNameWorkout}
+                handleBtnAction={handleNameWorkout}
             />
             <Modal
-                active={isModalFinish}
-                setActive={setModalFinish}
-                nameBtnActive="Да"
-                handleBtnActive={finishWorkout}>
+                isOpen={isModalFinish}
+                setOpen={setModalFinish}
+                nameBtnAction="Да"
+                handleBtnAction={finishWorkout}>
                 <h3>Завершить тренировку?</h3>
             </Modal>
         </div>

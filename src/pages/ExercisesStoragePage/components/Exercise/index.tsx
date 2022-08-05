@@ -16,7 +16,7 @@ const Exercise: FC<ExerciseProps> = ({
 }) => {
     const [isActive, setActive] = useState<boolean>(false);
 
-    const handlerClick = () => {
+    const handleClick = () => {
         handlerClickExercise(id + '*' + name, isActive);
         setActive(!isActive);
     };
@@ -48,7 +48,7 @@ const Exercise: FC<ExerciseProps> = ({
     };
 
     return (
-        <div className="exercise" onClick={handlerClick}>
+        <div className="exercise" onClick={handleClick}>
             <ListItem
                 status={isActive ? 'selected' : undefined}
                 title={name}

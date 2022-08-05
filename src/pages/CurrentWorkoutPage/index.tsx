@@ -1,9 +1,9 @@
 import { FC, useState } from 'react';
 import { useAppSelectors } from 'hooks/useRedux';
 
-import ModalAddSet from 'shared/components/ModalAddSet';
 import MyButton from 'shared/components/ui/MyButton';
 import HeaderWorkout from './components/HeaderWorkout';
+import ModalAddSet from './components/ModalAddSet';
 import Set from './components/Set';
 import './current-workout.scss';
 

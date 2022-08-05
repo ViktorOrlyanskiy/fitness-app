@@ -64,9 +64,9 @@ const ListWorkouts: FC = () => {
 
             <ModalSave
                 name="Название тренировки"
-                active={isModalNameWorkout}
-                setActive={setModalNameWorkout}
-                handleSaveBtn={handleNameWorkout}
+                isOpen={isModalNameWorkout}
+                setOpen={setModalNameWorkout}
+                handleBtnAction={handleNameWorkout}
             />
         </div>
     );

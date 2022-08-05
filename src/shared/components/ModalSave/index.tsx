@@ -1,39 +1,37 @@
-import { FC, useEffect, useRef } from 'react';
-import Modal from 'shared/components/ui/Modal';
+import { FC } from 'react';
 import { useInput } from 'hooks/useInput';
-import styles from './modal-save.module.scss';
 import { useInputAutofocus } from 'hooks/useInputAutofocus';
+import Modal from 'shared/components/ui/Modal';
+import styles from './modal-save.module.scss';
 
 interface ModalSaveProps {
     name: string;
-    active: boolean;
-    setActive: (arg1: boolean) => void;
-    nameBtn?: string;
-    handleSaveBtn: (arg1: string) => void;
+    isOpen: boolean;
+    setOpen: (arg1: boolean) => void;
+    nameBtnAction?: string;
+    handleBtnAction: (arg1: string) => void;
 }
 
 const ModalSave: FC<ModalSaveProps> = ({
     name,
-    active,
-    setActive,
-    nameBtn = 'Сохранить',
-    handleSaveBtn,
+    isOpen,
+    setOpen,
+    nameBtnAction = 'Сохранить',
+    handleBtnAction,
 }) => {
-    const nameWorkout = useInput('', !active);
-    const inputRef = useInputAutofocus(active);
-
-    const handleBtnActive = () => {
-        handleSaveBtn(nameWorkout.value);
-        setActive(false);
-    };
+    const nameWorkout = useInput('', !isOpen);
+    const inputRef = useInputAutofocus(isOpen);
 
     return (
         <Modal
-            active={active}
-            setActive={setActive}
-            nameBtnActive={nameBtn}
-            disabledBtnActive={nameWorkout.value ? false : true}
-            handleBtnActive={handleBtnActive}>
+            isOpen={isOpen}
+            setOpen={setOpen}
+            nameBtnAction={nameBtnAction}
+            disableBtnAction={nameWorkout.value ? false : true}
+            handleBtnAction={() => {
+                handleBtnAction(nameWorkout.value.trim());
+                setOpen(false);
+            }}>
             <div className={styles.modal}>
                 <div className={styles.title}>{name}</div>
                 <input

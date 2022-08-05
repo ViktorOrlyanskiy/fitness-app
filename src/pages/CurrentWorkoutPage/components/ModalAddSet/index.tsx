@@ -1,4 +1,4 @@
-import React, { FC, useRef } from 'react';
+import { FC, useRef } from 'react';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import { useAppDispatch, useAppSelector } from 'hooks/useRedux';
@@ -50,7 +50,7 @@ const ModalAddSet: FC<ModalAddSetProps> = ({ isOpen, setOpen }) => {
                 id: set.id ? set.id : Date.now(),
                 weight: values.weight,
                 amount: values.amount,
-                comment: values.comment,
+                comment: values.comment.trim(),
             };
             if (set.id) {
                 dispatch(edit_set(newSet));

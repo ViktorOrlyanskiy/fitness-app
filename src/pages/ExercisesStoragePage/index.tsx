@@ -1,4 +1,4 @@
-import { FC, useEffect, useRef } from 'react';
+import { FC, useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAppDispatch, useAppSelectors } from 'hooks/useRedux';
 import { add_exercise } from 'store/reducers/listExercises';
@@ -11,12 +11,15 @@ import { getStatus } from 'shared/utils/FormAddingValidation';
 
 import Header from 'shared/components/Header';
 import Group from './components/Group';
+import MyButton from 'shared/components/ui/MyButton';
+import ModalAddSet from './components/ModalAddExercise';
 import './exercises-storage.scss';
 import Footer from 'shared/components/Footer';
 
 const ExercisesStorage: FC = () => {
     const navigate = useNavigate();
     const dispatch = useAppDispatch();
+    const [isOpenModal, setOpenModal] = useState(false);
     const { currentWorkout, listExercises, exercisesStorage, user, fetch } =
         useAppSelectors();
     const exercisesRef = useRef<string[]>([]);
@@ -91,9 +94,18 @@ const ExercisesStorage: FC = () => {
                         handlerClickExercise={handlerClickExercise}
                     />
                 ))}
-                <Footer nextPage={URL.add_exercise}>
+                {/* <Footer nextPage={URL.add_exercise}>
                     Добавить новое упражение
-                </Footer>
+                </Footer> */}
+
+                <div className="exercises-storage__button">
+                    <MyButton
+                        hidden={isOpenModal}
+                        onClick={() => setOpenModal(!isOpenModal)}>
+                        Добавить новое упражение
+                    </MyButton>
+                </div>
+                <ModalAddSet isOpen={isOpenModal} setOpen={setOpenModal} />
             </div>
         </div>
     );
