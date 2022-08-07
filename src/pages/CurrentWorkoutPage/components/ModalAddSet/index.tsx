@@ -10,6 +10,7 @@ import { clear_service_set } from 'store/reducers/editSet';
 import MyInput, { MyInputFocus } from 'shared/components/ui/MyInput';
 import { ISet } from 'shared/types';
 import styles from './modal-add-set.module.scss';
+import ModalForm from 'shared/components/ui/Modal/ModalForm';
 
 interface ModalAddSetProps {
     isOpen: boolean;
@@ -71,54 +72,38 @@ const ModalAddSet: FC<ModalAddSetProps> = ({ isOpen, setOpen }) => {
     };
 
     return (
-        <div
-            ref={modalRef}
-            className={
-                isOpen ? `${styles.modal} ${styles.active}` : styles.modal
-            }>
-            <form onSubmit={formik.handleSubmit} autoComplete="off">
-                <div className={styles.body}>
-                    <MyInputFocus
-                        type="tel"
-                        label="Вес (кг)"
-                        placeholder="0"
-                        inputRef={inputRef}
-                        {...formik.getFieldProps('weight')}
-                    />
-                    {formik.errors.weight && (
-                        <p className={styles.error}>{formik.errors.weight}</p>
-                    )}
-                    <MyInput
-                        type="tel"
-                        label="Повторения (раз)"
-                        placeholder="0"
-                        {...formik.getFieldProps('amount')}
-                    />
-                    {formik.errors.amount && (
-                        <p className={styles.error}>{formik.errors.amount}</p>
-                    )}
-                    <MyInput
-                        type="text"
-                        label="Комментарий"
-                        placeholder="напр. Разминочный"
-                        {...formik.getFieldProps('comment')}
-                    />
-                </div>
-
-                <button
-                    type="submit"
-                    disabled={!formik.values.weight || !formik.values.amount}
-                    className={styles.btn}>
-                    Сохранить
-                </button>
-                <button
-                    type="reset"
-                    className={styles.btn}
-                    onClick={handleReset}>
-                    Отмена
-                </button>
-            </form>
-        </div>
+        <ModalForm
+            isOpen={isOpen}
+            setOpen={setOpen}
+            isDisabledBtn={!formik.values.weight || !formik.values.amount}
+            handleSubmit={formik.handleSubmit}
+            handleReset={handleReset}>
+            <MyInputFocus
+                type="tel"
+                label="Вес (кг)"
+                placeholder="0"
+                inputRef={inputRef}
+                {...formik.getFieldProps('weight')}
+            />
+            {formik.errors.weight && (
+                <p className={styles.error}>{formik.errors.weight}</p>
+            )}
+            <MyInput
+                type="tel"
+                label="Повторения (раз)"
+                placeholder="0"
+                {...formik.getFieldProps('amount')}
+            />
+            {formik.errors.amount && (
+                <p className={styles.error}>{formik.errors.amount}</p>
+            )}
+            <MyInput
+                type="text"
+                label="Комментарий"
+                placeholder="напр. Разминочный"
+                {...formik.getFieldProps('comment')}
+            />
+        </ModalForm>
     );
 };
 export default ModalAddSet;

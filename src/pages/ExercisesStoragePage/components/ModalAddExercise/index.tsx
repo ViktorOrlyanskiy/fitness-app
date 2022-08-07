@@ -1,8 +1,9 @@
-import { FC, useRef } from 'react';
+import { FC, Fragment, useRef } from 'react';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import { useOutsideClick } from 'hooks/useOutsideClick';
 import styles from './modal-add-exercise.module.scss';
+import ModalForm from 'shared/components/ui/Modal/ModalForm';
 
 interface ModalAddExerciseProps {
     isOpen: boolean;
@@ -34,28 +35,14 @@ const ModalAddExercise: FC<ModalAddExerciseProps> = ({ isOpen, setOpen }) => {
     };
 
     return (
-        <div
-            ref={modalRef}
-            className={
-                isOpen ? `${styles.modal} ${styles.active}` : styles.modal
-            }>
-            <form onSubmit={formik.handleSubmit} autoComplete="off">
-                <div className={styles.body}></div>
-
-                <button
-                    type="submit"
-                    // disabled={}
-                    className={styles.btn}>
-                    Сохранить
-                </button>
-                <button
-                    type="reset"
-                    className={styles.btn}
-                    onClick={handleReset}>
-                    Отмена
-                </button>
-            </form>
-        </div>
+        <ModalForm
+            isOpen={isOpen}
+            setOpen={setOpen}
+            isDisabledBtn={false}
+            handleSubmit={formik.handleSubmit}
+            handleReset={handleReset}>
+            <Fragment></Fragment>
+        </ModalForm>
     );
 };
 export default ModalAddExercise;

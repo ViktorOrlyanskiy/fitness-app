@@ -27,6 +27,15 @@ $text-size: 18px;
 /* ========== Миксины ========== */
 @import './mixins/my-flex.scss';
 
+@mixin error-message($type) {
+    @if ($type: 'form-add') {
+        margin: -10px 10px 10px 10px;
+        font-size: 12px;
+        font-weight: 700;
+        color: red;
+    }
+}
+
 /* ========== Общие стили ========== */
 
 .page-container {

@@ -6,9 +6,7 @@ interface IModalProps {
     isOpen: boolean;
     setOpen: (arg1: boolean) => void;
     nameBtnAction?: string;
-    disableBtnAction?: boolean;
     handleBtnAction?: () => void;
-    btnAction?: React.ReactNode;
     children: React.ReactNode;
 }
 
@@ -16,9 +14,7 @@ const Modal: FC<IModalProps> = ({
     isOpen,
     setOpen,
     nameBtnAction,
-    disableBtnAction,
     handleBtnAction,
-    btnAction,
     children,
 }) => {
     const modalRef = useRef<any>(null);
@@ -32,10 +28,7 @@ const Modal: FC<IModalProps> = ({
             }>
             <div className={styles.body}>{children}</div>
             {nameBtnAction && (
-                <button
-                    className={styles.btn}
-                    onClick={handleBtnAction}
-                    disabled={disableBtnAction}>
+                <button className={styles.btn} onClick={handleBtnAction}>
                     {nameBtnAction}
                 </button>
             )}

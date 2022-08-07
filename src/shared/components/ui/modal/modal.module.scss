@@ -27,7 +27,6 @@
     min-height: 50px;
     padding: 20px 10px 10px 10px;
     @include item;
-    @include my-flex(center);
 
     h3 {
         margin-bottom: 10px;
@@ -35,21 +34,16 @@
         font-weight: 700;
         letter-spacing: 0.8px;
     }
-}
 
-.btn-wrapper {
-    button {
+    label {
+        padding-left: 10px;
+    }
+
+    input {
         width: 100%;
-        height: 50px;
-        @include item;
-        font-size: $text-size;
-        font-weight: 700;
-        letter-spacing: 0.8px;
-        color: $color-blue;
-
-        &:disabled {
-            opacity: 0.4;
-        }
+        margin-bottom: 15px;
+        padding: 5px 10px;
+        border-bottom: 1px solid $color-border;
     }
 }
 
