@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { _fetch_workouts } from 'store/actions/_fetch_workouts_async';
+import { _fetch_workouts } from 'store/actions/listWorkoutsActions/_fetch_workouts_async';
 import { IWorkout } from 'shared/types';
 
 const initialState: IWorkout[] = [];

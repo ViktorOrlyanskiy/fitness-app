@@ -35,4 +35,3 @@ const exercisesStorage = createSlice({
 });
 
 export default exercisesStorage.reducer;
-export const {} = exercisesStorage.actions;

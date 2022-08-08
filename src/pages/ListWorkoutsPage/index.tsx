@@ -2,7 +2,7 @@ import { FC, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAppDispatch, useAppSelectors } from 'hooks/useRedux';
 import { save_name } from 'store/reducers/currentWorkout';
-import { _fetch_workouts } from 'store/actions/_fetch_workouts_async';
+import { _fetch_workouts } from 'store/actions/listWorkoutsActions/_fetch_workouts_async';
 import { set_fetch_workouts } from 'store/reducers/fetch';
 
 import Header from 'shared/components/Header';

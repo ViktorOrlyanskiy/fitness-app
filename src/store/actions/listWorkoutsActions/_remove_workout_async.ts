@@ -1,5 +1,5 @@
 import { doc, deleteDoc } from 'firebase/firestore';
-import { db } from '../../firebase';
+import { db } from '../../../firebase';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
 interface ArgFunc {

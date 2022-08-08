@@ -1,5 +1,5 @@
 import { collection, doc, getDocs } from 'firebase/firestore';
-import { db } from '../../firebase';
+import { db } from '../../../firebase';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
 export const _fetch_workouts = createAsyncThunk(

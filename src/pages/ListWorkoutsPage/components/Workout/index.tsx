@@ -1,12 +1,12 @@
 import { FC } from 'react';
 import { useAppDispatch, useAppSelector } from 'hooks/useRedux';
-import { _remove_workout } from 'store/actions/_remove_workout_async';
+import { _remove_workout } from 'store/actions/listWorkoutsActions/_remove_workout_async';
 
 import TouchWrapper from 'shared/components/TouchWrapper';
 import ListItem from 'shared/components/ListItem';
 import ButtonBack from 'shared/components/ButtonBack';
 import './workout.scss';
-import { _fetch_workouts } from 'store/actions/_fetch_workouts_async';
+import { _fetch_workouts } from 'store/actions/listWorkoutsActions/_fetch_workouts_async';
 import { set_fetch_workouts } from 'store/reducers/fetch';
 
 interface WorkoutProps {

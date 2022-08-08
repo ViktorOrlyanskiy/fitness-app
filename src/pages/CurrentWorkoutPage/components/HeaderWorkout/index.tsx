@@ -1,7 +1,7 @@
 import { FC, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAppDispatch, useAppSelectors } from 'hooks/useRedux';
-import { _set_workouts } from 'store/actions/_set_workout_async';
+import { _set_workouts } from 'store/actions/listWorkoutsActions/_set_workout_async';
 import { clear_list_exercises } from 'store/reducers/listExercises';
 import { set_fetch_workouts } from 'store/reducers/fetch';
 import {
