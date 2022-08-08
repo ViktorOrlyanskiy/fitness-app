@@ -1,5 +1,4 @@
-import { FC, useRef } from 'react';
-import { useOutsideClick } from 'hooks/useOutsideClick';
+import { FC } from 'react';
 import styles from './modal.module.scss';
 
 interface ModalFormProps {
@@ -9,6 +8,7 @@ interface ModalFormProps {
     handleSubmit: (arg?: any) => void;
     handleReset: () => void;
     children: React.ReactNode;
+    modalRef?: any;
 }
 
 const ModalForm: FC<ModalFormProps> = ({
@@ -18,10 +18,8 @@ const ModalForm: FC<ModalFormProps> = ({
     handleSubmit,
     handleReset,
     children,
+    modalRef,
 }) => {
-    const modalRef = useRef<any>(null);
-    useOutsideClick(modalRef, isOpen, setOpen);
-
     return (
         <div
             ref={modalRef}

@@ -41,3 +41,27 @@ $text-size: 18px;
 .page-container {
     padding-top: $height-header;
 }
+
+/* ========== Переопределение стилей для Ant Design ========== */
+
+.ant-select {
+    &-focused {
+        & > div {
+            box-shadow: 0 0 3px 2px rgba($bg-color-header, 60%) !important;
+            border-radius: 4px !important;
+        }
+    }
+}
+
+.ant-radio {
+    &-button-wrapper {
+        & > span:last-child {
+            font-size: $text-size;
+        }
+
+        &-checked {
+            background: $bg-color-header !important;
+            border-color: $bg-color-header !important;
+        }
+    }
+}

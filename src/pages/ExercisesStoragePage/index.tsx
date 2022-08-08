@@ -12,9 +12,8 @@ import { getStatus } from 'shared/utils/FormAddingValidation';
 import Header from 'shared/components/Header';
 import Group from './components/Group';
 import MyButton from 'shared/components/ui/MyButton';
-import ModalAddSet from './components/ModalAddExercise';
+import ModalAddExercise from './components/ModalAddExercise';
 import './exercises-storage.scss';
-import Footer from 'shared/components/Footer';
 
 const ExercisesStorage: FC = () => {
     const navigate = useNavigate();
@@ -94,9 +93,6 @@ const ExercisesStorage: FC = () => {
                         handlerClickExercise={handlerClickExercise}
                     />
                 ))}
-                {/* <Footer nextPage={URL.add_exercise}>
-                    Добавить новое упражение
-                </Footer> */}
 
                 <div className="exercises-storage__button">
                     <MyButton
@@ -105,7 +101,7 @@ const ExercisesStorage: FC = () => {
                         Добавить новое упражение
                     </MyButton>
                 </div>
-                <ModalAddSet isOpen={isOpenModal} setOpen={setOpenModal} />
+                <ModalAddExercise isOpen={isOpenModal} setOpen={setOpenModal} />
             </div>
         </div>
     );

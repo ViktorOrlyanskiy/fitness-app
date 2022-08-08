@@ -2,6 +2,9 @@
 @import '_normalize';
 @import '_nullstyle';
 
+/* ========== Подключение стилей библиотеки Ant Design ========== */
+@import '~antd/dist/antd.css';
+
 /* ========== Подключение шрифтов ========== */
 @font-face {
     font-family: 'SFProDisplay Regular';

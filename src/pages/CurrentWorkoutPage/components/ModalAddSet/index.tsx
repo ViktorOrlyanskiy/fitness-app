@@ -9,8 +9,9 @@ import { clear_service_set } from 'store/reducers/editSet';
 
 import MyInput, { MyInputFocus } from 'shared/components/ui/MyInput';
 import { ISet } from 'shared/types';
-import styles from './modal-add-set.module.scss';
 import ModalForm from 'shared/components/ui/Modal/ModalForm';
+import { BackgroundModal } from 'shared/components/ui/BackgroundModal';
+import styles from './modal-add-set.module.scss';
 
 interface ModalAddSetProps {
     isOpen: boolean;
@@ -72,38 +73,42 @@ const ModalAddSet: FC<ModalAddSetProps> = ({ isOpen, setOpen }) => {
     };
 
     return (
-        <ModalForm
-            isOpen={isOpen}
-            setOpen={setOpen}
-            isDisabledBtn={!formik.values.weight || !formik.values.amount}
-            handleSubmit={formik.handleSubmit}
-            handleReset={handleReset}>
-            <MyInputFocus
-                type="tel"
-                label="Вес (кг)"
-                placeholder="0"
-                inputRef={inputRef}
-                {...formik.getFieldProps('weight')}
-            />
-            {formik.errors.weight && (
-                <p className={styles.error}>{formik.errors.weight}</p>
-            )}
-            <MyInput
-                type="tel"
-                label="Повторения (раз)"
-                placeholder="0"
-                {...formik.getFieldProps('amount')}
-            />
-            {formik.errors.amount && (
-                <p className={styles.error}>{formik.errors.amount}</p>
-            )}
-            <MyInput
-                type="text"
-                label="Комментарий"
-                placeholder="напр. Разминочный"
-                {...formik.getFieldProps('comment')}
-            />
-        </ModalForm>
+        <>
+            <ModalForm
+                modalRef={modalRef}
+                isOpen={isOpen}
+                setOpen={setOpen}
+                isDisabledBtn={!formik.values.weight || !formik.values.amount}
+                handleSubmit={formik.handleSubmit}
+                handleReset={handleReset}>
+                <MyInputFocus
+                    type="tel"
+                    label="Вес (кг)"
+                    placeholder="0"
+                    inputRef={inputRef}
+                    {...formik.getFieldProps('weight')}
+                />
+                {formik.errors.weight && (
+                    <p className={styles.error}>{formik.errors.weight}</p>
+                )}
+                <MyInput
+                    type="tel"
+                    label="Повторения (раз)"
+                    placeholder="0"
+                    {...formik.getFieldProps('amount')}
+                />
+                {formik.errors.amount && (
+                    <p className={styles.error}>{formik.errors.amount}</p>
+                )}
+                <MyInput
+                    type="text"
+                    label="Комментарий"
+                    placeholder="напр. Разминочный"
+                    {...formik.getFieldProps('comment')}
+                />
+            </ModalForm>
+            <BackgroundModal active={isOpen} />
+        </>
     );
 };
 export default ModalAddSet;

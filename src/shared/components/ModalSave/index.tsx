@@ -1,9 +1,11 @@
-import React, { FC } from 'react';
+import React, { FC, useRef } from 'react';
 import { useInput } from 'hooks/useInput';
 import { useInputAutofocus } from 'hooks/useInputAutofocus';
+import { useOutsideClick } from 'hooks/useOutsideClick';
 import ModalForm from 'shared/components/ui/Modal/ModalForm';
 import styles from './modal-save.module.scss';
 import { MyInputFocus } from '../ui/MyInput';
+import { BackgroundModal } from '../ui/BackgroundModal';
 
 interface ModalSaveProps {
     name: string;
@@ -20,6 +22,8 @@ const ModalSave: FC<ModalSaveProps> = ({
 }) => {
     const nameWorkout = useInput('', !isOpen);
     const inputRef = useInputAutofocus(isOpen);
+    const modalRef = useRef<any>(null);
+    useOutsideClick(modalRef, isOpen, setOpen);
 
     const handleSubmit = (e: React.MouseEvent) => {
         e.preventDefault();
@@ -32,21 +36,25 @@ const ModalSave: FC<ModalSaveProps> = ({
     };
 
     return (
-        <ModalForm
-            isOpen={isOpen}
-            setOpen={setOpen}
-            isDisabledBtn={nameWorkout.value ? false : true}
-            handleSubmit={handleSubmit}
-            handleReset={handleReset}>
-            <div className={styles.title}>{name}</div>
-            <MyInputFocus
-                inputRef={inputRef}
-                label=""
-                type="text"
-                className={styles.input}
-                {...nameWorkout}
-            />
-        </ModalForm>
+        <>
+            <ModalForm
+                modalRef={modalRef}
+                isOpen={isOpen}
+                setOpen={setOpen}
+                isDisabledBtn={nameWorkout.value ? false : true}
+                handleSubmit={handleSubmit}
+                handleReset={handleReset}>
+                <div className={styles.title}>{name}</div>
+                <MyInputFocus
+                    inputRef={inputRef}
+                    label=""
+                    type="text"
+                    className={styles.input}
+                    {...nameWorkout}
+                />
+            </ModalForm>
+            <BackgroundModal active={isOpen} />
+        </>
     );
 };
 export default ModalSave;

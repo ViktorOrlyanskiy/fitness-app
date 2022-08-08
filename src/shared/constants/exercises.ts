@@ -1,56 +1,5 @@
 export const exercises = [
     {
-        name: 'Грудь',
-        list: [
-            { id: 1001, name: 'Жим штанги лежа', type: 'basic' },
-            { id: 1002, name: 'Отжимания', type: 'basic' },
-            { id: 1003, name: 'Отжимания на брусьях', type: 'basic' },
-            { id: 1004, name: 'Жим штанги 30°', type: 'auxiliary' },
-            { id: 1005, name: 'Жим гантелей 30°', type: 'auxiliary' },
-            { id: 1006, name: 'Жим хамера', type: 'auxiliary' },
-            { id: 1007, name: 'Сведение рук в тренажере', type: 'corrective' },
-        ],
-    },
-    {
-        name: 'Пресс',
-        list: [
-            { id: 2001, name: 'Скручивания', type: 'basic' },
-            { id: 2002, name: 'Подъемы ног в висе', type: 'basic' },
-        ],
-    },
-    {
-        name: 'Спина',
-        list: [
-            { id: 3001, name: 'Подтягивания', type: 'basic' },
-            { id: 3002, name: 'Тяга штанги в наклоне', type: 'basic' },
-            { id: 3003, name: 'Тяга гантели', type: 'auxiliary' },
-            { id: 3004, name: 'Тяга вертикального блока', type: 'auxiliary' },
-            { id: 3005, name: 'Тяга горизонтального блока', type: 'auxiliary' },
-            { id: 3006, name: 'Шраги', type: 'auxiliary' },
-        ],
-    },
-    {
-        name: 'Плечи',
-        list: [
-            { id: 4001, name: 'Тяга штанги к подбородку', type: 'basic' },
-            { id: 4002, name: 'Жим штанги стоя', type: 'basic' },
-            { id: 4003, name: 'Жим гантелей стоя', type: 'basic' },
-            { id: 4004, name: 'Разведение гантелей', type: 'auxiliary' },
-            {
-                id: 4005,
-                name: 'Разведение гантелей в наклоне',
-                type: 'auxiliary',
-            },
-        ],
-    },
-    {
-        name: 'Голень',
-        list: [
-            { id: 5001, name: 'Подъемы на носки стоя', type: 'basic' },
-            { id: 5002, name: 'Подъемы на носки сидя', type: 'basic' },
-        ],
-    },
-    {
         name: 'Бедра',
         list: [
             { id: 6001, name: 'Приседания со штангой', type: 'basic' },
@@ -77,6 +26,61 @@ export const exercises = [
         ],
     },
     {
+        name: 'Голень',
+        list: [
+            { id: 5001, name: 'Подъемы на носки стоя', type: 'basic' },
+            { id: 5002, name: 'Подъемы на носки сидя', type: 'basic' },
+        ],
+    },
+    {
+        name: 'Грудь',
+        list: [
+            { id: 1001, name: 'Жим штанги лежа', type: 'basic' },
+            { id: 1002, name: 'Отжимания', type: 'basic' },
+            { id: 1003, name: 'Отжимания на брусьях', type: 'basic' },
+            { id: 1004, name: 'Жим штанги 30°', type: 'auxiliary' },
+            { id: 1005, name: 'Жим гантелей 30°', type: 'auxiliary' },
+            { id: 1006, name: 'Жим хамера', type: 'auxiliary' },
+            { id: 1007, name: 'Сведение рук в тренажере', type: 'corrective' },
+        ],
+    },
+    {
+        name: 'Плечи',
+        list: [
+            { id: 4001, name: 'Тяга штанги к подбородку', type: 'basic' },
+            { id: 4002, name: 'Жим штанги стоя', type: 'basic' },
+            { id: 4003, name: 'Жим гантелей стоя', type: 'basic' },
+            { id: 4004, name: 'Разведение гантелей', type: 'auxiliary' },
+            {
+                id: 4005,
+                name: 'Разведение гантелей в наклоне',
+                type: 'auxiliary',
+            },
+        ],
+    },
+    {
+        name: 'Предплечья',
+        list: [{ id: 9001, name: 'Сгибания в запястьях', type: 'auxiliary' }],
+    },
+    {
+        name: 'Пресс',
+        list: [
+            { id: 2001, name: 'Скручивания', type: 'basic' },
+            { id: 2002, name: 'Подъемы ног в висе', type: 'basic' },
+        ],
+    },
+    {
+        name: 'Спина',
+        list: [
+            { id: 3001, name: 'Подтягивания', type: 'basic' },
+            { id: 3002, name: 'Тяга штанги в наклоне', type: 'basic' },
+            { id: 3003, name: 'Тяга гантели', type: 'auxiliary' },
+            { id: 3004, name: 'Тяга вертикального блока', type: 'auxiliary' },
+            { id: 3005, name: 'Тяга горизонтального блока', type: 'auxiliary' },
+            { id: 3006, name: 'Шраги', type: 'auxiliary' },
+        ],
+    },
+    {
         name: 'Трицепс',
         list: [
             { id: 8001, name: 'Жим штанги узким хватом', type: 'basic' },
@@ -89,9 +93,5 @@ export const exercises = [
                 type: 'corrective',
             },
         ],
-    },
-    {
-        name: 'Предплечья',
-        list: [{ id: 9001, name: 'Сгибания в запястьях', type: 'auxiliary' }],
     },
 ];
