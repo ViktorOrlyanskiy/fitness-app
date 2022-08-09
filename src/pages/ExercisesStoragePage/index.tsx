@@ -101,7 +101,12 @@ const ExercisesStorage: FC = () => {
                         Добавить новое упражение
                     </MyButton>
                 </div>
-                <ModalAddExercise isOpen={isOpenModal} setOpen={setOpenModal} />
+                <ModalAddExercise
+                    isOpen={isOpenModal}
+                    setOpen={setOpenModal}
+                    userId={user.uid}
+                    exercises={exercisesStorage}
+                />
             </div>
         </div>
     );
