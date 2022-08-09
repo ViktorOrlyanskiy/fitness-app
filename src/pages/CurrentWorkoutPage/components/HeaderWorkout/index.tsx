@@ -1,7 +1,7 @@
 import { FC, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAppDispatch, useAppSelectors } from 'hooks/useRedux';
-import { _set_workouts } from 'store/actions/listWorkoutsActions/_set_workout_async';
+import { _set_workout } from 'store/actions';
 import { clear_list_exercises } from 'store/reducers/listExercises';
 import { set_is_fetch_workouts } from 'store/reducers/fetch';
 import {
@@ -44,7 +44,7 @@ const HeaderWorkout: FC<{ name: string }> = ({ name }) => {
             };
 
             if (user.uid) {
-                dispatch(_set_workouts({ userId: user.uid, workout }));
+                dispatch(_set_workout({ userId: user.uid, workout }));
                 dispatch(set_is_fetch_workouts(true));
                 dispatch(clear_list_exercises());
                 dispatch(clear_current_workout());

@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { _fetch_workouts } from 'store/actions/listWorkoutsActions/_fetch_workouts_async';
-import { IWorkout } from 'shared/models';
+import { _fetch_workouts } from 'store/actions';
+import { IWorkout } from 'shared/models/index';
 
 const initialState: IWorkout[] = [];
 
@@ -33,4 +33,4 @@ const listWorkouts = createSlice({
 });
 
 export default listWorkouts.reducer;
-export const {} = listWorkouts.actions;
+// export const {} = listWorkouts.actions;

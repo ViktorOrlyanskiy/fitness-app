@@ -3,11 +3,14 @@ import { IGroupExercises } from 'shared/models';
 import Exercise from '../Exercise';
 import styles from './group.module.scss';
 
-interface GroupProps extends IGroupExercises {
-    handlerClickExercise: (name: string, isActive: boolean) => void;
+interface GroupProps {
+    group: IGroupExercises;
+    handleClickExercise: (name: string, isActive: boolean) => void;
 }
 
-const Group: FC<GroupProps> = ({ name, list, handlerClickExercise }) => {
+const Group: FC<GroupProps> = ({ group, handleClickExercise }) => {
+    const { name, list } = group;
+
     return (
         <div className={styles.wrapper}>
             <div className={styles.title}>{name}</div>
@@ -15,8 +18,9 @@ const Group: FC<GroupProps> = ({ name, list, handlerClickExercise }) => {
                 {list.map((exercise) => (
                     <Exercise
                         key={exercise.id}
+                        group={group}
                         {...exercise}
-                        handlerClickExercise={handlerClickExercise}
+                        handleClickExercise={handleClickExercise}
                     />
                 ))}
             </ul>

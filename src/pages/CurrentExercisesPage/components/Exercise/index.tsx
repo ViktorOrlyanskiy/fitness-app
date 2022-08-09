@@ -7,12 +7,12 @@ import {
     change_active_exercise,
 } from 'store/reducers/listExercises';
 import { IExercise } from 'shared/models';
+import { URL } from 'shared/constants/URL';
 
 import TouchWrapper from 'shared/components/TouchWrapper';
-import { URL } from 'shared/constants/URL';
-import './exercise.scss';
 import ListItem from 'shared/components/ListItem';
 import ButtonBack from 'shared/components/ButtonBack';
+import './exercise.scss';
 
 interface ExerciseProps extends IExercise {}
 
@@ -25,7 +25,7 @@ const Exercise: FC<ExerciseProps> = ({ id, name, isActive, sets }) => {
         navigate(URL.current_workout);
     };
 
-    const handlerBtnDelete = () => {
+    const handleBtnDelete = () => {
         dispatch(remove_exercise({ id, isActive }));
         dispatch(change_active_exercise());
     };
@@ -47,7 +47,7 @@ const Exercise: FC<ExerciseProps> = ({ id, name, isActive, sets }) => {
                     }
                 />
             }
-            back={<ButtonBack handlerDelete={handlerBtnDelete} />}
+            back={<ButtonBack handleDelete={handleBtnDelete} />}
         />
     );
 };

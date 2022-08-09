@@ -61,9 +61,9 @@ const Set: FC<SetProps> = ({
             back={
                 <ButtonBack
                     isSet
-                    handlerCopy={handleBtnCopy}
-                    handlerEdit={handleBtnEdit}
-                    handlerDelete={handleBtnDelete}
+                    handleCopy={handleBtnCopy}
+                    handleEdit={handleBtnEdit}
+                    handleDelete={handleBtnDelete}
                 />
             }
         />

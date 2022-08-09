@@ -4,41 +4,41 @@ import styles from './button-back.module.scss';
 
 interface ButtonBackProps {
     isSet?: boolean;
-    handlerPlay?: () => void;
-    handlerCopy?: () => void;
-    handlerEdit?: () => void;
-    handlerDelete?: () => void;
+    handlePlay?: () => void;
+    handleCopy?: () => void;
+    handleEdit?: () => void;
+    handleDelete?: () => void;
 }
 
 const ButtonBack: FC<ButtonBackProps> = ({
     isSet,
-    handlerPlay,
-    handlerCopy,
-    handlerEdit,
-    handlerDelete,
+    handlePlay,
+    handleCopy,
+    handleEdit,
+    handleDelete,
 }) => {
     return (
         <div
             className={
                 isSet ? styles['button-back-set'] : styles['button-back']
             }>
-            {handlerPlay && (
-                <div className={styles.play} onClick={handlerPlay}>
+            {handlePlay && (
+                <div className={styles.play} onClick={handlePlay}>
                     <SvgGenerator id={variant.play} />
                 </div>
             )}
-            {handlerCopy && (
-                <div className={styles.copy} onClick={handlerCopy}>
+            {handleCopy && (
+                <div className={styles.copy} onClick={handleCopy}>
                     <SvgGenerator id={variant.copy} />
                 </div>
             )}
-            {handlerEdit && (
-                <div className={styles.edit} onClick={handlerEdit}>
+            {handleEdit && (
+                <div className={styles.edit} onClick={handleEdit}>
                     <SvgGenerator id={variant.pencil_light} />
                 </div>
             )}
-            {handlerDelete && (
-                <div className={styles.delete} onClick={handlerDelete}>
+            {handleDelete && (
+                <div className={styles.delete} onClick={handleDelete}>
                     <SvgGenerator id={variant.trash_xmart} />
                 </div>
             )}

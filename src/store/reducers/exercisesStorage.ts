@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { IGroupExercises } from 'shared/models';
 import { exercises } from 'shared/constants/exercises';
-import { _fetch_groups_exercises } from 'store/actions/exercisesStorageActions/_fetch_groups_exercises_async';
+import { _fetch_groups_exercises } from 'store/actions';
 
 const initialState: IGroupExercises[] = [];
 

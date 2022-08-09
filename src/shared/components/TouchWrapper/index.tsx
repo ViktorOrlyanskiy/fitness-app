@@ -23,10 +23,10 @@ const TouchWrapper: FC<TouchWrapperProps> = ({
     const [leftOffset, setLeftOffset] = useState<number>(0);
     const startXRef = useRef<number>(0);
 
-    const handlerTouchStart = (e: React.TouchEvent<HTMLDivElement>) => {
+    const handleTouchStart = (e: React.TouchEvent<HTMLDivElement>) => {
         startXRef.current = e.touches[0].pageX;
     };
-    const handlerTouchMove = (e: React.TouchEvent<HTMLDivElement>) => {
+    const handleTouchMove = (e: React.TouchEvent<HTMLDivElement>) => {
         let endX = e.touches[0].pageX;
         // определяет направление смещения
         if (
@@ -46,7 +46,7 @@ const TouchWrapper: FC<TouchWrapperProps> = ({
         }
     };
 
-    const handlerTouchEnd = (e: React.TouchEvent<HTMLDivElement>) => {
+    const handleTouchEnd = (e: React.TouchEvent<HTMLDivElement>) => {
         startXRef.current = 0;
     };
 
@@ -58,9 +58,9 @@ const TouchWrapper: FC<TouchWrapperProps> = ({
     return (
         <div
             className={styles.wrapper}
-            onTouchStart={handlerTouchStart}
-            onTouchMove={handlerTouchMove}
-            onTouchEnd={handlerTouchEnd}>
+            onTouchStart={handleTouchStart}
+            onTouchMove={handleTouchMove}
+            onTouchEnd={handleTouchEnd}>
             <div
                 style={{
                     left: -leftOffset,

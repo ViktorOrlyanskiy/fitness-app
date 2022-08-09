@@ -1,13 +1,12 @@
 import { FC } from 'react';
 import { useAppDispatch, useAppSelector } from 'hooks/useRedux';
-import { _remove_workout } from 'store/actions/listWorkoutsActions/_remove_workout_async';
+import { _remove_workout, _fetch_workouts } from 'store/actions';
+import { set_is_fetch_workouts } from 'store/reducers/fetch';
 
 import TouchWrapper from 'shared/components/TouchWrapper';
 import ListItem from 'shared/components/ListItem';
 import ButtonBack from 'shared/components/ButtonBack';
 import './workout.scss';
-import { _fetch_workouts } from 'store/actions/listWorkoutsActions/_fetch_workouts_async';
-import { set_is_fetch_workouts } from 'store/reducers/fetch';
 
 interface WorkoutProps {
     id: number;
@@ -20,7 +19,7 @@ const Workout: FC<WorkoutProps> = ({ id, name, date, isScheduled }) => {
     const dispatch = useAppDispatch();
     const user = useAppSelector((state) => state.user);
 
-    const handlerBtnDelete = () => {
+    const handleBtnDelete = () => {
         if (user.uid) {
             dispatch(_remove_workout({ userId: user.uid, workoutId: id }));
             dispatch(set_is_fetch_workouts(true));
@@ -42,9 +41,9 @@ const Workout: FC<WorkoutProps> = ({ id, name, date, isScheduled }) => {
             }
             back={
                 <ButtonBack
-                    handlerPlay={() => null}
-                    handlerCopy={() => null}
-                    handlerDelete={handlerBtnDelete}
+                    handlePlay={() => null}
+                    handleCopy={() => null}
+                    handleDelete={handleBtnDelete}
                 />
             }
         />

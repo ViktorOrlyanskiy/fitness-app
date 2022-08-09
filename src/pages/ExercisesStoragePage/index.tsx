@@ -4,7 +4,7 @@ import { useAppDispatch, useAppSelectors } from 'hooks/useRedux';
 import { add_exercise } from 'store/reducers/listExercises';
 import { create_id } from 'store/reducers/currentWorkout';
 import { set_is_fetch_groups_exercises } from 'store/reducers/fetch';
-import { _fetch_groups_exercises } from 'store/actions/exercisesStorageActions/_fetch_groups_exercises_async';
+import { _fetch_groups_exercises } from 'store/actions';
 import { URL } from 'shared/constants/URL';
 import { IExercise } from 'shared/models';
 import { getStatus } from 'shared/utils/FormAddingValidation';
@@ -24,7 +24,7 @@ const ExercisesStorage: FC = () => {
     const exercisesRef = useRef<string[]>([]);
     let exercises = exercisesRef.current;
 
-    const handlerClickExercise = (name: string, isActive: boolean) => {
+    const handleClickExercise = (name: string, isActive: boolean) => {
         if (isActive && exercises.includes(name)) {
             exercises = exercises.filter((item) => item !== name);
         } else {
@@ -89,8 +89,8 @@ const ExercisesStorage: FC = () => {
                 {exercisesStorage.map((group) => (
                     <Group
                         key={group.name}
-                        {...group}
-                        handlerClickExercise={handlerClickExercise}
+                        group={group}
+                        handleClickExercise={handleClickExercise}
                     />
                 ))}
 

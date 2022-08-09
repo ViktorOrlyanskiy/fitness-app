@@ -5,7 +5,7 @@ import { Radio, Select } from 'antd';
 import { useAppDispatch } from 'hooks/useRedux';
 import { IGroupExercises, IExerciseStorage } from 'shared/models/index';
 import { set_is_fetch_groups_exercises } from 'store/reducers/fetch';
-import { _update_group_exercises } from 'store/actions/exercisesStorageActions/_update_group_exercises_async';
+import { _update_group_exercises } from 'store/actions';
 import { copyObject } from 'shared/utils/CopyObject';
 
 import ModalForm from 'shared/components/ui/Modal/ModalForm';
@@ -60,7 +60,6 @@ const ModalAddExercise: FC<ModalAddExerciseProps> = ({
 
             const newExercise: IExerciseStorage = {
                 id: ++newId,
-                group: values.group,
                 type: values.type,
                 name: values.name,
             };

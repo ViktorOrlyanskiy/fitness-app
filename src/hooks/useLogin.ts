@@ -8,7 +8,7 @@ import {
     createUserWithEmailAndPassword,
 } from 'firebase/auth';
 import { URL } from 'shared/constants/URL';
-import { _set_group_exercises } from 'store/actions/exercisesStorageActions/_set_group_exercises_async';
+import { _set_group_exercises } from 'store/actions';
 import { exercises } from 'shared/constants/exercises';
 
 export const useLogin = () => {

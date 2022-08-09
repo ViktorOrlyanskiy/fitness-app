@@ -8,7 +8,7 @@ interface ArgFunc {
     workout: IWorkout;
 }
 
-export const _set_workouts = createAsyncThunk(
+export const _set_workout = createAsyncThunk(
     'listWorkouts/_set_workout',
     async function ({ userId, workout }: ArgFunc) {
         const userRef = doc(db, 'users', `${userId}`);
