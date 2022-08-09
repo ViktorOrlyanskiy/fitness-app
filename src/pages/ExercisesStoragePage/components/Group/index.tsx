@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { IGroupExercises } from 'shared/types';
+import { IGroupExercises } from 'shared/models';
 import Exercise from '../Exercise';
 import styles from './group.module.scss';
 

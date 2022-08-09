@@ -6,9 +6,8 @@ import {
     remove_exercise,
     change_active_exercise,
 } from 'store/reducers/listExercises';
-import { IExercise } from 'shared/types';
+import { IExercise } from 'shared/models';
 
-import { SvgGenerator, variant } from 'shared/components/ui/SvgGenerator';
 import TouchWrapper from 'shared/components/TouchWrapper';
 import { URL } from 'shared/constants/URL';
 import './exercise.scss';

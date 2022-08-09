@@ -1,7 +1,7 @@
 import React, { FC, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { URL } from 'shared/constants/URL';
-import { IExercise } from 'shared/types';
+import { IExercise } from 'shared/models';
 import { useAppDispatch, useAppSelectors } from 'hooks/useRedux';
 import { add_exercise } from 'store/reducers/listExercises';
 import {

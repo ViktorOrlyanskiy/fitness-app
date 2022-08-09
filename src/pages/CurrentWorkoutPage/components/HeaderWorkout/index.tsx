@@ -3,18 +3,18 @@ import { useNavigate } from 'react-router-dom';
 import { useAppDispatch, useAppSelectors } from 'hooks/useRedux';
 import { _set_workouts } from 'store/actions/listWorkoutsActions/_set_workout_async';
 import { clear_list_exercises } from 'store/reducers/listExercises';
-import { set_fetch_workouts } from 'store/reducers/fetch';
+import { set_is_fetch_workouts } from 'store/reducers/fetch';
 import {
     clear_current_workout,
     save_name,
 } from 'store/reducers/currentWorkout';
 
-import { IWorkout } from 'shared/types';
+import { IWorkout } from 'shared/models';
 import { URL } from 'shared/constants/URL';
 import Header from 'shared/components/Header';
 import ModalSave from 'shared/components/ModalSave';
 import SelectExercise from '../SelectExercise';
-import Modal from 'shared/components/ui/Modal';
+import Modal from 'shared/components/ui/Modal/Modal';
 import './header-workout.scss';
 
 const HeaderWorkout: FC<{ name: string }> = ({ name }) => {
@@ -45,7 +45,7 @@ const HeaderWorkout: FC<{ name: string }> = ({ name }) => {
 
             if (user.uid) {
                 dispatch(_set_workouts({ userId: user.uid, workout }));
-                dispatch(set_fetch_workouts(true));
+                dispatch(set_is_fetch_workouts(true));
                 dispatch(clear_list_exercises());
                 dispatch(clear_current_workout());
                 navigate(URL.list_workouts);

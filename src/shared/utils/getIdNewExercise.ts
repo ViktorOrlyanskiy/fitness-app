@@ -1,4 +1,4 @@
-import { IGroupExercises } from 'shared/types';
+import { IGroupExercises } from 'shared/models';
 export const getIdNewExercise = (
     groupName: string,
     exercises: IGroupExercises[]

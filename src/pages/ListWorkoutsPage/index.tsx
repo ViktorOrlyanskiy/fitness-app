@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useAppDispatch, useAppSelectors } from 'hooks/useRedux';
 import { save_name } from 'store/reducers/currentWorkout';
 import { _fetch_workouts } from 'store/actions/listWorkoutsActions/_fetch_workouts_async';
-import { set_fetch_workouts } from 'store/reducers/fetch';
+import { set_is_fetch_workouts } from 'store/reducers/fetch';
 
 import Header from 'shared/components/Header';
 import Workout from './components/Workout';
@@ -37,7 +37,7 @@ const ListWorkouts: FC = () => {
         if (fetch.workouts) {
             if (user.uid) {
                 dispatch(_fetch_workouts(user.uid));
-                dispatch(set_fetch_workouts(false));
+                dispatch(set_is_fetch_workouts(false));
             }
         }
     }, [user.uid, dispatch, fetch.workouts]);

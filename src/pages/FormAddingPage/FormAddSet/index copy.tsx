@@ -4,7 +4,7 @@ import { useAppDispatch, useAppSelector } from 'hooks/useRedux';
 import { add_set, edit_set } from 'store/reducers/listExercises';
 import { clear_service_set } from 'store/reducers/editSet';
 import { URL } from 'shared/constants/URL';
-import { ISet } from 'shared/types';
+import { ISet } from 'shared/models';
 import { formValidation, clearInputs } from 'shared/utils/FormAddingValidation';
 
 import Header from 'shared/components/Header';

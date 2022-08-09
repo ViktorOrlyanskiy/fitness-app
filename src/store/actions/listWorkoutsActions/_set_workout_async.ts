@@ -1,7 +1,7 @@
 import { doc, setDoc } from 'firebase/firestore';
 import { db } from '../../../firebase';
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { IWorkout } from 'shared/types';
+import { IWorkout } from 'shared/models';
 
 interface ArgFunc {
     userId: string;

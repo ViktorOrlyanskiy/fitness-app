@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
-import { IHeader } from 'shared/types';
+import { IHeader } from 'shared/models';
 
 import { SvgGenerator } from 'shared/components/ui/SvgGenerator';
 import './header.scss';

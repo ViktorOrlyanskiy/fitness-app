@@ -34,5 +34,6 @@ const CurrentWorkout = createSlice({
 });
 
 export default CurrentWorkout.reducer;
+
 export const { clear_current_workout, create_id, save_name } =
     CurrentWorkout.actions;

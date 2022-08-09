@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { ISet } from 'shared/types';
+import { ISet } from 'shared/models';
 
 interface IEditSet {
     id?: number;

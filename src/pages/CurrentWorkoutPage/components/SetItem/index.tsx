@@ -1,14 +1,8 @@
 import { FC } from 'react';
 import './set-item.scss';
 
-export enum SetItemVariant {
-    weight = 'weight',
-    amount = 'amount',
-    comment = 'comment',
-}
-
 interface SetItemProps {
-    variant: SetItemVariant;
+    variant: 'weight' | 'amount' | 'comment';
     value: number | string;
 }
 

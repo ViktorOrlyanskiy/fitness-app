@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { IExercise, ISet } from 'shared/types';
+import { IExercise, ISet } from 'shared/models';
 import {
     changeActiveExercise,
     changeExercise,

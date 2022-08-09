@@ -3,10 +3,10 @@ import { useNavigate } from 'react-router-dom';
 import { useAppDispatch, useAppSelectors } from 'hooks/useRedux';
 import { add_exercise } from 'store/reducers/listExercises';
 import { create_id } from 'store/reducers/currentWorkout';
-import { set_fetch_exercises } from 'store/reducers/fetch';
-import { _fetch_exercises } from 'store/actions/exercisesStorageActions/_fetch_exercises_async';
+import { set_is_fetch_groups_exercises } from 'store/reducers/fetch';
+import { _fetch_groups_exercises } from 'store/actions/exercisesStorageActions/_fetch_groups_exercises_async';
 import { URL } from 'shared/constants/URL';
-import { IExercise } from 'shared/types';
+import { IExercise } from 'shared/models';
 import { getStatus } from 'shared/utils/FormAddingValidation';
 
 import Header from 'shared/components/Header';
@@ -73,8 +73,8 @@ const ExercisesStorage: FC = () => {
     useEffect(() => {
         if (fetch.exercises) {
             if (user.uid) {
-                dispatch(_fetch_exercises(user.uid));
-                dispatch(set_fetch_exercises(false));
+                dispatch(_fetch_groups_exercises(user.uid));
+                dispatch(set_is_fetch_groups_exercises(false));
             }
         }
     }, [user.uid, dispatch, fetch.exercises]);

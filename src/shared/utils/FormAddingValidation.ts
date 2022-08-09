@@ -1,5 +1,5 @@
 import React from 'react';
-import { IExercise } from 'shared/types';
+import { IExercise } from 'shared/models';
 
 export const formValidation = (values: string[]) => {
     let isValidation = true;

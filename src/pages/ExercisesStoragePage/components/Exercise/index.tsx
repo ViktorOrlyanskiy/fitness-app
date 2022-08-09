@@ -1,5 +1,5 @@
 import { FC, useState } from 'react';
-import { IExerciseStorage } from 'shared/types';
+import { IExerciseStorage } from 'shared/models';
 import ListItem from 'shared/components/ListItem';
 import { SvgGenerator, variant } from 'shared/components/ui/SvgGenerator';
 import './exercise.scss';

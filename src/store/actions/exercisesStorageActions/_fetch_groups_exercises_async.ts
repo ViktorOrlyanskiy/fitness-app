@@ -2,8 +2,8 @@ import { collection, doc, getDocs } from 'firebase/firestore';
 import { db } from '../../../firebase';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
-export const _fetch_exercises = createAsyncThunk(
-    'listWorkouts/_fetch_exercises',
+export const _fetch_groups_exercises = createAsyncThunk(
+    'listWorkouts/_fetch_groups_exercises',
     async function (userId: string) {
         const userRef = doc(db, 'users', `${userId}`);
         const exercises: any[] = [];

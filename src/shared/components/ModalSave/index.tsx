@@ -3,9 +3,8 @@ import { useInput } from 'hooks/useInput';
 import { useInputAutofocus } from 'hooks/useInputAutofocus';
 import { useOutsideClick } from 'hooks/useOutsideClick';
 import ModalForm from 'shared/components/ui/Modal/ModalForm';
-import styles from './modal-save.module.scss';
 import { MyInputFocus } from '../ui/MyInput';
-import { BackgroundModal } from '../ui/BackgroundModal';
+import styles from './modal-save.module.scss';
 
 interface ModalSaveProps {
     name: string;
@@ -36,25 +35,21 @@ const ModalSave: FC<ModalSaveProps> = ({
     };
 
     return (
-        <>
-            <ModalForm
-                modalRef={modalRef}
-                isOpen={isOpen}
-                setOpen={setOpen}
-                isDisabledBtn={nameWorkout.value ? false : true}
-                handleSubmit={handleSubmit}
-                handleReset={handleReset}>
-                <div className={styles.title}>{name}</div>
-                <MyInputFocus
-                    inputRef={inputRef}
-                    label=""
-                    type="text"
-                    className={styles.input}
-                    {...nameWorkout}
-                />
-            </ModalForm>
-            <BackgroundModal active={isOpen} />
-        </>
+        <ModalForm
+            modalRef={modalRef}
+            isOpen={isOpen}
+            isDisabledBtn={nameWorkout.value ? false : true}
+            handleSubmit={handleSubmit}
+            handleReset={handleReset}>
+            <div className={styles.title}>{name}</div>
+            <MyInputFocus
+                inputRef={inputRef}
+                label=""
+                type="text"
+                className={styles.input}
+                {...nameWorkout}
+            />
+        </ModalForm>
     );
 };
 export default ModalSave;

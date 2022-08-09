@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import { NavLink } from 'react-router-dom';
-import { IFooter } from 'shared/types';
+import { IFooter } from 'shared/models';
 import './footer.scss';
 
 interface FooterProps extends IFooter {}

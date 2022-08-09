@@ -1,4 +1,4 @@
-import { IExercise, ISet } from 'shared/types';
+import { IExercise, ISet } from 'shared/models';
 
 export function changeActiveExercise(state: IExercise[]) {
     let flag = false;
@@ -38,8 +38,8 @@ export function removeSet(state: IExercise[], payload: number) {
 }
 
 export function copySet(state: IExercise[], payload: number) {
-    state.forEach(exercise => {
-        exercise.sets?.forEach(set => {
+    state.forEach((exercise) => {
+        exercise.sets?.forEach((set) => {
             if (set.id === payload)
                 exercise.sets?.push({ ...set, id: Date.now() });
         });
@@ -47,8 +47,8 @@ export function copySet(state: IExercise[], payload: number) {
 }
 
 export function editSet(state: IExercise[], payload: ISet) {
-    state.forEach(exercise => {
-        exercise.sets?.forEach(set => {
+    state.forEach((exercise) => {
+        exercise.sets?.forEach((set) => {
             if (set.id === payload.id) {
                 set.weight = payload.weight;
                 set.amount = payload.amount;

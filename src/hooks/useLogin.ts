@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom';
-import { IUser } from 'shared/types';
+import { IUser } from 'shared/models';
 import { useAppDispatch } from 'hooks/useRedux';
 import { set_user } from 'store/reducers/user';
 import {
@@ -8,7 +8,7 @@ import {
     createUserWithEmailAndPassword,
 } from 'firebase/auth';
 import { URL } from 'shared/constants/URL';
-import { _set_exercise } from 'store/actions/exercisesStorageActions/_set_exercise_async';
+import { _set_group_exercises } from 'store/actions/exercisesStorageActions/_set_group_exercises_async';
 import { exercises } from 'shared/constants/exercises';
 
 export const useLogin = () => {
@@ -65,7 +65,7 @@ export const useLogin = () => {
                 dispatch(set_user(parseUser(user)));
                 // отправляет на сервер первоначальный набор упражений
                 exercises.forEach((group) => {
-                    dispatch(_set_exercise({ userId: user.uid, group }));
+                    dispatch(_set_group_exercises({ userId: user.uid, group }));
                 });
                 navigate(URL.list_workouts);
             })

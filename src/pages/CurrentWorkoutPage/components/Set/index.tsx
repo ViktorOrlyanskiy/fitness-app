@@ -6,8 +6,8 @@ import { set_offset } from 'store/reducers/touchWrapper';
 
 import TouchWrapper from 'shared/components/TouchWrapper';
 import ButtonBack from 'shared/components/ButtonBack';
-import SetItem, { SetItemVariant } from '../SetItem';
-import { ISet } from 'shared/types';
+import SetItem from '../SetItem';
+import { ISet } from 'shared/models';
 import './set.scss';
 
 interface SetProps extends ISet {
@@ -50,19 +50,10 @@ const Set: FC<SetProps> = ({
                         <div className="set__control_number">{index}</div>
                     </div>
                     <div className="set__body">
-                        <SetItem
-                            variant={SetItemVariant.weight}
-                            value={weight}
-                        />
-                        <SetItem
-                            variant={SetItemVariant.amount}
-                            value={amount}
-                        />
+                        <SetItem variant="weight" value={weight} />
+                        <SetItem variant="amount" value={amount} />
                         {comment && (
-                            <SetItem
-                                variant={SetItemVariant.comment}
-                                value={comment}
-                            />
+                            <SetItem variant="comment" value={comment} />
                         )}
                     </div>
                 </div>
