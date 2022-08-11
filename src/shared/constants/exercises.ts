@@ -45,7 +45,7 @@ export const exercises = [
         ],
     },
     {
-        name: 'Плечи',
+        name: 'Дельты',
         list: [
             { id: 40001, name: 'Тяга штанги к подбородку', type: 'basic' },
             { id: 40002, name: 'Жим штанги стоя', type: 'basic' },
@@ -59,7 +59,7 @@ export const exercises = [
         ],
     },
     {
-        name: 'Предплечья',
+        name: 'Предплечье',
         list: [{ id: 90001, name: 'Сгибания в запястьях', type: 'auxiliary' }],
     },
     {

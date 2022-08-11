@@ -1,0 +1,76 @@
+/* ========== Глобальные переменные ========== */
+@import '../../../styles/variables.scss';
+
+$color-main: rgb(204, 204, 204);
+$color-hover: rgb(255, 255, 255);
+
+.wrapper {
+    width: 100%;
+    margin: 0 auto;
+    position: relative;
+    font-size: $text-size;
+    user-select: none;
+    cursor: pointer;
+}
+.header {
+    height: 35px;
+    @include my-flex(center);
+    border: 1px solid $color-main;
+    border-radius: 4px;
+}
+
+.current {
+    padding: 5px 10px;
+}
+
+.icon {
+    flex: 0 0 14px;
+    margin-left: auto;
+    margin-right: 5px;
+    @include my-flex(center);
+
+    svg {
+        fill: $color-main;
+    }
+}
+
+.body {
+    display: none;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 130%;
+    z-index: 100;
+    height: 195px;
+    box-shadow: 0 0 3px 2px $color-main;
+    border-radius: 4px;
+    background: $color-white;
+    overflow-y: scroll;
+}
+
+.item {
+    padding: 8px 8px;
+    transition: 0.1s;
+    border-bottom: 1px solid rgba($color-main, 0.2);
+    &:last-child {
+        border-bottom: none;
+    }
+    &:hover {
+        transition: all 0.3s;
+        background-color: rgba($bg-color-header, 0.2);
+    }
+}
+
+.active {
+    .header {
+        border: none;
+        box-shadow: 0 0 2px 2px $bg-color-header;
+        .current {
+            color: $color-main;
+        }
+    }
+
+    .body {
+        display: block;
+    }
+}

@@ -1,7 +1,6 @@
 import { FC } from 'react';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
-import { Radio, Select } from 'antd';
 import { useAppDispatch } from 'hooks/useRedux';
 import { IGroupExercises, IExerciseStorage } from 'shared/models/index';
 import { set_is_fetch_groups_exercises } from 'store/reducers/fetch';
@@ -9,6 +8,8 @@ import { _update_group_exercises } from 'store/actions';
 import { copyObject } from 'shared/utils/CopyObject';
 
 import ModalForm from 'shared/components/ui/Modal/ModalForm';
+import { MySelect } from 'shared/components/ui/MySelect';
+import { MyRadioButtons } from 'shared/components/ui/MyRadioButtons';
 import styles from './modal-add-exercise.module.scss';
 
 interface ModalAddExerciseProps {
@@ -25,10 +26,22 @@ const ModalAddExercise: FC<ModalAddExerciseProps> = ({
     exercises,
 }) => {
     const dispatch = useAppDispatch();
-    const options = [
+    const optionsRadio = [
         { label: 'Базовое', value: 'basic' },
         { label: 'Вспомогательное', value: 'auxiliary' },
         { label: 'Корректирующее', value: 'corrective' },
+    ];
+
+    const optionsSelect = [
+        { label: 'Бедра', value: 'Бедра' },
+        { label: 'Бицепс', value: 'Бицепс' },
+        { label: 'Голень', value: 'Голень' },
+        { label: 'Грудь', value: 'Грудь' },
+        { label: 'Дельты', value: 'Дельты' },
+        { label: 'Предплечье', value: 'Предплечье' },
+        { label: 'Пресс', value: 'Пресс' },
+        { label: 'Спина', value: 'Спина' },
+        { label: 'Трицепс', value: 'Трицепс' },
     ];
 
     const formik = useFormik({
@@ -68,6 +81,8 @@ const ModalAddExercise: FC<ModalAddExerciseProps> = ({
             if (userId && group) {
                 dispatch(_update_group_exercises({ userId, group }));
                 dispatch(set_is_fetch_groups_exercises(true));
+                console.log(values);
+
                 setSubmitting(false);
                 resetForm();
                 setOpen(false);
@@ -87,19 +102,11 @@ const ModalAddExercise: FC<ModalAddExerciseProps> = ({
             handleSubmit={formik.handleSubmit}
             handleReset={handleReset}>
             <div className={styles.title}>Мышечная группа</div>
-            <Select
-                value={formik.values.group}
-                className={styles.select}
-                onChange={(value) => formik.setFieldValue('group', value)}>
-                {exercises.map((group: IGroupExercises) => (
-                    <Select.Option
-                        key={group.name}
-                        value={group.name}
-                        style={{ fontSize: 18, height: 35 }}>
-                        {group.name}
-                    </Select.Option>
-                ))}
-            </Select>
+            <MySelect
+                defaultValue={formik.values.group}
+                options={optionsSelect}
+                onChange={(value) => formik.setFieldValue('group', value)}
+            />
             {formik.errors.group && (
                 <p style={{ marginTop: '5px' }} className={styles.error}>
                     {formik.errors.group}
@@ -107,13 +114,10 @@ const ModalAddExercise: FC<ModalAddExerciseProps> = ({
             )}
 
             <div className={styles.title}>Тип упражнения</div>
-            <Radio.Group
-                className={styles['radio-group']}
-                options={options}
-                {...formik.getFieldProps('type')}
-                optionType="button"
-                buttonStyle="solid"
-                size="large"
+            <MyRadioButtons
+                defaultValue={formik.values.type}
+                options={optionsRadio}
+                onChange={(value) => formik.setFieldValue('type', value)}
             />
 
             <div className={styles.title}>Название упражнения</div>
