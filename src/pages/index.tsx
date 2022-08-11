@@ -7,7 +7,6 @@ import ListWorkouts from './ListWorkoutsPage';
 import CurrentWorkout from './CurrentWorkoutPage';
 import CurrentExercises from './CurrentExercisesPage';
 import ExercisesStorage from './ExercisesStoragePage';
-import FormAddExercise from './FormAddingPage/FormAddExercise';
 
 const Login = lazy(() => import('./LoginPage'));
 const Registration = lazy(() => import('./RegistrationPage'));
@@ -34,10 +33,6 @@ const Routing = () => {
                     <Route
                         path={URL.exercises_storage}
                         element={<ExercisesStorage />}
-                    />
-                    <Route
-                        path={URL.add_exercise}
-                        element={<FormAddExercise />}
                     />
                     {/* изменить страницу */}
                     <Route path={URL.error} element={<ListWorkouts />} />
