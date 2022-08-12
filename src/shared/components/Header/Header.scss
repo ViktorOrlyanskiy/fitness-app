@@ -8,7 +8,7 @@
     width: 100%;
     min-height: $height-header;
     @include my-flex(space-between);
-    background-color: $bg-color-header;
+    background-color: $color-main-dark;
     user-select: none;
 
     &__btn {
@@ -36,7 +36,7 @@
         flex: 0 0 70%;
         height: $height-header;
         @include my-flex(center);
-        color: $color-main-light;
+        color: $color-main-bright;
         cursor: pointer;
     }
 }

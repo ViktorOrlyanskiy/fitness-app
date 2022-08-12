@@ -2,8 +2,7 @@
 @import '../../../../shared/styles/variables.scss';
 
 .select-exercise {
-    display: flex;
-    justify-content: space-between;
+    @include my-flex(space-between);
     padding: $padding-body;
 }
 
@@ -12,8 +11,9 @@
     height: 35px;
 
     border-radius: 2px;
-    box-shadow: 0px 0px 2px 1px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 0px 3px 1px rgba($color-border, 0.5);
     color: $color-main-light;
+
     &:first-child {
         flex: 1 1 auto;
     }

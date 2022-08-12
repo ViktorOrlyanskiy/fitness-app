@@ -15,7 +15,8 @@
     font-size: $text-size;
     font-weight: 700;
     letter-spacing: 0.8px;
-    color: $color-blue;
+    background-color: $color-main-dark;
+    color: $color-main-bright;
     user-select: none;
 
     &:disabled {

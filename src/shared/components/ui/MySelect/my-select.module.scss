@@ -57,14 +57,14 @@ $color-hover: rgb(255, 255, 255);
     }
     &:hover {
         transition: all 0.3s;
-        background-color: rgba($bg-color-header, 0.2);
+        background-color: rgba($color-main-dark, 0.2);
     }
 }
 
 .active {
     .header {
         border: none;
-        box-shadow: 0 0 2px 2px $bg-color-header;
+        box-shadow: 0 0 2px 2px $color-main-dark;
         .current {
             color: $color-main;
         }

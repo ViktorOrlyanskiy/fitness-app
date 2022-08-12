@@ -1,8 +1,10 @@
 /* ========== Переменные ========== */
 $color-main-bright: rgb(243, 112, 34);
 $color-main-light: rgb(255, 255, 255);
-$color-main-dark: rgba(29, 29, 29, 0.9);
+$color-main-dark: rgb(29, 29, 29);
 $color-main-gray: rgb(130, 130, 130);
+
+$color-border: $color-main-gray;
 
 $height-header: 50px;
 $height-line: 42px;
@@ -15,16 +17,6 @@ $bg-color-btn-play: yellowgreen;
 $bg-color-btn-copy: orange;
 $bg-color-btn-edit: lightblue;
 $bg-color-btn-delete: tomato;
-
-// удалить
-$color-border: rgb(195, 195, 195);
-$bg-color-gray: rgba(92, 90, 90, 0.3);
-$bg-color-header: rgb(0, 155, 118);
-$color-gray: rgb(46, 41, 41);
-$color-blue: rgb(54, 71, 225);
-$color-black-light: rgba(0, 0, 0, 0.7);
-$height-footer: 50px;
-$padding-line: 10px 10px 10px 15px;
 
 /* ========== Миксины ========== */
 @import './mixins/my-flex.scss';
