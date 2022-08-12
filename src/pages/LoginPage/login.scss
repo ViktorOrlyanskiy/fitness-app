@@ -1,0 +1,76 @@
+/* ========== Глобальные переменные ========== */
+@import '../../shared/styles/variables.scss';
+
+$bg-color-dark: rgb(29, 29, 29);
+$text-color-gray: rgb(130, 130, 130);
+$text-color-main: rgb(243, 112, 34);
+
+// input:-webkit-autofill {
+//     -webkit-box-shadow: 0 0 0 50px $bg-color-dark inset;
+//     -webkit-text-fill-color: $text-color-gray;
+//     transition: background-color 5000s ease-in-out 0s;
+// }
+
+body {
+    // background-image: url('./background-image.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.login {
+    width: 100vw;
+    height: 100vh;
+    @include my-flex(center);
+    background-color: rgba($bg-color-dark, 0.93);
+
+    &__container {
+        max-width: 450px;
+        width: 100%;
+        padding: 25px;
+    }
+
+    &__title {
+        text-align: center;
+        margin: 100px 0 80px 0;
+        font-size: 40px;
+        color: $text-color-main;
+    }
+    &__subtitle {
+        text-align: center;
+        margin: 100px 0 80px 0;
+        font-size: 40px;
+        color: $text-color-main;
+    }
+    &__input {
+        width: 100%;
+        margin: 0 0 30px 0;
+        padding: 7px 0 15px 0;
+
+        border-bottom: 1px solid $text-color-gray;
+        background-color: inherit;
+        font-size: 24px;
+        color: $text-color-gray;
+
+        &:focus {
+            border-bottom: 1px solid $text-color-main;
+        }
+    }
+
+    &__btn {
+        width: 100%;
+        display: block;
+        margin-top: 25px;
+        padding: 12px 0;
+        border-radius: 25px;
+        background-color: $text-color-main;
+        font-size: 24px;
+        font-weight: 700;
+        color: $bg-color-dark;
+    }
+
+    &__error {
+        display: block;
+        @include error-message('form-login');
+    }
+}

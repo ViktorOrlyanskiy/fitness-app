@@ -5,7 +5,6 @@
     position: fixed;
     top: 0;
     z-index: 10;
-    max-width: $max-width;
     width: 100%;
     min-height: $height-header;
     @include my-flex(space-between);

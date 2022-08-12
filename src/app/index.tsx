@@ -6,11 +6,7 @@ import './styles/index.scss';
 const App: FC = () => {
     return (
         <BrowserRouter>
-            <div className="main-container">
-                <main className="main__body">
-                    <Routing />
-                </main>
-            </div>
+            <Routing />
         </BrowserRouter>
     );
 };

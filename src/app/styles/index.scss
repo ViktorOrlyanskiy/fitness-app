@@ -24,19 +24,11 @@
 
 /* ========== Глобальные стили ========== */
 
-.main-container {
-    max-width: 1230px;
-    position: relative;
-    margin: 0 auto;
-
+body {
     font-size: $text-size;
     font-family: 'SFProDisplay Regular', sans-serif;
     font-weight: 400;
     line-height: 1;
     color: #000;
-}
-.main__body {
-    max-width: $max-width;
-    width: 100%;
-    margin: 0 auto;
+    min-width: 375px; // ширина iPhone SE
 }
