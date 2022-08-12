@@ -14,12 +14,12 @@
     &__btn {
         flex: 0 0 15%;
         height: $height-header;
-        color: $color-gold;
+        color: $color-main-bright;
 
         svg {
             width: 22px;
             height: 22px;
-            fill: $color-gold;
+            fill: $color-main-bright;
         }
 
         &:first-child {
@@ -36,7 +36,7 @@
         flex: 0 0 70%;
         height: $height-header;
         @include my-flex(center);
-        color: $color-white;
+        color: $color-main-light;
         cursor: pointer;
     }
 }

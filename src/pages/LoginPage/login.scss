@@ -11,8 +11,8 @@ $text-color-main: rgb(243, 112, 34);
 //     transition: background-color 5000s ease-in-out 0s;
 // }
 
-body {
-    // background-image: url('./background-image.jpg');
+.bg-wrapper {
+    background-image: url('./background-image.jpg');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -22,6 +22,7 @@ body {
     width: 100vw;
     height: 100vh;
     @include my-flex(center);
+    flex-direction: column;
     background-color: rgba($bg-color-dark, 0.93);
 
     &__container {
@@ -55,6 +56,11 @@ body {
         &:focus {
             border-bottom: 1px solid $text-color-main;
         }
+
+        &--password {
+            -webkit-text-security: disc;
+            -moz-text-security: disc;
+        }
     }
 
     &__btn {
@@ -67,6 +73,17 @@ body {
         font-size: 24px;
         font-weight: 700;
         color: $bg-color-dark;
+    }
+
+    &__link {
+        margin: 100px 0 0 0;
+        color: $text-color-gray;
+
+        span {
+            color: $text-color-main;
+            text-decoration: underline;
+            cursor: pointer;
+        }
     }
 
     &__error {

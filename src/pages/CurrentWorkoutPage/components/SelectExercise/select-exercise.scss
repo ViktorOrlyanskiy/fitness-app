@@ -13,7 +13,7 @@
 
     border-radius: 2px;
     box-shadow: 0px 0px 2px 1px rgba(0, 0, 0, 0.3);
-    color: $color-white;
+    color: $color-main-light;
     &:first-child {
         flex: 1 1 auto;
     }
@@ -23,7 +23,7 @@
 
         svg {
             width: 60%;
-            fill: $color-white;
+            fill: $color-main-light;
         }
     }
 }

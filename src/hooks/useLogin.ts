@@ -15,40 +15,22 @@ export const useLogin = () => {
     const dispatch = useAppDispatch();
     const navigate = useNavigate();
 
-    const getStatusAuth = (token: string | null | undefined) => {
-        return token !== undefined || token !== null;
-    };
-
     const parseUser = (user: IUser) => {
         return {
             email: user.email,
             uid: user.uid,
             accessToken: user.accessToken,
-            isAuth: getStatusAuth(user.accessToken),
+            isAuth: !!user.accessToken,
         };
     };
 
-    const saveUserInLocalStorage = (user: IUser) => {
-        if (user.email) {
-            localStorage.setItem('email', user.email);
-        }
-        if (user.uid) {
-            localStorage.setItem('uid', user.uid);
-        }
-        if (user.accessToken) {
-            localStorage.setItem('token', user.accessToken);
-        }
-    };
-
     // обработка входа
-    const handlerLogin = (email: string, password: string) => {
+    const handleLogin = (email: string, password: string) => {
         const auth = getAuth();
 
         signInWithEmailAndPassword(auth, email, password)
             .then(({ user }) => {
                 dispatch(set_user(parseUser(user)));
-
-                saveUserInLocalStorage(user);
                 navigate(URL.list_workouts);
             })
             .catch(() => {
@@ -57,12 +39,13 @@ export const useLogin = () => {
     };
 
     // обработка регистрации
-    const handlerRegistration = (email: string, password: string) => {
+    const handleRegistration = (email: string, password: string) => {
         const auth = getAuth();
 
         createUserWithEmailAndPassword(auth, email, password)
             .then(({ user }) => {
                 dispatch(set_user(parseUser(user)));
+
                 // отправляет на сервер первоначальный набор упражений
                 exercises.forEach((group) => {
                     dispatch(_set_group_exercises({ userId: user.uid, group }));
@@ -74,5 +57,5 @@ export const useLogin = () => {
             });
     };
 
-    return { handlerLogin, handlerRegistration };
+    return { handleLogin, handleRegistration };
 };

@@ -17,8 +17,8 @@
         height: $height-footer;
         @include my-flex(center);
 
-        background-color: $bg-color-footer;
-        color: $color-white;
+        background-color: $color-main-bright;
+        color: $color-main-light;
         letter-spacing: 0.5px;
     }
 }

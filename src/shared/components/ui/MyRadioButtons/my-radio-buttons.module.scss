@@ -15,7 +15,7 @@
     padding: 5px 10px;
     line-height: 24px;
     border-bottom: 1px solid $color-border;
-    background: $color-white;
+    background: $color-main-light;
 
     &:last-child {
         border-bottom: none;
@@ -25,5 +25,5 @@
 .active {
     box-shadow: 0 0 2px 2px $bg-color-header;
     background-color: $bg-color-header;
-    color: $color-white;
+    color: $color-main-light;
 }

@@ -3,11 +3,11 @@ import { useLogin } from 'hooks/useLogin';
 import LoginForm from 'shared/components/LoginForm';
 
 const Login: FC = () => {
-    const { handlerRegistration } = useLogin();
+    const { handleRegistration } = useLogin();
     return (
         <div className="login">
             <LoginForm
-                handlerClick={handlerRegistration}
+                handlerClick={handleRegistration}
                 title={'Регистрация'}
                 titleButton={'Зарегистрироваться'}
             />
