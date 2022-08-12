@@ -9,7 +9,6 @@ import CurrentExercises from './CurrentExercisesPage';
 import ExercisesStorage from './ExercisesStoragePage';
 
 const Login = lazy(() => import('./LoginPage'));
-const Registration = lazy(() => import('./RegistrationPage'));
 
 const Routing = () => {
     const { user } = useAppSelectors();
@@ -40,7 +39,6 @@ const Routing = () => {
             ) : (
                 <Routes>
                     <Route path={URL.base} element={<Login />} />
-                    <Route path={URL.registration} element={<Registration />} />
                     {/* изменить страницу */}
                     <Route path={URL.error} element={<Login />} />
                 </Routes>

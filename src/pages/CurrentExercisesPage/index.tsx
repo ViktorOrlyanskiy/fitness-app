@@ -1,13 +1,15 @@
 import { FC, useState } from 'react';
 import { useAppSelectors } from 'hooks/useRedux';
+import { useNavigate } from 'react-router-dom';
 import { URL } from 'shared/constants/URL';
 
 import Header from 'shared/components/Header';
-import Footer from 'shared/components/Footer';
 import Exercise from './components/Exercise';
+import MyButton from 'shared/components/ui/MyButton';
 import './list-exercises.scss';
 
 const ListExercises: FC = () => {
+    const navigate = useNavigate();
     const [isActive, setActive] = useState<boolean>(false);
     const { listExercises } = useAppSelectors();
 
@@ -30,7 +32,11 @@ const ListExercises: FC = () => {
                 )}
             </div>
 
-            <Footer nextPage={URL.exercises_storage}>Добавить упражение</Footer>
+            <div className="current-workout__button">
+                <MyButton onClick={() => navigate(URL.exercises_storage)}>
+                    Добавить упражение
+                </MyButton>
+            </div>
         </div>
     );
 };
