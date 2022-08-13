@@ -19,7 +19,7 @@ const SelectExercise: FC<{ name: string }> = React.memo(({ name }) => {
             />
             <button
                 className={styles.btn}
-                onClick={() => navigate(URL.current_exercises)}>
+                onClick={() => navigate(URL.form_add_set)}>
                 <SvgGenerator id={variant.plus} />
             </button>
         </div>

@@ -1,7 +1,6 @@
 import { FC, useState } from 'react';
 import { useAppSelectors } from 'hooks/useRedux';
 
-import MyButton from 'shared/components/ui/MyButton';
 import HeaderWorkout from './components/HeaderWorkout';
 import ModalAddSet from './components/ModalAddSet';
 import Set from './components/Set';
@@ -17,28 +16,12 @@ const CurrentWorkout: FC = () => {
 
     return (
         <div className="current-workout">
-            <HeaderWorkout
-                name={
-                    activeExercise ? activeExercise.name : 'Добавить упражение'
-                }
-            />
+            <HeaderWorkout name={activeExercise.name} />
             <div className="page-container">
                 {sets &&
-                    sets.length > 0 &&
                     sets.map((set, index) => (
-                        <Set
-                            key={set.id}
-                            index={++index}
-                            setOpenModal={setOpenModal}
-                            {...set}
-                        />
+                        <Set key={set.id} index={++index} {...set} />
                     ))}
-            </div>
-
-            <div className="current-workout__button" hidden={isOpenModal}>
-                <MyButton onClick={() => setOpenModal(!isOpenModal)}>
-                    Добавить подход
-                </MyButton>
             </div>
 
             <ModalAddSet isOpen={isOpenModal} setOpen={setOpenModal} />

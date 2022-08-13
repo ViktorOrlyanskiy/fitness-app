@@ -1,28 +1,23 @@
 import { FC } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useAppDispatch } from 'hooks/useRedux';
 import { remove_set, copy_set } from 'store/reducers/listExercises';
 import { save_service_set } from 'store/reducers/editSet';
 import { set_offset } from 'store/reducers/touchWrapper';
+import { URL } from 'shared/constants/URL';
+import { ISet } from 'shared/models';
 
 import TouchWrapper from 'shared/components/TouchWrapper';
 import ButtonsBack from 'shared/components/ButtonsBack';
 import SetItem from '../SetItem';
-import { ISet } from 'shared/models';
 import './set.scss';
 
 interface SetProps extends ISet {
     index: number;
-    setOpenModal: (arg1: boolean) => void;
 }
 
-const Set: FC<SetProps> = ({
-    index,
-    id,
-    weight,
-    amount,
-    comment,
-    setOpenModal,
-}) => {
+const Set: FC<SetProps> = ({ index, id, weight, amount, comment }) => {
+    const navigate = useNavigate();
     const dispatch = useAppDispatch();
 
     const handleBtnCopy = () => {
@@ -32,8 +27,8 @@ const Set: FC<SetProps> = ({
 
     const handleBtnEdit = () => {
         dispatch(save_service_set({ id, weight, amount, comment }));
-        setOpenModal(true);
         dispatch(set_offset(0));
+        navigate(URL.form_add_set);
     };
 
     const handleBtnDelete = () => {

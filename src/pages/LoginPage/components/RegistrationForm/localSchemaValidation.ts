@@ -1,20 +1,17 @@
-import * as yup from 'yup';
+import * as Yup from 'yup';
 
 const isNullOrUndefined = function (value: string | undefined) {
     return value === null || value === undefined;
 };
 
-const localSchemaValidation = yup
-    .object()
+const localSchemaValidation = Yup.object()
     .shape({
-        email: yup
-            .string()
+        email: Yup.string()
             .trim()
             .lowercase()
             .email('Введите email')
             .required('Обязательное поле'),
-        password: yup
-            .string()
+        password: Yup.string()
             .trim()
             .min(6, 'Минимум 6 символов')
             .test('minNum', 'Минимум 1 цифра', (val) => {
@@ -30,9 +27,10 @@ const localSchemaValidation = yup
                 );
             })
             .required('Обязательное поле'),
-        repeatPassword: yup
-            .string()
-            .oneOf([yup.ref('password'), null], 'Пароли не совпадают'),
+        repeatPassword: Yup.string().oneOf(
+            [Yup.ref('password'), null],
+            'Пароли не совпадают'
+        ),
     })
     .required();
 

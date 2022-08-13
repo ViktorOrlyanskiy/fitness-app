@@ -1,15 +1,13 @@
-import * as yup from 'yup';
+import * as Yup from 'yup';
 
-const localSchemaValidation = yup
-    .object()
+const localSchemaValidation = Yup.object()
     .shape({
-        email: yup
-            .string()
+        email: Yup.string()
             .trim()
             .lowercase()
             .email('Введите email')
             .required('Обязательное поле'),
-        password: yup.string().required('Обязательное поле'),
+        password: Yup.string().required('Обязательное поле'),
     })
     .required();
 

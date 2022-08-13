@@ -1,9 +1,7 @@
 import React, { FC, useRef } from 'react';
 import { useInput } from 'hooks/useInput';
-import { useInputAutofocus } from 'hooks/useInputAutofocus';
 import { useOutsideClick } from 'hooks/useOutsideClick';
 import ModalForm from 'shared/components/ui/Modal/ModalForm';
-import { MyInputFocus } from '../ui/MyInput';
 import styles from './modal-save.module.scss';
 
 interface ModalSaveProps {
@@ -20,7 +18,6 @@ const ModalSave: FC<ModalSaveProps> = ({
     handleBtnAction,
 }) => {
     const nameWorkout = useInput('', !isOpen);
-    const inputRef = useInputAutofocus(isOpen);
     const modalRef = useRef<any>(null);
     useOutsideClick(modalRef, isOpen, setOpen);
 
@@ -42,13 +39,7 @@ const ModalSave: FC<ModalSaveProps> = ({
             handleSubmit={handleSubmit}
             handleReset={handleReset}>
             <div className={styles.title}>{name}</div>
-            <MyInputFocus
-                inputRef={inputRef}
-                label=""
-                type="text"
-                className={styles.input}
-                {...nameWorkout}
-            />
+            <input className={styles.input} {...nameWorkout} />
         </ModalForm>
     );
 };

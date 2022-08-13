@@ -3,6 +3,7 @@ $color-main-bright: rgb(243, 112, 34);
 $color-main-light: rgb(255, 255, 255);
 $color-main-dark: rgb(29, 29, 29);
 $color-main-gray: rgb(130, 130, 130);
+$color-main-error: red;
 
 $color-border: $color-main-gray;
 
@@ -22,12 +23,6 @@ $bg-color-btn-delete: tomato;
 @import './mixins/my-flex.scss';
 
 @mixin error-message($type) {
-    @if ($type: 'form-add') {
-        margin: -10px 10px 10px 10px;
-        font-size: 12px;
-        font-weight: 700;
-        color: red;
-    }
     @if ($type: 'form-login') {
         position: relative;
         margin: -20px 0 20px 0;

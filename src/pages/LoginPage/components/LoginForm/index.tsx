@@ -23,7 +23,6 @@ const LoginForm: FC = () => {
     });
 
     const onSubmit = (data: Inputs) => {
-        console.log(data);
         handleLogin(data.email, data.password);
     };
 

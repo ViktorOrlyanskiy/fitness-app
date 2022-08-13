@@ -1,0 +1,37 @@
+/* ========== Глобальные переменные ========== */
+@import '../../shared/styles/variables.scss';
+
+.form-add-page {
+    .page-container {
+        padding: $height-header 7px 0 7px;
+    }
+
+    .form {
+        &__field {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+
+            label {
+                margin: 10px 0 5px 0;
+            }
+            input {
+                height: 35px;
+                margin: 0 0 10px 0;
+                border-bottom: 1px solid $color-border;
+                background-color: inherit;
+            }
+
+            &:last-child {
+                border-bottom: none;
+            }
+        }
+
+        &__error {
+            margin: -5px 0 5px 0;
+            font-size: 12px;
+            font-weight: 700;
+            color: $color-main-error;
+        }
+    }
+}
