@@ -1,8 +1,8 @@
 import { FC } from 'react';
 import { SvgGenerator, variant } from '../ui/SvgGenerator';
-import styles from './button-back.module.scss';
+import styles from './buttons-back.module.scss';
 
-interface ButtonBackProps {
+interface ButtonsBackProps {
     isSet?: boolean;
     handlePlay?: () => void;
     handleCopy?: () => void;
@@ -10,7 +10,7 @@ interface ButtonBackProps {
     handleDelete?: () => void;
 }
 
-const ButtonBack: FC<ButtonBackProps> = ({
+const ButtonsBack: FC<ButtonsBackProps> = ({
     isSet,
     handlePlay,
     handleCopy,
@@ -20,7 +20,7 @@ const ButtonBack: FC<ButtonBackProps> = ({
     return (
         <div
             className={
-                isSet ? styles['button-back-set'] : styles['button-back']
+                isSet ? styles['buttons-back-set'] : styles['buttons-back']
             }>
             {handlePlay && (
                 <div className={styles.play} onClick={handlePlay}>
@@ -45,4 +45,4 @@ const ButtonBack: FC<ButtonBackProps> = ({
         </div>
     );
 };
-export default ButtonBack;
+export default ButtonsBack;

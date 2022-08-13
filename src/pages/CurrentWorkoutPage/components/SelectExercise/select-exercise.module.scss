@@ -1,12 +1,12 @@
 /* ========== Глобальные переменные ========== */
 @import '../../../../shared/styles/variables.scss';
 
-.select-exercise {
+.wrapper {
     @include my-flex(space-between);
     padding: 10px 7px 0 7px;
 }
 
-.my-button {
+.btn {
     width: 100%;
     height: 35px;
     color: $color-main-light;

@@ -11,7 +11,7 @@ import { URL } from 'shared/constants/URL';
 
 import TouchWrapper from 'shared/components/TouchWrapper';
 import ListItem from 'shared/components/ListItem';
-import ButtonBack from 'shared/components/ButtonBack';
+import ButtonsBack from 'shared/components/ButtonsBack';
 import './exercise.scss';
 
 interface ExerciseProps extends IExercise {}
@@ -47,7 +47,7 @@ const Exercise: FC<ExerciseProps> = ({ id, name, isActive, sets }) => {
                     }
                 />
             }
-            back={<ButtonBack handleDelete={handleBtnDelete} />}
+            back={<ButtonsBack handleDelete={handleBtnDelete} />}
         />
     );
 };

@@ -5,7 +5,7 @@ import { set_is_fetch_workouts } from 'store/reducers/fetch';
 
 import TouchWrapper from 'shared/components/TouchWrapper';
 import ListItem from 'shared/components/ListItem';
-import ButtonBack from 'shared/components/ButtonBack';
+import ButtonsBack from 'shared/components/ButtonsBack';
 import './workout.scss';
 
 interface WorkoutProps {
@@ -40,7 +40,7 @@ const Workout: FC<WorkoutProps> = ({ id, name, date, isScheduled }) => {
                 />
             }
             back={
-                <ButtonBack
+                <ButtonsBack
                     handlePlay={() => null}
                     handleCopy={() => null}
                     handleDelete={handleBtnDelete}

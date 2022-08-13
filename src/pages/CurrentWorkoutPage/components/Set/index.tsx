@@ -5,7 +5,7 @@ import { save_service_set } from 'store/reducers/editSet';
 import { set_offset } from 'store/reducers/touchWrapper';
 
 import TouchWrapper from 'shared/components/TouchWrapper';
-import ButtonBack from 'shared/components/ButtonBack';
+import ButtonsBack from 'shared/components/ButtonsBack';
 import SetItem from '../SetItem';
 import { ISet } from 'shared/models';
 import './set.scss';
@@ -59,7 +59,7 @@ const Set: FC<SetProps> = ({
                 </div>
             }
             back={
-                <ButtonBack
+                <ButtonsBack
                     isSet
                     handleCopy={handleBtnCopy}
                     handleEdit={handleBtnEdit}

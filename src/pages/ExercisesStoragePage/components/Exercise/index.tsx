@@ -3,7 +3,7 @@ import { IGroupExercises } from 'shared/models';
 import ListItem from 'shared/components/ListItem';
 import { SvgGenerator, variant } from 'shared/components/ui/SvgGenerator';
 import TouchWrapper from 'shared/components/TouchWrapper';
-import ButtonBack from 'shared/components/ButtonBack';
+import ButtonsBack from 'shared/components/ButtonsBack';
 import { useAppDispatch, useAppSelector } from 'hooks/useRedux';
 import './exercise.scss';
 import { _update_group_exercises } from 'store/actions';
@@ -87,7 +87,7 @@ const Exercise: FC<ExerciseProps> = ({
                     />
                 </div>
             }
-            back={<ButtonBack handleDelete={handleBtnDelete} />}
+            back={<ButtonsBack handleDelete={handleBtnDelete} />}
         />
     );
 };
