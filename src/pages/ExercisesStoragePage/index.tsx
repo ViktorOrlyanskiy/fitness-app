@@ -12,17 +12,19 @@ import { getStatus } from 'shared/utils/FormAddingValidation';
 import Header from 'shared/components/Header';
 import Group from './components/Group';
 import MyButton from 'shared/components/ui/MyButton';
-import ModalAddExercise from './components/ModalAddExercise';
 import './exercises-storage.scss';
 
 const ExercisesStorage: FC = () => {
     const navigate = useNavigate();
+
     const dispatch = useAppDispatch();
-    const [isOpenModal, setOpenModal] = useState(false);
     const { currentWorkout, listExercises, exercisesStorage, user, fetch } =
         useAppSelectors();
     const exercisesRef = useRef<string[]>([]);
     let exercises = exercisesRef.current;
+    const previousPage = currentWorkout.id
+        ? URL.current_exercises
+        : URL.list_workouts;
 
     const handleClickExercise = (name: string, isActive: boolean) => {
         if (isActive && exercises.includes(name)) {
@@ -50,7 +52,7 @@ const ExercisesStorage: FC = () => {
                 dispatch(add_exercise(newExercise));
             }
         });
-        navigate(-1);
+        navigate(previousPage);
     };
 
     const startNewWorkout = () => {
@@ -82,6 +84,8 @@ const ExercisesStorage: FC = () => {
     return (
         <div className="exercises-storage">
             <Header
+                previousPage={previousPage}
+                btnRight="check"
                 children={'Выберите упражнение'}
                 btnEvent={currentWorkout.id ? addExercises : startNewWorkout}
             />
@@ -95,18 +99,10 @@ const ExercisesStorage: FC = () => {
                 ))}
 
                 <div className="exercises-storage__button">
-                    <MyButton
-                        hidden={isOpenModal}
-                        onClick={() => setOpenModal(!isOpenModal)}>
+                    <MyButton onClick={() => navigate(URL.form_add_exercise)}>
                         Добавить новое упражение
                     </MyButton>
                 </div>
-                <ModalAddExercise
-                    isOpen={isOpenModal}
-                    setOpen={setOpenModal}
-                    userId={user.uid}
-                    exercises={exercisesStorage}
-                />
             </div>
         </div>
     );

@@ -28,19 +28,20 @@ const ModalForm: FC<ModalFormProps> = ({
                 }>
                 <form onSubmit={handleSubmit} autoComplete="off">
                     <div className={styles.body}>{children}</div>
-
-                    <button
-                        type="submit"
-                        disabled={isDisabledBtn}
-                        className={styles.btn}>
-                        Сохранить
-                    </button>
-                    <button
-                        type="reset"
-                        className={styles.btn}
-                        onClick={handleReset}>
-                        Отмена
-                    </button>
+                    <div className={styles.buttons}>
+                        <button
+                            type="reset"
+                            className={styles.btn}
+                            onClick={handleReset}>
+                            Отмена
+                        </button>
+                        <button
+                            type="submit"
+                            disabled={isDisabledBtn}
+                            className={styles.btn}>
+                            Сохранить
+                        </button>
+                    </div>
                 </form>
             </div>
             <BackgroundModal active={isOpen} />

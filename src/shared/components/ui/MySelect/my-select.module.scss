@@ -44,7 +44,7 @@ $color-hover: rgb(255, 255, 255);
     height: 195px;
     box-shadow: 0 0 3px 2px $color-main;
     border-radius: 4px;
-    background: $color-main-light;
+    background: $color-light-1;
     overflow-y: scroll;
 }
 
@@ -57,14 +57,14 @@ $color-hover: rgb(255, 255, 255);
     }
     &:hover {
         transition: all 0.3s;
-        background-color: rgba($color-main-dark, 0.2);
+        background-color: rgba($color-dark-2, 0.2);
     }
 }
 
 .active {
     .header {
         border: none;
-        box-shadow: 0 0 2px 2px $color-main-dark;
+        box-shadow: 0 0 2px 2px $color-dark-2;
         .current {
             color: $color-main;
         }

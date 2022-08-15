@@ -77,7 +77,6 @@ const Exercise: FC<ExerciseProps> = ({
         <TouchWrapper
             id={id}
             offset={42}
-            duration={'0.5s'}
             front={
                 <div className="exercise" onClick={handleClick}>
                     <ListItem

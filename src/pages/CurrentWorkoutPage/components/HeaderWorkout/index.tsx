@@ -57,7 +57,7 @@ const HeaderWorkout: FC<{ name: string }> = ({ name }) => {
         <div className="current-workout__header">
             <Header
                 previousPage={URL.list_workouts}
-                btnRight={'flag-checkered'}
+                btnRight={'check'}
                 btnEvent={handleFinish}
                 handlerClickTitle={() => setModalNameWorkout(true)}
                 children={currentWorkout.name}

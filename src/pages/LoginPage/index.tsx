@@ -9,7 +9,7 @@ const Login: FC = () => {
     return (
         <div className="bg-wrapper">
             <div className="login">
-                {isLogin ? (
+                {isLogin ? ( 
                     <>
                         <LoginForm />
                         <div className="login__link">

@@ -7,7 +7,7 @@
     padding: 10px 10px 10px 15px;
     @include my-flex(space-between);
     border-bottom: 1px solid $color-border;
-    background-color: $color-main-light;
+    background-color: $color-light-1;
     cursor: pointer;
     user-select: none;
 
@@ -20,16 +20,16 @@
         border-radius: 50%;
     }
     .left {
-        background-color: $color-main-dark;
+        background-color: $color-dark-2;
         svg {
             width: 12px;
             height: 12px;
-            fill: $color-main-light !important;
+            fill: $color-light-1 !important;
         }
     }
 
     .empty {
-        background-color: $color-main-light;
+        background-color: $color-light-1;
     }
 
     .center {

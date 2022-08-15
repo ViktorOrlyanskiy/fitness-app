@@ -27,14 +27,16 @@ const Modal: FC<IModalProps> = ({
                 isOpen ? `${styles.modal} ${styles.active}` : styles.modal
             }>
             <div className={styles.body}>{children}</div>
-            {nameBtnAction && (
-                <button className={styles.btn} onClick={handleBtnAction}>
-                    {nameBtnAction}
+            <div className={styles.buttons}>
+                <button className={styles.btn} onClick={() => setOpen(false)}>
+                    Отмена
                 </button>
-            )}
-            <button className={styles.btn} onClick={() => setOpen(false)}>
-                Отмена
-            </button>
+                {nameBtnAction && (
+                    <button className={styles.btn} onClick={handleBtnAction}>
+                        {nameBtnAction}
+                    </button>
+                )}
+            </div>
         </div>
     );
 };

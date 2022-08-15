@@ -31,7 +31,6 @@ const Workout: FC<WorkoutProps> = ({ id, name, date, isScheduled }) => {
         <TouchWrapper
             id={id}
             offset={isScheduled ? 126 : 84}
-            duration={isScheduled ? '0.6s' : '0.5s'}
             front={
                 <ListItem
                     status="selected"

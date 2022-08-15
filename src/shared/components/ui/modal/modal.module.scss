@@ -19,20 +19,19 @@
 @mixin item {
     margin-bottom: 15px;
     border-radius: 10px;
-    box-shadow: 0px 0px 3px 1px rgba(0, 0, 0, 0.7);
-    background-color: $color-main-light;
+    background-color: $color-light-1;
 }
 
 .body {
     min-height: 50px;
     padding: 20px 10px 10px 10px;
     @include item;
+    box-shadow: 0px 0px 3px 1px rgba(0, 0, 0, 0.7);
 
     h3 {
         margin-bottom: 10px;
         text-align: center;
         font-weight: 700;
-        letter-spacing: 0.8px;
     }
 
     label {
@@ -47,17 +46,24 @@
     }
 }
 
-.btn {
-    width: 100%;
-    height: 50px;
-    @include item;
-    background-color: $color-main-dark;
-    font-size: $text-size;
-    font-weight: 700;
-    letter-spacing: 0.8px;
-    color: $color-main-bright;
+.buttons {
+    @include my-flex(space-between);
 
-    &:disabled {
-        opacity: 0.4;
+    .btn {
+        width: 100%;
+        height: 40px;
+        @include item;
+        background-color: $color-dark-2;
+        font-size: $text-size;
+        color: $color-light-1;
+
+        &:first-child {
+            margin-right: 5px;
+        }
+        &:last-child {
+            margin-left: 5px;
+        }
+        &:disabled {
+        }
     }
 }

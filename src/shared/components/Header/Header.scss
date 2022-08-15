@@ -8,18 +8,19 @@
     width: 100%;
     min-height: $height-header;
     @include my-flex(space-between);
-    background-color: $color-main-dark;
+    background-color: $color-dark-2;
+
     user-select: none;
 
     &__btn {
         flex: 0 0 15%;
         height: $height-header;
-        color: $color-main-bright;
+        color: $color-light-1;
 
         svg {
             width: 22px;
             height: 22px;
-            fill: $color-main-bright;
+            fill: $color-light-1;
         }
 
         &:first-child {
@@ -36,7 +37,7 @@
         flex: 0 0 70%;
         height: $height-header;
         @include my-flex(center);
-        color: $color-main-bright;
+        color: $color-light-1;
         cursor: pointer;
     }
 }

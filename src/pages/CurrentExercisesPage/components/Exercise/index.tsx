@@ -14,9 +14,7 @@ import ListItem from 'shared/components/ListItem';
 import ButtonsBack from 'shared/components/ButtonsBack';
 import './exercise.scss';
 
-interface ExerciseProps extends IExercise {}
-
-const Exercise: FC<ExerciseProps> = ({ id, name, isActive, sets }) => {
+const Exercise: FC<IExercise> = ({ id, name, isActive, sets }) => {
     const dispatch = useAppDispatch();
     const navigate = useNavigate();
 
@@ -34,7 +32,6 @@ const Exercise: FC<ExerciseProps> = ({ id, name, isActive, sets }) => {
         <TouchWrapper
             id={id}
             offset={42}
-            duration="0.3s"
             front={
                 <ListItem
                     status={isActive ? 'selected' : undefined}

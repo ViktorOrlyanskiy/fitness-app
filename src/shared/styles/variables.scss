@@ -1,11 +1,12 @@
 /* ========== Переменные ========== */
-$color-main-bright: rgb(243, 112, 34);
-$color-main-light: rgb(255, 255, 255);
-$color-main-dark: rgb(29, 29, 29);
-$color-main-gray: rgb(130, 130, 130);
+$color-light-1: #ffffff;
+$color-light-2: #bebebe;
+$color-light-3: #909090;
+$color-dark-3: #707070;
+$color-dark-2: #404040;
+$color-dark-1: #000000;
 $color-main-error: red;
-
-$color-border: $color-main-gray;
+$color-border: rgba($color-light-3, 0.3);
 
 $height-header: 50px;
 $height-line: 42px;
