@@ -4,7 +4,7 @@
 .list-item {
     width: 100%;
     height: $height-line;
-    padding: 10px 10px 10px 15px;
+    padding: 10px 7px;
     @include my-flex(space-between);
     border-bottom: 1px solid $color-border;
     background-color: $color-light-1;
@@ -14,7 +14,7 @@
     & > div:first-child {
         width: 22px;
         height: 22px;
-        margin-right: 10px;
+        margin-right: 13px;
         @include my-flex(center);
         border: 1px solid $color-border;
         border-radius: 50%;

@@ -1,4 +1,5 @@
-import React, { FC, useState, useEffect } from 'react';
+import { FC, useState } from 'react';
+import { getStars } from 'shared/utils/getStars';
 import styles from './my-radio-buttons.module.scss';
 
 interface MyRadioButtons {
@@ -12,8 +13,10 @@ export const MyRadioButtons: FC<MyRadioButtons> = ({
     options,
     onChange,
 }) => {
+    const [value, setValue] = useState(defaultValue);
     const handleChangeValue = (e: any) => {
-        onChange(e.target.value);
+        setValue(e.currentTarget.value);
+        onChange(e.currentTarget.value);
     };
 
     return (
@@ -22,14 +25,15 @@ export const MyRadioButtons: FC<MyRadioButtons> = ({
                 <button
                     type="button"
                     className={
-                        option.value === defaultValue
+                        option.value === value
                             ? `${styles.btn} ${styles.active}`
                             : styles.btn
                     }
                     key={option.value}
                     onClick={(e) => handleChangeValue(e)}
                     value={option.value}>
-                    {option.label}
+                    <div>{option.label}</div>
+                    <div>{getStars(option.value)}</div>
                 </button>
             ))}
         </div>

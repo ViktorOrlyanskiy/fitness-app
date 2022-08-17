@@ -27,13 +27,11 @@ const LoginForm: FC = () => {
     };
 
     return (
-        <form
-            onSubmit={handleSubmit(onSubmit)}
-            className="login__container"
-            autoComplete="off">
+        <form onSubmit={handleSubmit(onSubmit)}>
             <div className="login__title">Вход</div>
 
             <input
+                type="email"
                 className="login__input"
                 placeholder="E-mail"
                 {...register('email')}
@@ -43,6 +41,7 @@ const LoginForm: FC = () => {
             )}
 
             <input
+                type="password"
                 className="login__input login__input--password"
                 placeholder="Password"
                 {...register('password')}

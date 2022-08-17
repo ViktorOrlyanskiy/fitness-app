@@ -6,27 +6,32 @@
     @include my-flex(flex-end);
 
     @mixin size-btn-back($padding) {
-        width: 42px;
-        height: 42px;
         flex: 0 0 42px;
+        width: 42px;
+        height: $height-line;
         padding: $padding;
+        border: 1px solid $color-border;
+        background-color: $color-dark-3;
+        svg {
+            fill: $color-light-1;
+        }
     }
 
     .play {
         @include size-btn-back(10px);
-        background-color: $bg-color-btn-play;
+        // background-color: $bg-color-btn-play;
     }
     .copy {
         @include size-btn-back(10px);
-        background-color: $bg-color-btn-copy;
+        // background-color: $bg-color-btn-copy;
     }
     .edit {
         @include size-btn-back(10px);
-        background-color: $bg-color-btn-edit;
+        // background-color: $bg-color-btn-edit;
     }
     .delete {
         @include size-btn-back(10px);
-        background-color: $bg-color-btn-delete;
+        // background-color: $bg-color-btn-delete;
     }
 }
 .buttons-back-set {
@@ -39,22 +44,27 @@
         height: 100%;
         flex: 0 0 71px;
         padding: $padding;
+        border: 1px solid $color-border;
+        background-color: $color-dark-3;
+        svg {
+            fill: $color-light-1;
+        }
     }
 
     .play {
         @include size-btn(20px);
-        background-color: $bg-color-btn-play;
+        // background-color: $bg-color-btn-play;
     }
     .copy {
         @include size-btn(20px);
-        background-color: $bg-color-btn-copy;
+        // background-color: $bg-color-btn-copy;
     }
     .edit {
         @include size-btn(20px);
-        background-color: $bg-color-btn-edit;
+        // background-color: $bg-color-btn-edit;
     }
     .delete {
         @include size-btn(20px);
-        background-color: $bg-color-btn-delete;
+        // background-color: $bg-color-btn-delete;
     }
 }

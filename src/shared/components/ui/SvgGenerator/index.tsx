@@ -9,9 +9,6 @@ export enum variant {
     pencil = 'pencil', //
     pencil_light = 'pencil-light', //
     check = 'check', //
-    circle_minus = 'circle-minus',
-    circle_up = 'circle-up',
-    flag_checkered = 'flag-checkered',
     plus = 'plus', //
     bars = 'bars', //
     play = 'play', //
@@ -56,24 +53,6 @@ export const SvgGenerator: FC<SvgGeneratorProps> = ({ id }) => {
             return (
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
                     <path d="M438.6 105.4C451.1 117.9 451.1 138.1 438.6 150.6L182.6 406.6C170.1 419.1 149.9 419.1 137.4 406.6L9.372 278.6C-3.124 266.1-3.124 245.9 9.372 233.4C21.87 220.9 42.13 220.9 54.63 233.4L159.1 338.7L393.4 105.4C405.9 92.88 426.1 92.88 438.6 105.4H438.6z" />
-                </svg>
-            );
-        case variant.circle_minus:
-            return (
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-                    <path d="M0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256zM168 232C154.7 232 144 242.7 144 256C144 269.3 154.7 280 168 280H344C357.3 280 368 269.3 368 256C368 242.7 357.3 232 344 232H168z" />
-                </svg>
-            );
-        case variant.circle_up:
-            return (
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-                    <path d="M256 0C114.6 0 0 114.6 0 256s114.6 256 256 256c141.4 0 256-114.6 256-256S397.4 0 256 0zM382.8 246.1C380.3 252.1 374.5 256 368 256h-64v96c0 17.67-14.33 32-32 32h-32c-17.67 0-32-14.33-32-32V256h-64C137.5 256 131.7 252.1 129.2 246.1C126.7 240.1 128.1 233.3 132.7 228.7l112-112c6.248-6.248 16.38-6.248 22.62 0l112 112C383.9 233.3 385.3 240.1 382.8 246.1z" />
-                </svg>
-            );
-        case variant.flag_checkered:
-            return (
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
-                    <path d="M384 128v255.1c0 35.35-28.65 64-64 64H64c-35.35 0-64-28.65-64-64V128c0-35.35 28.65-64 64-64H320C355.3 64 384 92.65 384 128z" />
                 </svg>
             );
         case variant.plus:

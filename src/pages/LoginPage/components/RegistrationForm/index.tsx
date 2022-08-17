@@ -27,10 +27,7 @@ const RegistrationForm: FC = () => {
         handleRegistration(data.email, data.password);
     };
     return (
-        <form
-            onSubmit={handleSubmit(onSubmit)}
-            className="login__container"
-            autoComplete="off">
+        <form onSubmit={handleSubmit(onSubmit)}>
             <div className="login__title">Регистрация</div>
 
             <input

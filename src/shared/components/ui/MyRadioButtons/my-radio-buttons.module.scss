@@ -3,7 +3,6 @@
 
 .wrapper {
     width: 100%;
-    border: 1px solid $color-border;
     border-radius: 4px;
     overflow: hidden;
     user-select: none;
@@ -14,16 +13,28 @@
     width: 100%;
     padding: 5px 10px;
     line-height: 24px;
-    border-bottom: 1px solid $color-border;
+    @include my-flex(space-between);
+    border: 1px solid $color-border;
     background: $color-light-1;
+    &.active {
+        border: 1px solid $color-dark-1;
+    }
+
+    &:first-child {
+        border: 1px solid $color-border;
+        border-bottom: none;
+    }
 
     &:last-child {
-        border-bottom: none;
+        border: 1px solid $color-border;
+        border-top: none;
     }
 }
 
 .active {
-    box-shadow: 0 0 2px 2px $color-dark-2;
     background-color: $color-dark-2;
     color: $color-light-1;
+    svg {
+        fill: $color-light-1;
+    }
 }

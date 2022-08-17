@@ -1,13 +1,15 @@
 import { FC, useState } from 'react';
 import { IGroupExercises } from 'shared/models';
 import ListItem from 'shared/components/ListItem';
-import { SvgGenerator, variant } from 'shared/components/ui/SvgGenerator';
 import TouchWrapper from 'shared/components/TouchWrapper';
 import ButtonsBack from 'shared/components/ButtonsBack';
 import { useAppDispatch, useAppSelector } from 'hooks/useRedux';
+import {
+    _fetch_groups_exercises,
+    _update_group_exercises,
+} from 'store/actions';
+import { getStars } from 'shared/utils/getStars';
 import './exercise.scss';
-import { _update_group_exercises } from 'store/actions';
-import { set_is_fetch_groups_exercises } from 'store/reducers/fetch';
 
 interface ExerciseProps {
     id: number;
@@ -43,33 +45,7 @@ const Exercise: FC<ExerciseProps> = ({
                     group: { name: group.name, list: newList },
                 })
             );
-            dispatch(set_is_fetch_groups_exercises(true));
-        }
-    };
-
-    const getStars = (type: string) => {
-        switch (type) {
-            case 'basic':
-                return (
-                    <div className="exercise__stars">
-                        <SvgGenerator id={variant.star} />
-                        <SvgGenerator id={variant.star} />
-                        <SvgGenerator id={variant.star} />
-                    </div>
-                );
-            case 'auxiliary':
-                return (
-                    <div className="exercise__stars">
-                        <SvgGenerator id={variant.star} />
-                        <SvgGenerator id={variant.star} />
-                    </div>
-                );
-            case 'corrective':
-                return (
-                    <div className="exercise__stars">
-                        <SvgGenerator id={variant.star} />
-                    </div>
-                );
+            dispatch(_fetch_groups_exercises(user.uid));
         }
     };
 

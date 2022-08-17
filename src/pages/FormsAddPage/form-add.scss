@@ -19,7 +19,11 @@
                 height: 35px;
                 margin: 0 0 10px 0;
                 border-bottom: 1px solid $color-border;
+                border-radius: 0;
                 background-color: inherit;
+                &:focus {
+                    border-bottom: 1px solid $color-dark-3;
+                }
             }
 
             &:last-child {
@@ -27,8 +31,21 @@
             }
         }
 
+        &__field.add-exercise {
+            margin: 0 0 20px 0;
+            label {
+                font-weight: 700;
+            }
+        }
+        &__field.add-exercise:first-child {
+            margin: 10px 0 20px 0;
+        }
+        &__field.add-exercise:last-child {
+            margin: 0 0 0 0;
+        }
+
         &__error {
-            margin: -5px 0 5px 0;
+            margin: 2px 0 0 0;
             font-size: 12px;
             font-weight: 700;
             color: $color-main-error;

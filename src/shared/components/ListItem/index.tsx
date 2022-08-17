@@ -32,7 +32,7 @@ const ListItem: FC<ListItemProps> = ({
             <div className={status ? styles.left : styles.empty}>
                 {getIconStatus()}
             </div>
-            <div className={styles.center}>{checkLengthString(title, 28)}</div>
+            <div className={styles.center}>{checkLengthString(title, 40)}</div>
             <div className={styles.right}>{rightElement}</div>
         </div>
     );

@@ -8,29 +8,32 @@ const Login: FC = () => {
 
     return (
         <div className="bg-wrapper">
-            <div className="login">
-                {isLogin ? ( 
-                    <>
-                        <LoginForm />
-                        <div className="login__link">
-                            Нет личного кабита?{' '}
-                            <span onClick={() => setLogin(!isLogin)}>
-                                Зарегистрируйтесь!
-                            </span>
-                        </div>
-                    </>
-                ) : (
-                    <>
-                        <RegistrationForm />
-                        <div className="login__link">
-                            Есть личный кабинет?{' '}
-                            <span onClick={() => setLogin(!isLogin)}>
-                                Войти!
-                            </span>
-                        </div>
-                    </>
-                )}
-
+            <div className="main-cotainer">
+                <div className="login">
+                    <div className="login__container">
+                        {isLogin ? (
+                            <>
+                                <LoginForm />
+                                <div className="login__link">
+                                    Нет личного кабинета?{' '}
+                                    <span onClick={() => setLogin(!isLogin)}>
+                                        Зарегистрируйтесь!
+                                    </span>
+                                </div>
+                            </>
+                        ) : (
+                            <>
+                                <RegistrationForm />
+                                <div className="login__link">
+                                    Есть личный кабинет?{' '}
+                                    <span onClick={() => setLogin(!isLogin)}>
+                                        Войти!
+                                    </span>
+                                </div>
+                            </>
+                        )}
+                    </div>
+                </div>
                 {/*  */}
             </div>
             {/* 
