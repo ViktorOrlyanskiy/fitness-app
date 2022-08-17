@@ -9,7 +9,7 @@ export const useLogout = () => {
     const navigate = useNavigate();
 
     // обработка разлогинивания
-    const handlerLogout = () => {
+    const handleLogout = () => {
         const auth = getAuth();
 
         signOut(auth)
@@ -23,5 +23,5 @@ export const useLogout = () => {
             });
     };
 
-    return handlerLogout;
+    return handleLogout;
 };

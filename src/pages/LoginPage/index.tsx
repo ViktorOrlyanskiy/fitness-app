@@ -38,7 +38,7 @@ const Login: FC = () => {
             </div>
             {/* 
                 <LoginForm
-                    handlerClick={handlerLogin}
+                    handleClick={handleLogin}
                     title={'Вход'}
                     titleButton={'Войти'}
                 />

@@ -7,7 +7,7 @@ import './header.scss';
 
 const Header: FC<IHeader> = ({
     previousPage,
-    handlerClickTitle,
+    handleClickTitle,
     btnLeft,
     btnRight,
     children,
@@ -33,7 +33,7 @@ const Header: FC<IHeader> = ({
                 </button>
             )}
 
-            <h2 className="header__title" onClick={handlerClickTitle}>
+            <h2 className="header__title" onClick={handleClickTitle}>
                 {children}
             </h2>
 

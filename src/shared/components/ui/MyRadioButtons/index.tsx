@@ -2,13 +2,13 @@ import { FC, useState } from 'react';
 import { getStars } from 'shared/utils/getStars';
 import styles from './my-radio-buttons.module.scss';
 
-interface MyRadioButtons {
+interface IMyRadioButtons {
     defaultValue?: string;
     options: { label: string; value: string }[];
     onChange: (arg1: string) => void;
 }
 
-export const MyRadioButtons: FC<MyRadioButtons> = ({
+export const MyRadioButtons: FC<IMyRadioButtons> = ({
     defaultValue = '',
     options,
     onChange,

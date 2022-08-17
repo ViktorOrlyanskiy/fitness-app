@@ -36,7 +36,7 @@ const Exercise: FC<IExercise> = ({ id, name, isActive, sets }) => {
                 <ListItem
                     status={isActive ? 'selected' : undefined}
                     title={name}
-                    handlerClick={changeExercise}
+                    handleClick={changeExercise}
                     rightElement={
                         <div className="exercise__amount-sets">
                             {sets?.length}

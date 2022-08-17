@@ -47,7 +47,6 @@ const FormAddExercise: FC = () => {
     const {
         register,
         reset,
-        getValues,
         setValue,
         handleSubmit,
         formState: { errors },

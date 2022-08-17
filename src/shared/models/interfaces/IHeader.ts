@@ -7,6 +7,6 @@ export interface IHeader {
     btnEvent?:
         | ((e: React.MouseEvent<HTMLButtonElement>) => void)
         | (() => void);
-    handlerClickTitle?: () => void;
+    handleClickTitle?: () => void;
     children: ReactNode;
 }
