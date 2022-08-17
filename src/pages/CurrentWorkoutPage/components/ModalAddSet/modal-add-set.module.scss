@@ -1,6 +1,0 @@
-/* ========== Глобальные переменные ========== */
-@import '../../../../shared/styles/variables.scss';
-
-.error {
-    @include error-message('form-add');
-}
