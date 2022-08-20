@@ -1,0 +1,14 @@
+/* ========== Глобальные переменные ========== */
+@import '../../../shared/styles/variables.scss';
+
+.wrapper {
+    width: 100%;
+    padding: 10px;
+    @include my-flex(center);
+
+    button {
+        max-width: $max-width;
+        min-width: 50%;
+        margin: 0;
+    }
+}

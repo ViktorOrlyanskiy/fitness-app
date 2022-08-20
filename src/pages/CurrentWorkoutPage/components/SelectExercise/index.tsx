@@ -12,7 +12,7 @@ const SelectExercise: FC<{ name: string }> = React.memo(({ name }) => {
             <button className={styles.btn}>
                 <SvgGenerator id={variant.chart} />
             </button>
-            <button
+            <button 
                 className={styles.btn}
                 onClick={() => navigate(URL.current_exercises)}
                 children={name}

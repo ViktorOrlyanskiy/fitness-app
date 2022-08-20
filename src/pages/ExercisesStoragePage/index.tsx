@@ -13,6 +13,7 @@ import Header from 'shared/components/Header';
 import Group from './components/Group';
 import MyButton from 'shared/components/ui/MyButton';
 import './exercises-storage.scss';
+import { ButtonAction } from 'shared/components/ButtonAction';
 
 const ExercisesStorage: FC = () => {
     const navigate = useNavigate();
@@ -98,11 +99,11 @@ const ExercisesStorage: FC = () => {
                     />
                 ))}
 
-                <div className="exercises-storage__button">
-                    <MyButton onClick={() => navigate(URL.form_add_exercise)}>
-                        Добавить новое упражение
-                    </MyButton>
-                </div>
+                <ButtonAction
+                    className="exercises-storage__button"
+                    handleClick={() => navigate(URL.form_add_exercise)}>
+                    Добавить новое упражение
+                </ButtonAction>
             </div>
         </div>
     );

@@ -3,12 +3,6 @@
 
 .exercises-storage {
     &__button {
-        width: 100%;
-        padding: 30px 10px 10px 10px;
-        @include my-flex(center);
-
-        button {
-            max-width: $max-width;
-        }
+        margin: 20px 0 0 0;
     }
 }

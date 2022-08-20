@@ -16,7 +16,7 @@ const TouchWrapper: FC<TouchWrapperProps> = ({
     front,
     back,
     offset,
-    duration = '0',
+    duration = '0.2s',
 }) => {
     const dispatch = useAppDispatch();
     const offsetID = useAppSelector((state) => state.touchWrapper);
