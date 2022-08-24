@@ -1,5 +1,4 @@
 import { FC } from 'react';
-import { BackgroundModal } from '../BackgroundModal';
 import styles from './modal.module.scss';
 
 interface ModalFormProps {
@@ -44,7 +43,6 @@ const ModalForm: FC<ModalFormProps> = ({
                     </div>
                 </form>
             </div>
-            <BackgroundModal active={isOpen} />
         </>
     );
 };

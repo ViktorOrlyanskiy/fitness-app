@@ -10,7 +10,7 @@ interface ModalSaveProps {
     setOpen: (arg1: boolean) => void;
     handleBtnAction: (arg1: string) => void;
 }
-
+ 
 const ModalSave: FC<ModalSaveProps> = ({
     name,
     isOpen,

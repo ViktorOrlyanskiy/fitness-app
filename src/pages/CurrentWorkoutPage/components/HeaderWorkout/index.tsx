@@ -16,6 +16,7 @@ import ModalSave from 'shared/components/ModalSave';
 import SelectExercise from '../SelectExercise';
 import Modal from 'shared/components/ui/Modal/Modal';
 import './header-workout.scss';
+import { ProgressBar } from '../ProgressBar';
 
 const HeaderWorkout: FC<{ name: string }> = ({ name }) => {
     const navigate = useNavigate();
@@ -63,7 +64,7 @@ const HeaderWorkout: FC<{ name: string }> = ({ name }) => {
                 children={currentWorkout.name}
             />
             <SelectExercise name={name} />
-
+            <ProgressBar />
             <ModalSave
                 name="Название тренировки"
                 isOpen={isModalNameWorkout}

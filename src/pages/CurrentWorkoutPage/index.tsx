@@ -1,18 +1,18 @@
 import { FC } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useAppSelectors } from 'hooks/useRedux';
 import { URL } from 'shared/constants/URL';
+import { ButtonAction } from 'shared/components/ButtonAction';
+import { getActiveExercise } from 'shared/utils/getActiveExercise';
+
 import HeaderWorkout from './components/HeaderWorkout';
 import Set from './components/Set';
 import './current-workout.scss';
-import { ButtonAction } from 'shared/components/ButtonAction';
-import { useNavigate } from 'react-router-dom';
 
 const CurrentWorkout: FC = () => {
     const navigate = useNavigate();
     const { listExercises } = useAppSelectors();
-    const activeExercise = listExercises.filter(
-        (exercise) => exercise.isActive
-    )[0];
+    const activeExercise = getActiveExercise(listExercises);
     const sets = activeExercise?.sets;
 
     return (

@@ -7,7 +7,7 @@ import { set_is_fetch_groups_exercises } from 'store/reducers/fetch';
 import { _fetch_groups_exercises } from 'store/actions';
 import { URL } from 'shared/constants/URL';
 import { IExercise } from 'shared/models';
-import { getStatus } from 'shared/utils/FormAddingValidation';
+import { getStatus } from 'shared/utils/getStatus';
 
 import Header from 'shared/components/Header';
 import Group from './components/Group';

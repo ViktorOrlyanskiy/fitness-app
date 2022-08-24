@@ -41,7 +41,7 @@ const ListWorkouts: FC = () => {
             }
         }
     }, [user.uid, dispatch, fetch.workouts]);
-    console.log(listWorkouts);
+
     return (
         <div className="list-workouts">
             <Header

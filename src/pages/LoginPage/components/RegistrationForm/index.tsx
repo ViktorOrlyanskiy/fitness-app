@@ -23,7 +23,6 @@ const RegistrationForm: FC = () => {
     });
 
     const onSubmit = (data: Inputs) => {
-        console.log(data);
         handleRegistration(data.email, data.password);
     };
     return (
