@@ -53,10 +53,16 @@ export const ProgressBar: FC = ({}) => {
     };
 
     const getStyles = (percent: number) => {
-        if (percent < 100) {
+        if (percent > 0 && percent < 100) {
             return {
                 width: percent + '%',
                 border: '1px solid #bebebe',
+                background: '#bebebe',
+            };
+        } else if (percent === 0) {
+            return {
+                width: '0%',
+                border: 'none',
                 background: '#bebebe',
             };
         } else {

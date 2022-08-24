@@ -62,7 +62,7 @@ const FormAddSet: FC = () => {
                         <label htmlFor="weight">Вес (кг)</label>
                         <input
                             id="weight"
-                            type="tel"
+                            type="number"
                             placeholder="0"
                             {...register('weight')}
                         />
@@ -76,7 +76,7 @@ const FormAddSet: FC = () => {
                         <label htmlFor="amount">Повторения (раз)</label>
                         <input
                             id="amount"
-                            type="tel"
+                            type="number"
                             placeholder="0"
                             {...register('amount')}
                         />
