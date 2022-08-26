@@ -88,7 +88,9 @@ const ExercisesStorage: FC = () => {
                 previousPage={previousPage}
                 btnRight="check"
                 children={'Выберите упражнение'}
-                btnEvent={currentWorkout.id ? addExercises : startNewWorkout}
+                handleBtnRight={
+                    currentWorkout.id ? addExercises : startNewWorkout
+                }
             />
             <div className="page-container">
                 {exercisesStorage.map((group) => (

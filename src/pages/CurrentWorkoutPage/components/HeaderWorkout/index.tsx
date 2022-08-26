@@ -59,7 +59,7 @@ const HeaderWorkout: FC<{ name: string }> = ({ name }) => {
             <Header
                 previousPage={URL.list_workouts}
                 btnRight={'check'}
-                btnEvent={handleFinish}
+                handleBtnRight={handleFinish}
                 handleClickTitle={() => setModalNameWorkout(true)}
                 children={currentWorkout.name}
             />

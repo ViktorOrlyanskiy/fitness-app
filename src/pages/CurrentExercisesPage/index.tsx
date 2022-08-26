@@ -16,7 +16,7 @@ const ListExercises: FC = () => {
             <Header
                 previousPage={URL.current_workout}
                 btnRight="plus"
-                btnEvent={() => navigate(URL.exercises_storage)}
+                handleBtnRight={() => navigate(URL.exercises_storage)}
                 children={'Список упражнений'}
             />
 

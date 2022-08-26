@@ -96,7 +96,7 @@ const FormAddExercise: FC = () => {
             <Header
                 previousPage={URL.exercises_storage}
                 btnRight="check"
-                btnEvent={handleSubmit(onSubmit)}
+                handleBtnRight={handleSubmit(onSubmit)}
                 children={'Новое упражение'}
             />
             <div className="page-container">

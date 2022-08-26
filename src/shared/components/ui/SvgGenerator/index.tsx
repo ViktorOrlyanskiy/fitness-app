@@ -4,18 +4,18 @@ import './svg-generator.scss';
 // копируем svg код в case. в качестве id передаем название.
 
 export enum variant {
-    trash_xmart = 'trash-xmart', //
-    chevron_left = 'chevron-left', //
-    pencil = 'pencil', //
-    pencil_light = 'pencil-light', //
-    check = 'check', //
-    plus = 'plus', //
-    bars = 'bars', //
-    play = 'play', //
-    chart = 'chart', //
-    angles_right = 'angles-right', //
-    copy = 'copy', //
-    star = 'star', //
+    trash_xmart = 'trash-xmart',
+    chevron_left = 'chevron-left',
+    pencil = 'pencil',
+    pencil_light = 'pencil-light',
+    check = 'check',
+    plus = 'plus',
+    bars = 'bars',
+    play = 'play',
+    chart = 'chart',
+    angles_right = 'angles-right',
+    copy = 'copy',
+    star = 'star',
 }
 
 interface SvgGeneratorProps {

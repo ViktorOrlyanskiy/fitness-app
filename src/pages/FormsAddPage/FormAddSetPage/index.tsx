@@ -53,7 +53,7 @@ const FormAddSet: FC = () => {
             <Header
                 previousPage={URL.current_workout}
                 btnRight="check"
-                btnEvent={handleSubmit(onSubmit)}
+                handleBtnRight={handleSubmit(onSubmit)}
                 children={'Новый подход'}
             />
             <div className="page-container">

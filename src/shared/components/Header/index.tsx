@@ -8,28 +8,22 @@ import './header.scss';
 const Header: FC<IHeader> = ({
     previousPage,
     handleClickTitle,
-    btnLeft,
+    btnLeft = 'chevron-left',
     btnRight,
     children,
-    btnEvent,
+    handleBtnRight,
 }) => {
     const navigate = useNavigate();
-    const getNameLeftBtn = (id = 'chevron-left') => {
-        return id.search(/[a-zA-Z]/g) > -1 ? <SvgGenerator id={id} /> : id;
-    };
-    const getNameRightBtn = (id = 'plus') => {
-        return id.search(/[a-zA-Z]/g) > -1 ? <SvgGenerator id={id} /> : id;
-    };
 
     return (
         <header className="add-set__header header">
             {!!previousPage ? (
                 <NavLink to={previousPage} className="header__btn">
-                    {getNameLeftBtn(btnLeft)}
+                    <SvgGenerator id={btnLeft} />
                 </NavLink>
             ) : (
                 <button onClick={() => navigate(-1)} className="header__btn">
-                    {getNameLeftBtn(btnLeft)}
+                    <SvgGenerator id={btnLeft} />
                 </button>
             )}
 
@@ -37,8 +31,8 @@ const Header: FC<IHeader> = ({
                 {children}
             </h2>
 
-            <button onClick={btnEvent} className="header__btn">
-                {getNameRightBtn(btnRight)}
+            <button onClick={handleBtnRight} className="header__btn">
+                {btnRight && <SvgGenerator id={btnRight} />}
             </button>
         </header>
     );

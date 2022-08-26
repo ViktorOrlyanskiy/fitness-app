@@ -48,7 +48,7 @@ const ListWorkouts: FC = () => {
                 previousPage={URL.base}
                 btnLeft={'bars'}
                 btnRight={listExercises.length > 0 ? 'angles-right' : 'plus'}
-                btnEvent={
+                handleBtnRight={
                     listExercises.length > 0 ? goToCurrentWorkout : startWorkout
                 }
                 children={'Список тренировок'}

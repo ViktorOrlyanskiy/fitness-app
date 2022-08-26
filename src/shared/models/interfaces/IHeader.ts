@@ -4,7 +4,7 @@ export interface IHeader {
     previousPage?: string;
     btnLeft?: string;
     btnRight?: string;
-    btnEvent?:
+    handleBtnRight?:
         | ((e: React.MouseEvent<HTMLButtonElement>) => void)
         | (() => void);
     handleClickTitle?: () => void;
