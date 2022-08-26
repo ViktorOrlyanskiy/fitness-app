@@ -7,6 +7,7 @@ import ListWorkouts from './ListWorkoutsPage';
 import CurrentWorkout from './CurrentWorkoutPage';
 import CurrentExercises from './CurrentExercisesPage';
 import ExercisesStorage from './ExercisesStoragePage';
+import ExerciseStatistics from './ExerciseStatisticsPage';
 import FormAddSet from './FormsAddPage/FormAddSetPage';
 import FormAddExercise from './FormsAddPage/FormAddExercisePage';
 
@@ -20,23 +21,27 @@ const Routing = () => {
                 <Routes>
                     <Route path={URL.base} element={<ListWorkouts />} />
                     <Route
-                        path={URL.current_workout}
-                        element={<CurrentWorkout />}
-                    />
-
-                    <Route
                         path={URL.list_workouts}
                         element={<ListWorkouts />}
                     />
+                    <Route
+                        path={URL.current_workout}
+                        element={<CurrentWorkout />}
+                    />
+                    <Route path={URL.form_add_set} element={<FormAddSet />} />
                     <Route
                         path={URL.current_exercises}
                         element={<CurrentExercises />}
                     />
                     <Route
+                        path={URL.exercise_statistics}
+                        element={<ExerciseStatistics />}
+                    />
+                    <Route
                         path={URL.exercises_storage}
                         element={<ExercisesStorage />}
                     />
-                    <Route path={URL.form_add_set} element={<FormAddSet />} />
+
                     <Route
                         path={URL.form_add_exercise}
                         element={<FormAddExercise />}

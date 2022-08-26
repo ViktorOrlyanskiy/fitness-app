@@ -34,8 +34,8 @@ const FormAddSet: FC = () => {
     const onSubmit = (data: ISet) => {
         const newSet: ISet = {
             id: set.id ? set.id : Date.now(),
-            weight: data.weight,
-            amount: data.amount,
+            weight: data.weight.replace(',', '.'),
+            amount: data.amount.replace(',', '.'),
             comment: data.comment,
         };
         if (set.id) {

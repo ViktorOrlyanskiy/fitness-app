@@ -1,7 +1,11 @@
 import { FC, useState, useEffect } from 'react';
 import { useAppDispatch, useAppSelectors } from 'hooks/useRedux';
 import { IExercise, ISet } from 'shared/models';
-import { getActiveExercise } from 'shared/utils';
+import {
+    getActiveExercise,
+    searchOnePrevExercise,
+    getTotalSumSet,
+} from 'shared/utils';
 import './progress-bar.scss';
 import {
     set_block_exercise_id,
@@ -15,38 +19,11 @@ export const ProgressBar: FC = ({}) => {
     const activeExercise = getActiveExercise(listExercises);
     const sets = activeExercise?.sets;
 
-    const searchPrevExercise = () => {
-        let findExercise: IExercise | undefined;
-        let blockExerciseId: number | undefined;
-        outer: for (let i = listWorkouts.length - 1; i > 0; i--) {
-            const exercises = listWorkouts[i].listExercises;
-            if (exercises) {
-                for (const exercise of exercises) {
-                    if (exercise.id === activeExercise.id) {
-                        findExercise = exercise;
-                        break outer;
-                    } else {
-                        blockExerciseId = activeExercise.id;
-                    }
-                }
-            }
-        }
-        return findExercise ? findExercise : blockExerciseId;
-    };
-
-    const totalSum = (sets: ISet[] | undefined) => {
-        let totalSum = 0;
-        if (sets) {
-            sets?.forEach((set) => {
-                totalSum += +set.weight * +set.amount;
-            });
-        }
-        return totalSum;
-    };
-
     const getPercent = (prevSets: ISet[] | undefined) => {
         if (prevSets && prevSets.length > 0) {
-            return Math.round((totalSum(sets) / totalSum(prevSets)) * 100);
+            return Math.round(
+                (getTotalSumSet(sets) / getTotalSumSet(prevSets)) * 100
+            );
         } else {
             return 0;
         }
@@ -90,7 +67,10 @@ export const ProgressBar: FC = ({}) => {
 
             // ищет упражение в предыдущих тренировках
             if (!prevExercise) {
-                const newPrevExercise = searchPrevExercise();
+                const newPrevExercise = searchOnePrevExercise(
+                    listWorkouts,
+                    activeExercise.id
+                );
 
                 // если не нашел -> заносит id в block
                 if (newPrevExercise && typeof newPrevExercise === 'number') {

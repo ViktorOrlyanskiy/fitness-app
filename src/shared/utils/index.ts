@@ -4,3 +4,6 @@ export { getActiveExercise } from './getActiveExercise';
 export { getIdNewExercise } from './getIdNewExercise';
 export { getStars } from './getStars';
 export { getStatus } from './getStatus';
+export { getTotalSumSet } from './getTotalSumSet';
+export { searchAllPrevExercises } from './searchAllPrevExercises';
+export { searchOnePrevExercise } from './searchOnePrevExercise';

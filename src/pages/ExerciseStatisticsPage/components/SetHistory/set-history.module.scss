@@ -1,0 +1,39 @@
+/* ========== Глобальные переменные ========== */
+@import '../../../../shared/styles/variables.scss';
+
+.wrapper {
+}
+
+.header {
+    padding: 7px 7px;
+    @include my-flex(space-between);
+    background: $color-light-3;
+    color: $color-dark-1;
+}
+.body {
+    padding: 5px 7px;
+    @include my-flex(space-between);
+
+    .column {
+        text-align: right;
+        margin: 0 5px 0 0;
+        &:first-child {
+            flex: 1 1 auto;
+            text-align: left;
+            .item {
+                border: none !important;
+            }
+        }
+
+        &:last-child {
+            margin: 0;
+        }
+
+        .item {
+            padding: 4px 0;
+            &:first-child {
+                border-bottom: 1px solid $color-dark-2;
+            }
+        }
+    }
+}
