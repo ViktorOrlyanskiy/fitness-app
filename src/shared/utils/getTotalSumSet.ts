@@ -7,5 +7,7 @@ export const getTotalSumSet = (sets: ISet[] | undefined) => {
             totalSum += +set.weight * +set.amount;
         });
     }
+    console.log(totalSum);
+
     return totalSum;
 };
