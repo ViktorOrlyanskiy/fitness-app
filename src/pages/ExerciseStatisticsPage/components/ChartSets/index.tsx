@@ -3,11 +3,11 @@ import Chart from 'chart.js/auto';
 import { CategoryScale } from 'chart.js';
 import { Bar } from 'react-chartjs-2';
 import { IExercise } from 'shared/models';
-import { getActiveStyles, getTotalSumSet } from 'shared/utils';
+import { getActiveStyles, getTotalSumSet } from 'shared/helpers';
 
 import MyButton from 'shared/components/ui/MyButton';
 import { IDataChart, ISetDataChart } from './models';
-import { getDataForChart, getLabelsForChart, getMaxWeigth } from './utils';
+import { getDataForChart, getLabelsForChart, getMaxWeigth } from './helpers';
 import './chart-sets.scss';
 
 interface ChartSetsProps {

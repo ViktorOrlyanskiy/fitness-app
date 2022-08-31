@@ -1,5 +1,5 @@
 import { FC, useState } from 'react';
-import { getStars } from 'shared/utils/getStars';
+import { getStars } from 'shared/helpers/getStars';
 import styles from './my-radio-buttons.module.scss';
 
 interface IMyRadioButtons {

@@ -8,7 +8,7 @@ import {
     _fetch_groups_exercises,
     _update_group_exercises,
 } from 'store/actions';
-import { getStars } from 'shared/utils/getStars';
+import { getStars } from 'shared/helpers/getStars';
 import './exercise.scss';
 
 interface ExerciseProps {

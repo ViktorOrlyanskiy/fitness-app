@@ -7,7 +7,7 @@ import { set_is_fetch_groups_exercises } from 'store/reducers/fetch';
 import { _update_group_exercises } from 'store/actions';
 import { IExerciseStorage, IGroupExercises } from 'shared/models';
 import { URL } from 'shared/constants/URL';
-import { copyObject } from 'shared/utils/copyObject';
+import { copyObject } from 'shared/helpers/copyObject';
 
 import Header from 'shared/components/Header';
 import { MySelect } from 'shared/components/ui/MySelect';

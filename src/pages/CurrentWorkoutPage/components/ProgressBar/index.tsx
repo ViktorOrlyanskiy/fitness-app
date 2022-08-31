@@ -5,7 +5,7 @@ import {
     getActiveExercise,
     searchOnePrevExercise,
     getTotalSumSet,
-} from 'shared/utils';
+} from 'shared/helpers';
 import './progress-bar.scss';
 import {
     set_block_exercise_id,

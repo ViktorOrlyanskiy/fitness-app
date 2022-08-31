@@ -1,6 +1,6 @@
-import React, { FC } from 'react';
+import { FC } from 'react';
 import { IExercise } from 'shared/models';
-import { getTotalSumSet } from 'shared/utils';
+import { getTotalSumSet } from 'shared/helpers';
 import styles from './set-history.module.scss';
 
 interface SetHistoryProps {
@@ -8,7 +8,7 @@ interface SetHistoryProps {
     exercise: IExercise;
 }
 
-const SetHistory: FC<SetHistoryProps> = ({ date, exercise }) => {
+export const SetHistory: FC<SetHistoryProps> = ({ date, exercise }) => {
     return (
         <div className={styles.wrapper}>
             <div className={styles.header}>
@@ -30,4 +30,3 @@ const SetHistory: FC<SetHistoryProps> = ({ date, exercise }) => {
         </div>
     );
 };
-export default SetHistory;

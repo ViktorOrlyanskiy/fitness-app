@@ -1,11 +1,11 @@
 import { FC, useMemo } from 'react';
 import { useAppSelectors } from 'hooks/useRedux';
 import { URL } from 'shared/constants/URL';
-import { getActiveExercise, searchAllPrevExercises } from 'shared/utils';
+import { getActiveExercise, searchAllPrevExercises } from 'shared/helpers';
 
 import Header from 'shared/components/Header';
-import SetHistory from './components/SetHistory';
 import { ChartSets } from './components/ChartSets';
+import { SetHistory } from './components/SetHistory';
 import './exercise-statistics.scss';
 
 const ExerciseStatistics: FC = () => {
@@ -24,15 +24,25 @@ const ExerciseStatistics: FC = () => {
                 children={'Статистика'}
             />
             <div className="page-container">
-                <ChartSets exercises={foundExercises} dates={foundDates} />
-                {foundExercises.length &&
-                    foundExercises.map((exercise, index) => (
-                        <SetHistory
-                            key={index}
-                            date={foundDates[index]}
-                            exercise={exercise}
+                {foundExercises.length ? (
+                    <>
+                        <ChartSets
+                            exercises={foundExercises}
+                            dates={foundDates}
                         />
-                    ))}
+                        {foundExercises.map((exercise, index) => (
+                            <SetHistory
+                                key={index}
+                                date={foundDates[index]}
+                                exercise={exercise}
+                            />
+                        ))}
+                    </>
+                ) : (
+                    <div className="notification-text">
+                        Слишком мало информации
+                    </div>
+                )}
             </div>
         </div>
     );

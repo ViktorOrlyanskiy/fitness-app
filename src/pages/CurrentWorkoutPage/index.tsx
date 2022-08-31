@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useAppSelectors } from 'hooks/useRedux';
 import { URL } from 'shared/constants/URL';
 import { ButtonAction } from 'shared/components/ButtonAction';
-import { getActiveExercise } from 'shared/utils/getActiveExercise';
+import { getActiveExercise } from 'shared/helpers/getActiveExercise';
 
 import HeaderWorkout from './components/HeaderWorkout';
 import Set from './components/Set';
