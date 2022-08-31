@@ -1,6 +1,6 @@
 import { IExercise, IWorkout } from 'shared/models';
 
-export const searchOnePrevExercise = (
+export const searchFirstPrevExercise = (
     listWorkouts: IWorkout[],
     searhId: number
 ): IExercise | number | undefined => {

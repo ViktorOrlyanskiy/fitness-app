@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import { IExercise } from 'shared/models';
-import { getTotalSumSet } from 'shared/helpers';
+import { getTotalSets } from 'shared/helpers';
 import styles from './set-history.module.scss';
 
 interface SetHistoryProps {
@@ -13,7 +13,7 @@ export const SetHistory: FC<SetHistoryProps> = ({ date, exercise }) => {
         <div className={styles.wrapper}>
             <div className={styles.header}>
                 <div>{date}</div>
-                <div>Объем: {getTotalSumSet(exercise.sets)} кг</div>
+                <div>Объем: {getTotalSets(exercise.sets)} кг</div>
             </div>
             <div className={styles.body}>
                 <div className={styles.column}>

@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import { SvgGenerator, variant } from 'shared/components/ui/SvgGenerator';
-import { checkLengthString } from 'shared/helpers/checkLengthString';
+import { checkLengthString } from './helpers';
 import styles from './list-item.module.scss';
 
 interface ListItemProps {

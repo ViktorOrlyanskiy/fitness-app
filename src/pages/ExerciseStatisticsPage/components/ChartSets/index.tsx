@@ -3,7 +3,7 @@ import Chart from 'chart.js/auto';
 import { CategoryScale } from 'chart.js';
 import { Bar } from 'react-chartjs-2';
 import { IExercise } from 'shared/models';
-import { getActiveStyles, getTotalSumSet } from 'shared/helpers';
+import { getActiveStyles, getTotalSets } from 'shared/helpers';
 
 import MyButton from 'shared/components/ui/MyButton';
 import { IDataChart, ISetDataChart } from './models';
@@ -38,7 +38,7 @@ export const ChartSets: FC<ChartSetsProps> = ({ exercises, dates }) => {
     useEffect(() => {
         setDataChart({
             labels: getLabelsForChart(countBars, dates),
-            data: getDataForChart(countBars, exercises, getTotalSumSet),
+            data: getDataForChart(countBars, exercises, getTotalSets),
         });
     }, [countBars, exercises, dates]);
 
@@ -53,7 +53,7 @@ export const ChartSets: FC<ChartSetsProps> = ({ exercises, dates }) => {
                 });
             } else {
                 setDataChart({
-                    data: getDataForChart(countBars, exercises, getTotalSumSet),
+                    data: getDataForChart(countBars, exercises, getTotalSets),
                     currentItem: 'totalSum',
                 });
             }

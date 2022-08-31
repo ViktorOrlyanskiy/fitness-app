@@ -1,6 +1,6 @@
 import { ISet } from 'shared/models';
 
-export const getTotalSumSet = (sets: ISet[] | undefined) => {
+export const getTotalSets = (sets: ISet[] | undefined) => {
     let totalSum = 0;
     if (sets) {
         sets?.forEach((set) => {

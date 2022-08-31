@@ -1,16 +1,14 @@
 import { FC, useState, useEffect, useCallback } from 'react';
 import { useAppDispatch, useAppSelectors } from 'hooks/useRedux';
 import { IExercise, ISet } from 'shared/models';
-import {
-    getActiveExercise,
-    searchOnePrevExercise,
-    getTotalSumSet,
-} from 'shared/helpers';
-import './progress-bar.scss';
+import { getActiveExercise, getTotalSets } from 'shared/helpers';
 import {
     set_block_exercise_id,
     set_prevent_exercise,
 } from 'store/reducers/currentWorkout';
+
+import { searchFirstPrevExercise } from './helpers';
+import './progress-bar.scss';
 
 export const ProgressBar: FC = () => {
     const dispatch = useAppDispatch();
@@ -22,7 +20,7 @@ export const ProgressBar: FC = () => {
         (prevSets: ISet[] | undefined) => {
             if (prevSets && prevSets.length > 0) {
                 return Math.round(
-                    (getTotalSumSet(sets) / getTotalSumSet(prevSets)) * 100
+                    (getTotalSets(sets) / getTotalSets(prevSets)) * 100
                 );
             } else {
                 return 0;
@@ -69,7 +67,10 @@ export const ProgressBar: FC = () => {
 
             // ищет упражение в предыдущих тренировках
             if (!prevExercise) {
-                const newPrevExercise = searchOnePrevExercise(listWorkouts, id);
+                const newPrevExercise = searchFirstPrevExercise(
+                    listWorkouts,
+                    id
+                );
 
                 // если не нашел -> заносит id в block
                 if (newPrevExercise && typeof newPrevExercise === 'number') {

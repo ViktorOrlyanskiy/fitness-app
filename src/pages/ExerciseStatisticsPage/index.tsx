@@ -1,9 +1,10 @@
 import { FC, useMemo } from 'react';
 import { useAppSelectors } from 'hooks/useRedux';
 import { URL } from 'shared/constants/URL';
-import { getActiveExercise, searchAllPrevExercises } from 'shared/helpers';
-
+import { getActiveExercise } from 'shared/helpers';
 import Header from 'shared/components/Header';
+
+import { searchAllPrevExercises } from './helpers';
 import { ChartSets } from './components/ChartSets';
 import { SetHistory } from './components/SetHistory';
 import './exercise-statistics.scss';

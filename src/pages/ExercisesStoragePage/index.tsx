@@ -7,13 +7,12 @@ import { set_is_fetch_groups_exercises } from 'store/reducers/fetch';
 import { _fetch_groups_exercises } from 'store/actions';
 import { URL } from 'shared/constants/URL';
 import { IExercise } from 'shared/models';
-import { getStatus } from 'shared/helpers/getStatus';
 
 import Header from 'shared/components/Header';
-import Group from './components/Group';
-import MyButton from 'shared/components/ui/MyButton';
-import './exercises-storage.scss';
 import { ButtonAction } from 'shared/components/ButtonAction';
+
+import Group from './components/Group';
+import './exercises-storage.scss';
 
 const ExercisesStorage: FC = () => {
     const navigate = useNavigate();
@@ -46,7 +45,7 @@ const ExercisesStorage: FC = () => {
             if (!includes) {
                 const newExercise: IExercise = {
                     id: Number(id),
-                    isActive: getStatus(listExercises),
+                    isActive: listExercises.length > 0 ? false : true,
                     name,
                     sets: [],
                 };
