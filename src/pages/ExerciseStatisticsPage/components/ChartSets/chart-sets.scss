@@ -1,0 +1,39 @@
+/* ========== Глобальные переменные ========== */
+@import '../../../../shared/styles/variables.scss';
+
+.chart-sets {
+    &__wrapper {
+        width: 100%;
+        padding: 20px 7px;
+
+        canvas {
+            padding: 5px;
+            border-radius: 5px;
+            box-shadow: 0 0 4px 1px $color-light-3;
+        }
+    }
+
+    &__buttons {
+        @include my-flex(center);
+        padding: 0 0 20px 0;
+
+        button {
+            flex: 0 0 25%;
+            height: 27px;
+            margin: 0 5px 0 0;
+            padding: 0;
+            background-color: $color-light-1;
+            border: 1px solid $color-dark-2;
+            color: $color-dark-1;
+            transition: all 0.3s;
+
+            &:last-child {
+                margin: 0;
+            }
+            &.active {
+                background-color: $color-dark-2;
+                color: $color-light-1;
+            }
+        }
+    }
+}

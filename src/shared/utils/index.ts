@@ -7,3 +7,4 @@ export { getStatus } from './getStatus';
 export { getTotalSumSet } from './getTotalSumSet';
 export { searchAllPrevExercises } from './searchAllPrevExercises';
 export { searchOnePrevExercise } from './searchOnePrevExercise';
+export { getActiveStyles } from './getActiveStyles';

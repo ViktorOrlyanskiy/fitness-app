@@ -1,4 +1,4 @@
-import { FC, useState, useEffect } from 'react';
+import { FC, useState, useEffect, useCallback } from 'react';
 import { useAppDispatch, useAppSelectors } from 'hooks/useRedux';
 import { IExercise, ISet } from 'shared/models';
 import {
@@ -12,22 +12,24 @@ import {
     set_prevent_exercise,
 } from 'store/reducers/currentWorkout';
 
-export const ProgressBar: FC = ({}) => {
+export const ProgressBar: FC = () => {
     const dispatch = useAppDispatch();
     const [percent, setPercent] = useState(0);
     const { currentWorkout, listExercises, listWorkouts } = useAppSelectors();
-    const activeExercise = getActiveExercise(listExercises);
-    const sets = activeExercise?.sets;
+    const { id, sets } = getActiveExercise(listExercises);
 
-    const getPercent = (prevSets: ISet[] | undefined) => {
-        if (prevSets && prevSets.length > 0) {
-            return Math.round(
-                (getTotalSumSet(sets) / getTotalSumSet(prevSets)) * 100
-            );
-        } else {
-            return 0;
-        }
-    };
+    const getPercent = useCallback(
+        (prevSets: ISet[] | undefined) => {
+            if (prevSets && prevSets.length > 0) {
+                return Math.round(
+                    (getTotalSumSet(sets) / getTotalSumSet(prevSets)) * 100
+                );
+            } else {
+                return 0;
+            }
+        },
+        [sets]
+    );
 
     const getStyles = (percent: number) => {
         if (percent > 0 && percent < 100) {
@@ -55,22 +57,19 @@ export const ProgressBar: FC = ({}) => {
         const { preventExercises, blockExerciseId } = currentWorkout;
 
         // проверяет есть ли упражнение в block
-        if (blockExerciseId && blockExerciseId.includes(activeExercise.id)) {
+        if (blockExerciseId && blockExerciseId.includes(id)) {
             setPercent(0);
         }
 
         // проверяет есть ли упражнение в store
         else if (preventExercises) {
             const prevExercise: IExercise | undefined = preventExercises.find(
-                (exercise) => exercise.id === activeExercise.id
+                (exercise) => exercise.id === id
             );
 
             // ищет упражение в предыдущих тренировках
             if (!prevExercise) {
-                const newPrevExercise = searchOnePrevExercise(
-                    listWorkouts,
-                    activeExercise.id
-                );
+                const newPrevExercise = searchOnePrevExercise(listWorkouts, id);
 
                 // если не нашел -> заносит id в block
                 if (newPrevExercise && typeof newPrevExercise === 'number') {
@@ -91,7 +90,7 @@ export const ProgressBar: FC = ({}) => {
                 setPercent(getPercent(prevExercise?.sets));
             }
         }
-    }, [sets]);
+    }, [dispatch, sets, id, listWorkouts, currentWorkout, getPercent]);
 
     return (
         <div className="progress-bar">

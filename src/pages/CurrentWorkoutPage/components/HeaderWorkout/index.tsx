@@ -13,10 +13,10 @@ import { IWorkout } from 'shared/models';
 import { URL } from 'shared/constants/URL';
 import Header from 'shared/components/Header';
 import ModalSave from 'shared/components/ModalSave';
-import SelectExercise from '../SelectExercise';
 import Modal from 'shared/components/ui/Modal/Modal';
-import './header-workout.scss';
 import { ProgressBar } from '../ProgressBar';
+import SelectExercise from '../SelectExercise';
+import './header-workout.scss';
 
 const HeaderWorkout: FC<{ name: string }> = ({ name }) => {
     const navigate = useNavigate();
@@ -41,7 +41,9 @@ const HeaderWorkout: FC<{ name: string }> = ({ name }) => {
                 date: currentWorkout.date,
                 time: '0',
                 isScheduled: false,
-                listExercises,
+                listExercises: listExercises.filter(
+                    (exercise) => exercise.sets.length > 0
+                ),
             };
 
             if (user.uid) {

@@ -5,5 +5,5 @@ export interface IExercise {
     isActive: boolean;
     name: string;
     comment?: string;
-    sets?: ISet[];
+    sets: ISet[];
 }

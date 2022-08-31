@@ -1,17 +1,20 @@
-import { FC } from 'react';
+import { FC, useMemo } from 'react';
 import { useAppSelectors } from 'hooks/useRedux';
 import { URL } from 'shared/constants/URL';
 import { getActiveExercise, searchAllPrevExercises } from 'shared/utils';
+
 import Header from 'shared/components/Header';
 import SetHistory from './components/SetHistory';
+import { ChartSets } from './components/ChartSets';
 import './exercise-statistics.scss';
 
-const ExerciseStatistics: FC = ({}) => {
+const ExerciseStatistics: FC = () => {
     const { listExercises, listWorkouts } = useAppSelectors();
-    const activeExercise = getActiveExercise(listExercises);
-    const { foundExercises, foundDates } = searchAllPrevExercises(
-        listWorkouts,
-        activeExercise.id
+    const { id } = getActiveExercise(listExercises);
+
+    const { foundExercises, foundDates } = useMemo(
+        () => searchAllPrevExercises(listWorkouts, id),
+        [listWorkouts, id]
     );
 
     return (
@@ -21,7 +24,8 @@ const ExerciseStatistics: FC = ({}) => {
                 children={'Статистика'}
             />
             <div className="page-container">
-                {foundExercises.length > 0 &&
+                <ChartSets exercises={foundExercises} dates={foundDates} />
+                {foundExercises.length &&
                     foundExercises.map((exercise, index) => (
                         <SetHistory
                             key={index}

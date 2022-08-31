@@ -10,22 +10,28 @@ import Workout from './components/Workout';
 import ModalSave from 'shared/components/ModalSave';
 import { URL } from 'shared/constants/URL';
 import './list-workouts.scss';
+import Modal from 'shared/components/ui/Modal/Modal';
 
 const ListWorkouts: FC = () => {
     const navigate = useNavigate();
     const dispatch = useAppDispatch();
     const { user, fetch, listWorkouts, listExercises } = useAppSelectors();
-    const [isModalNameWorkout, setModalNameWorkout] = useState<boolean>(false);
+    const [isModalNameWorkout, setModalNameWorkout] = useState(false);
+    const [isModalRemoveWorkout, setModalRemoveWorkout] = useState(false);
 
     const startWorkout = () => {
         setModalNameWorkout(true);
+    };
+
+    const removeWorkout = () => {
+        setModalRemoveWorkout(false);
     };
 
     const goToCurrentWorkout = () => {
         navigate(URL.current_workout);
     };
 
-    const handleNameWorkout = (value: string) => {
+    const setNameWorkout = (value: string) => {
         dispatch(save_name(value));
         setTimeout(() => {
             navigate(URL.exercises_storage);
@@ -66,8 +72,15 @@ const ListWorkouts: FC = () => {
                 name="Название тренировки"
                 isOpen={isModalNameWorkout}
                 setOpen={setModalNameWorkout}
-                handleBtnAction={handleNameWorkout}
+                handleBtnAction={setNameWorkout}
             />
+            <Modal
+                isOpen={isModalRemoveWorkout}
+                setOpen={setModalRemoveWorkout}
+                nameBtnAction="Да"
+                handleBtnAction={removeWorkout}>
+                <h3>Удалить тренировку?</h3>
+            </Modal>
         </div>
     );
 };
