@@ -11,7 +11,7 @@ import { copyObject } from 'shared/helpers/copyObject';
 
 import Header from 'shared/components/Header';
 import { MySelect } from 'shared/components/ui/MySelect';
-import { MyRadioButtons } from 'shared/components/ui/MyRadioButtons';
+import { MyRadioButtons } from 'pages/FormsAddPage/FormAddExercisePage/components/MyRadioButtons';
 import schema from './localSchemaValidation';
 import '../form-add.scss';
 

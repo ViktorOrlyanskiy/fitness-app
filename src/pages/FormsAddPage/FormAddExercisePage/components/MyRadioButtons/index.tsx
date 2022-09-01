@@ -1,5 +1,5 @@
 import { FC, useState } from 'react';
-import { getStars } from 'shared/helpers/getStars';
+import { Stars } from 'shared/components/ui/Stars';
 import styles from './my-radio-buttons.module.scss';
 
 interface IMyRadioButtons {
@@ -30,10 +30,12 @@ export const MyRadioButtons: FC<IMyRadioButtons> = ({
                             : styles.btn
                     }
                     key={option.value}
-                    onClick={(e) => handleChangeValue(e)}
-                    value={option.value}>
+                    value={option.value}
+                    onClick={handleChangeValue}>
                     <div>{option.label}</div>
-                    <div>{getStars(option.value)}</div>
+                    <div>
+                        <Stars type={option.value} />
+                    </div>
                 </button>
             ))}
         </div>

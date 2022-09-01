@@ -1,14 +1,15 @@
 import { FC, useState } from 'react';
 import { IGroupExercises } from 'shared/models';
-import ListItem from 'shared/components/ListItem';
-import TouchWrapper from 'shared/components/TouchWrapper';
-import ButtonsBack from 'shared/components/ButtonsBack';
 import { useAppDispatch, useAppSelector } from 'hooks/useRedux';
 import {
     _fetch_groups_exercises,
     _update_group_exercises,
 } from 'store/actions';
-import { getStars } from 'shared/helpers/getStars';
+
+import TouchWrapper from 'shared/components/TouchWrapper';
+import ButtonsBack from 'shared/components/ButtonsBack';
+import ListItem from 'shared/components/ListItem';
+import { Stars } from 'shared/components/ui/Stars';
 import './exercise.scss';
 
 interface ExerciseProps {
@@ -58,7 +59,7 @@ const Exercise: FC<ExerciseProps> = ({
                     <ListItem
                         status={isActive ? 'selected' : undefined}
                         title={name}
-                        rightElement={getStars(type)}
+                        rightElement={<Stars type={type} />}
                     />
                 </div>
             }
