@@ -17,7 +17,7 @@ const Header: FC<IHeader> = ({
 
     return (
         <header className="add-set__header header">
-            {!!previousPage ? (
+            {previousPage ? (
                 <NavLink to={previousPage} className="header__btn">
                     <SvgGenerator id={btnLeft} />
                 </NavLink>

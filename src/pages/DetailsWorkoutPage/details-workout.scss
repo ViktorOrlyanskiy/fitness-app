@@ -1,0 +1,11 @@
+/* ========== Глобальные переменные ========== */
+@import '../../shared/styles/variables.scss';
+
+.details-workout {
+    &__main-info {
+        padding: 15px 7px;
+        p:not(:last-child) {
+            margin-bottom: 7px;
+        }
+    }
+}

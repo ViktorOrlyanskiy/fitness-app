@@ -4,6 +4,7 @@ export const URL = {
     registration: '/registration',
     home: '/home',
     list_workouts: '/list-workouts',
+    details_workout: '/list-workouts/:id', // переделать
     current_workout: '/current-workout',
     add_set: '/current-workout/add-set',
     current_exercises: '/current-exercises',

@@ -1,7 +1,9 @@
 import { FC } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from 'hooks/useRedux';
 import { _remove_workout, _fetch_workouts } from 'store/actions';
 import { set_is_fetch_workouts } from 'store/reducers/fetch';
+import { URL } from 'shared/constants/URL';
 
 import TouchWrapper from 'shared/components/TouchWrapper';
 import ListItem from 'shared/components/ListItem';
@@ -16,8 +18,11 @@ interface WorkoutProps {
 }
 
 const Workout: FC<WorkoutProps> = ({ id, name, date, isScheduled }) => {
+    const navigate = useNavigate();
     const dispatch = useAppDispatch();
     const user = useAppSelector((state) => state.user);
+
+    const handleClick = () => navigate(`${URL.list_workouts}/${id}`);
 
     const handleBtnDelete = () => {
         if (user.uid) {
@@ -35,6 +40,7 @@ const Workout: FC<WorkoutProps> = ({ id, name, date, isScheduled }) => {
                 <ListItem
                     status="selected"
                     title={name}
+                    onClick={handleClick}
                     rightElement={<div className="workout__date">{date}</div>}
                 />
             }

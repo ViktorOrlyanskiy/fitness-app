@@ -3,10 +3,10 @@ import { useAppSelectors } from 'hooks/useRedux';
 import { URL } from 'shared/constants/URL';
 import { getActiveExercise } from 'shared/helpers';
 import Header from 'shared/components/Header';
+import { DetailsExercise } from 'shared/components/DetailsExercise';
 
 import { searchAllPrevExercises } from './helpers';
 import { ChartSets } from './components/ChartSets';
-import { SetHistory } from './components/SetHistory';
 import './exercise-statistics.scss';
 
 const ExerciseStatistics: FC = () => {
@@ -32,9 +32,9 @@ const ExerciseStatistics: FC = () => {
                             dates={foundDates}
                         />
                         {foundExercises.map((exercise, index) => (
-                            <SetHistory
+                            <DetailsExercise
                                 key={index}
-                                date={foundDates[index]}
+                                title={foundDates[index]}
                                 exercise={exercise}
                             />
                         ))}

@@ -4,6 +4,7 @@ import { useAppSelectors } from 'hooks/useRedux';
 import { URL } from 'shared/constants/URL';
 
 import ListWorkouts from './ListWorkoutsPage';
+import DetailsWorkout from './DetailsWorkoutPage';
 import CurrentWorkout from './CurrentWorkoutPage';
 import CurrentExercises from './CurrentExercisesPage';
 import ExercisesStorage from './ExercisesStoragePage';
@@ -23,6 +24,10 @@ const Routing = () => {
                     <Route
                         path={URL.list_workouts}
                         element={<ListWorkouts />}
+                    />
+                    <Route
+                        path={URL.details_workout}
+                        element={<DetailsWorkout />}
                     />
                     <Route
                         path={URL.current_workout}
