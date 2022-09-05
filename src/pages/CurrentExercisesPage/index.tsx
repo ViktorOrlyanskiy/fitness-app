@@ -5,14 +5,14 @@ import { URL } from 'shared/constants/URL';
 
 import Header from 'shared/components/Header';
 import Exercise from './components/Exercise';
-import './list-exercises.scss';
+import './current-exercises.scss';
 
 const ListExercises: FC = () => {
     const navigate = useNavigate();
     const { listExercises } = useAppSelectors();
 
     return (
-        <div className="list-exercises">
+        <div className="current-exercises">
             <Header
                 previousPage={URL.current_workout}
                 btnRight="plus"

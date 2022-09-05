@@ -2,6 +2,8 @@
 @import '../../shared/styles/variables.scss';
 
 .details-workout {
+    height: 1000px;
+
     &__main-info {
         padding: 15px 7px;
         p:not(:last-child) {

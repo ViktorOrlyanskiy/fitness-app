@@ -34,7 +34,7 @@ const DetailsWorkout: FC = () => {
                             key={index}
                             title={checkLengthString(
                                 `${++index}. ${exercise.name}`,
-                                30
+                                25
                             )}
                             exercise={exercise}
                         />
